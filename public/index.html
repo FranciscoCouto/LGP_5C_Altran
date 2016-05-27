@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html class="no-js">
+<html ng-app="lessonslearned" >
+<head>
+
+    <!-- Meta-Information -->
+    <title>LL Management</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="ALTRAN">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <!-- Vendor: Bootstrap Stylesheets http://getbootstrap.com -->
+    <link href="styles/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <!-- <link href="styles/bootstrap-theme.min.css" type="text/css" rel="stylesheet"> -->
+    <link href="styles/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/corbert.css" rel="stylesheet">
+
+    <!-- For Lessons List Search Box -->
+    <link rel="stylesheet" href="styles/angular-advanced-searchbox.min.css">
+
+    <!-- Material-like forms -->
+    <link rel="stylesheet" href="styles/multi-select.css">
+
+    <!-- toggle button for active/inactive lessons -->
+    <link rel="stylesheet" href="styles/bootstrap-toggle.min.css">
+
+    <!-- Our Website CSS Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+
+
+</head>
+
+<body class="{{ bodyClass }}" ng-cloak>
+
+<div ng-view></div>
+
+
+<script src="scripts/jquery.min.js"></script>
+
+<script src="scripts/bootstrap.min.js"></script>
+<script src="scripts/angular.js"></script>
+<script src="scripts/angular-route.min.js"></script>
+<script src="scripts/angular-animate.min.js"></script>
+<script src="scripts/ui-bootstrap-tpls-1.3.2.min.js"></script>
+<!-- script src="scripts/angular-animate.min.js"></script> -->
+<script src="scripts/angular-cookies.min.js"></script>
+<script src="scripts/angular-translate.min.js"></script>
+<!-- for the Lessons List search box -->
+<script src="scripts/angular-advanced-searchbox-tpls.min.js"></script>
+<!-- inputs -->
+<script src="scripts/jquery.multi-select.js"></script>
+<script src="scripts/angular-bootstrap-checkbox.js"></script>
+<!-- filters for fuzzy search -->
+<script src="scripts/angular-filter.min.js"></script>
+<!-- toggle button for active/inactive lessons -->
+<script src="scripts/bootstrap-toggle.min.js"></script>
+<script src="scripts/bootbox.min.js"></script>
+
+<!-- bootbox -->
+<script src="scripts/bootbox.min.js"></script>
+
+
+<script src="app/app.js"></script>
+
+
+<script src="app/controllers/LoginCtrl.js"></script>
+<script src="app/controllers/HomeCtrl.js"></script>
+<script src="app/controllers/UserListCtrl.js"></script>
+<script src="app/controllers/AdminCtrl.js"></script>
+<script src="app/controllers/AdminHome.js"></script>
+<script src="app/controllers/CreateLLCtrl.js"></script>
+<script src="app/controllers/Create_projCtrl.js"></script>
+<script src="app/controllers/listllCtrl.js"></script>
+<script src="app/controllers/mylistllCtrl.js"></script>
+<script src="app/controllers/ViewLLCtrl.js"></script>
+<script src="app/controllers/EditLLCtrl.js"></script>
+<script src="app/controllers/AuditListCtrl.js"></script>
+<script src="app/controllers/SetCtrl.js"></script>
+<script src="app/controllers/StatCtrl.js"></script>
+<script src="app/controllers/ProjectListCtrl.js"></script>
+
+<script src="app/services/genServices.js"></script>
+<script src="app/services/llServices.js"></script>
+<script src="app/services/listllServices.js"></script>
+<script src="app/services/userServices.js"></script>
+<script src="app/services/adminServices.js"></script>
+<script src="app/services/lessonServices.js"></script>
+<script src="app/services/auditServices.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+input[type="text"],input[type="date"],input[type="textarea"],.sc {
+  
+    background: rgba(0,0,0,0.3);
+    height: 45px;
+    color:white;
+    border:none;
+}
+textarea {
+    resize: none;
+}
+.sc option { 
+    background-color: #fff; 
+    color:#000;
+}
+
+/*.sc option:not(:checked) { 
+    background-color: white; 
+    color:#000;
+}*/
+
+.breadcrumb {background: rgba(0,0,0,0.3); border: none; border-radius: 7px; display: block;}
+.breadcrumb li {font-size: 14px;}
+.breadcrumb a {color: rgba(255, 255, 255, 1);}
+.breadcrumb a:hover {color: #5772AA; text-decoration: none;}
+.breadcrumb>.active {color: rgba(255, 255, 255, 1); font-weight: bold;}
+.breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\232A\00a0";}
+
+.form-group .control-label {
+	color: rgba(255, 255, 255, 1);
+    opacity: 1;
+    transform: scale(1);
+}

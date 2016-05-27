@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="styles/list_ll.css">
+
+<div ng-include='"app/views/templates/header.html"'></div>
+<div class="section">
+
+
+    <div class="container">
+        <div class="card card-container">
+
+            <div class="row">
+                <form>
+                    <div class="input-group stylish-input-group">
+                        <input type="text" class="form-control " placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
+                        <span class="input-group-addon">
+                            <button type="submit">
+                                <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            <br>
+
+
+
+            <div class="tbl-header">
+                <table cellpadding="0" cellspacing="0" border="0" >
+                    <thead>
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{ 'CREATION_DATE' | translate}}   </a>
+                                <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
+
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'changedate'; sortReverse = !sortReverse"> {{ 'CHANGE_DATE' | translate}}  </a>
+                                <span ng-show="sortType == 'changedate' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'changedate' && sortReverse" class="fa fa-caret-up"></span></span>
+
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'creator'; sortReverse = !sortReverse"> {{ 'CREATOR' | translate}}  </a>
+                                <span ng-show="sortType == 'creator' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'creator' && sortReverse" class="fa fa-caret-up"></span></span>
+
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'approver'; sortReverse = !sortReverse"> {{ 'APPROVER' | translate}}
+                                  <span ng-show="sortType == 'approver' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'approver' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'editor'; sortReverse = !sortReverse"> {{ 'EDITOR' | translate}}
+                                  <span ng-show="sortType == 'editor' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'editor' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{ 'OPERATION' | translate}}
+                                  <span ng-show="sortType == 'typeofchange' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'typeofchange' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> INSPECT</a>
+                            </th>
+
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div class="tbl-content">
+                <table cellpadding="0" cellspacing="0" border="0">
+                    <tbody>
+
+                        <tr ng-repeat="audit in audits | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams">
+                            <td>{{audit.creationdate | date:'dd.MM.yyyy' }}</td>
+                            <td>{{audit.editiondate | date:'dd.MM.yyyy' }} </td>
+                            <td>{{audit.Creator}}</td>
+                            <td>{{audit.Approver}}</td>
+                            <td>{{audit.Editor}}</td>
+                            <td>{{audit.operation}}</td>
+                            <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" href="/view_audit/{{audit.idaudit_trail}}""><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                        </tr>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <script src="scripts/list_ll.js"></script>

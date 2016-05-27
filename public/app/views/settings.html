@@ -1,0 +1,46 @@
+<link href="styles/settings.css" type="text/css" rel="stylesheet"></link>
+<link href="styles/tags.min.css" rel="stylesheet">
+<script src="scripts/tags.min.js"></script>
+<div ng-include='"app/views/templates/header.html"'></div>
+<div class="container">
+    <h4>Tecnologias</h4>
+    <br>
+    <br>
+    <!-- Trigger the modal with a button -->
+    <input name="tags3" type="text" ng-model="newTech" id="tagsID">
+    <button type="button" class="btn btn-primary btn-outline " ng-click="addTech();" data-toggle="modal" data-target="#myModal" id="cen">Inserir tecnologia</button>
+    <br>
+    <br>
+
+
+
+</div>
+<br>
+<br>
+<div class="container">
+    <h4>Tipo de Projeto</h4>
+    <br>
+    <br>
+    <!-- Trigger the modal with a button -->
+    <input name="tags2" type="text" ng-model="newType">
+    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal3" ng-click="addType();">Inserir Tipo</button>
+
+
+
+    <br>
+    <br>
+
+</div>
+<br>
+<br>
+<div class="container">
+    <h4>Setor de Projeto</h4>
+    <br>
+    <br>
+    <!-- Trigger the modal with a button -->
+    <input name="tags" type="text" ng-model="newSector">
+    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal2" ng-click="addSector();">Inserir Setor</button>
+    <br>
+    <br>
+
+</div>

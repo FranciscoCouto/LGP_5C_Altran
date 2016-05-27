@@ -1,0 +1,59 @@
+table{
+  width:100%;
+  table-layout: fixed;
+}
+
+.mdl-header{
+  background-color: rgb(72,89,126);
+  padding: 20px 15px;
+  text-align: left;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-bottom: solid 5px rgb(255,255,255);
+ }
+
+ .mdl-content{
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 14px;
+  color: #fff;
+  background-color: rgb(52,71,112);
+  border-bottom: solid 1px rgb(72,89,126);
+}
+
+ .mdl-footer{
+  margin-top: 0px;
+  padding: 15px;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgb(52,71,112);
+}
+
+h4 {
+  border-bottom: solid 4px rgb(72,89,126);  
+}
+
+input[type="text"],input[type="date"],input[type="textarea"],.sc {
+  
+    background: rgba(0,0,0,0.3);
+    height: 45px;
+    color:white;
+    font-size: 14px;
+    border:none;
+}
+.sc option { 
+    background-color: #fff; 
+    color:#000;
+}
+
+.breadcrumb {background: rgba(0,0,0,0.3); border: none; border-radius: 7px; display: block;}
+.breadcrumb li {font-size: 14px;}
+.breadcrumb a {color: rgba(255, 255, 255, 1);}
+.breadcrumb a:hover {color: #5772AA; text-decoration: none;}
+.breadcrumb>.active {color: rgba(255, 255, 255, 1); font-weight: bold;}
+.breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\232A\00a0";}

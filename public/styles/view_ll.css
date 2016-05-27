@@ -1,0 +1,133 @@
+#viewll {
+	margin-top: 5vw;
+	font-weight:bold;
+}
+
+
+
+.panel {
+	border:0px;
+}
+
+.panel-heading {
+	
+	padding:4px;
+	padding-left:13px;
+	border:0;
+	color:#000;
+	background-color:#729BD3;
+	font-size:16px;
+	
+}
+
+.llstatus {
+	padding-left:10px;
+	
+}
+
+.panel-body {
+	padding-top:10px;
+	height: 100%;
+	color:#000;
+	
+	font-size:17px;
+
+}
+
+.noborder {
+	margin:0;
+	padding:0;
+}
+
+.ic {
+	height:100%;
+	margin:0;
+	padding-right: 15px;
+	font-size: 40px;
+}
+
+.ic:hover {
+	color:orange;
+	cursor: pointer;
+}
+
+.toolbox {
+	text-align: center;
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-o-user-select: none;
+}
+
+.toolbox > .fa {
+	padding-top:15px;
+}
+
+.nohpadding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+textarea { 
+	resize: none;
+}
+
+.largetextarea {
+	resize: vertical;
+}
+
+
+.form-control {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	font-size:19px;
+}
+.form-control:read-only { 
+    background-color: #E7ECFF !important;
+	color: black;
+}
+
+
+#lldata {
+	margin-bottom: 20px;
+}
+
+#llfeed {
+	height:188px !important;
+}
+
+
+#llinfo > .row {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+.toolbtn {
+	width: 100px;
+	font-weight: bold;
+}
+
+#approveBtn, #disableBtn, #submitBtn {
+	margin-bottom: 2px;
+}
+
+#llstatus, #llstatusp {
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+	-o-user-select: none;
+	user-select: none;
+	height:40px;
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+}
+
+#llstatus:hover {
+	cursor: default;
+}
+
+.modal-content {
+	width: 60%;
+	margin-left:20%;
+}

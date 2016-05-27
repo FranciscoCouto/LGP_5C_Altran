@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="styles/list_ll.css">
+
+<div ng-include='"app/views/templates/header.html"'></div>
+<div class="section">
+
+  <div class="container">
+      <div class="card card-container">
+
+          <div class="row">
+              <form>
+                  <div class="input-group stylish-input-group">
+                      <input type="text" class="form-control " placeholder="Search..." ng-model="searchParams">
+                      <span class="input-group-addon">
+                          <button type="submit">
+                              <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                      </span>
+                  </div>
+              </form>
+          </div>
+          <br>
+
+
+
+          <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0" >
+                  <thead>
+                      <tr>
+                          <th>
+                              <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> DATE   </a>
+                              <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
+
+                          </th>
+                          <th>
+                              <a href="#" ng-click="sortType = 'technology'; sortReverse = !sortReverse"> TECHNOLOGY  </a>
+                              <span ng-show="sortType == 'technology' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'technology' && sortReverse" class="fa fa-caret-up"></span></span>
+
+                          </th>
+
+                          <th>
+                              <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse"> PROJECT
+                                <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                          </th>
+                          <th>
+                              <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> SECTOR
+                                <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                          </th>
+                          <th>
+                              <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> CLIENT
+                                <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                          </th>
+
+
+
+                          <th >
+
+                              <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
+                              </select>
+
+                          </th>
+
+                      </tr>
+                  </thead>
+              </table>
+          </div>
+
+          <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+
+                      <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)">
+                          <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
+                          <td>{{lesson.technology}} </td>
+
+                          <td>{{lesson.title}}</td>
+                          <td>{{lesson.sector}}</td>
+                          <td>{{lesson.client}}</td>
+                          <td ng-if="isAdmin==1">{{lesson.status}}</td>
+                      </tr>
+
+          </div>
+
+
+      </div>
+
+</div>
+
+<script src="scripts/list_ll.js"></script>

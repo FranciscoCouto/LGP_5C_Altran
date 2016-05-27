@@ -1,0 +1,76 @@
+{
+	"api":{
+		"all": [
+			"/api/login",
+			"/api/verifysession",
+			"/api/createuser",
+			"/api/managers",
+			"/api/createproject",
+			"/api/projecttypes",
+			"/api/sectors",
+			"/api/lessons",
+			"/api/user",
+			"/api/searchlessons",
+			"/api/projectsbymanager",
+			"/api/checklessonmanager",
+			"/api/technologies",
+			"/api/projects",
+			"/api/lessonsByStatus?status=active",
+			"/api/lessonsByStatus?status=inactive",
+			"/api/lessonsByStatus?status=submitted",
+			"/api/lessonsByStatus?status=rejected",
+			"/api/lessonsTop",
+			"/api/lessonsByStatus",
+			"/api/audit"
+		],
+
+		"logged": [
+			"/api/users",
+			"/api/updateuseremail",
+			"/api/updateuserpass",
+			"/api/updatelessonstate",
+			"/api/updatelessonfeedback",
+			"/api/updatelessontext",
+			"/api/technologies",
+			"/api/createlesson"
+		],
+
+		"admin": [
+
+		]
+	},
+
+	"views":{
+		"all": [
+			"/",
+			"/forbidden",
+			"/listll",
+			"/mylistll",
+			"/home",
+			"/user_management",
+			"/settings",
+			"/statistics",
+			"/listll",
+			"/users",
+			"/create_project",
+			"/create_ll",
+			"/view_ll/",
+			"/edit_ll/",
+			"/view_audit/",
+			"/list_audit/",
+			"/list_projects"
+		],
+		"logged": [
+
+		],
+		"admin": [
+
+		],
+		"advanced": [
+
+
+		]
+
+
+	}
+}

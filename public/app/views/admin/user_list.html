@@ -1,0 +1,162 @@
+<link rel="stylesheet" href="styles/list_users.css">
+
+<div ng-include='"app/views/templates/header.html"'></div>
+
+<div class="container-fluid"><br>
+	<div class="container">
+		<!-- search -->
+		<div class="row">
+			<ol class="breadcrumb">
+			    <li><a href="/home">{{ 'HOME' | translate }}</a></li>
+			    <li class="active">{{ 'USER_MANAGEMENT' | translate }}</li>
+			 </ol>
+			<div class="input-group stylish-input-group">
+                <input type="text" class="form-control"  placeholder="{{ 'SEARCH' | translate}}..." ng-model="search.filter">
+                <span class="input-group-addon">
+                    <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>  
+                </span>
+        	</div>
+    	</div><br>
+        <!-- user list -->
+		<div id="userbox" class="row panel panel-default panel-bg bg-blue" ng-repeat="user in (users | filter:search.filter).slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) ">
+			<div class="panel-body box-shadow--2dp">
+
+				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-6 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+					<img src="images/user_light_small.png" alt="User" class="pull-left img-circle">
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-push-8 col-md-push-8 col-sm-push-9 clearfix">
+					<button type="button" class="btn btn-primary btn-circle pull-right btn-lg box-shadow--2dp" ng-click="editUser(user)"><i class="glyphicon glyphicon-pencil"></i></button>
+				</div>
+				
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
+				  	<span class="hidden-xs vertical-center">{{ user.name }}</span>
+				  	<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.name }}</span>
+				</div>
+
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
+					<span class="hidden-xs vertical-center">{{ user.email }}</span>
+				  	<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.email }}</span>	  	
+				</div>
+
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1">
+				  	<span class="hidden-xs vertical-center">
+				  		<span ng-show="user.permission == 0">Reader</span>
+				  		<span ng-show="user.permission == 1">Submitter</span>
+				  		<span ng-show="user.permission == 2">Admin</span>
+				  	</span>
+				  	<span class="hidden-lg hidden-md hidden-sm text-center">
+				  		<span ng-show="user.permission == 0">Reader</span>
+				  		<span ng-show="user.permission == 1">Submitter</span>
+				  		<span ng-show="user.permission == 2">Admin</span>
+				  	</span>
+			  	</div>
+			</div>
+		</div>
+		<uib-pagination total-items="users.length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="5" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
+		<div class="text-center">
+			<a href="/user_management" type="button" class="btn btn-primary btn-outline">{{ 'ADD_USER' | translate | uppercase }}</a>
+		</div>
+		<div class="row animation error-message text-center" ng-repeat="item in items">
+                {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+        </div>
+
+	</div>
+</div>
+
+<!-- Modal -->
+<script type="text/ng-template" id="usersTpl">
+    <div class="modal-header mdl-header">
+        <h3 class="modal-title">{{ 'EDITING_USER' | translate }} {{ username }} </h3>
+    </div>
+    <form class="form-horizontal">
+        <div class="modal-body mdl-content">
+        	<div class="row error-message text-center" ng-repeat="item in items">
+                {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+        	</div>
+        	<h4>{{ 'MODIFY_DATA' | translate }}</h4>
+        	<form class="form-horizontal">
+		        <fieldset>
+		  			<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput1">{{ 'USER_NAME' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<input ng-model="mydata.name" id="textinput1" type="text" class="form-control input-md">
+				    	</div>
+ 					</div><br>
+ 					<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput2">Email</label>
+				    	<div class="col-sm-10">
+				    		<input ng-model="mydata.email" id="textinput2" type="text" class="form-control input-md">
+				    	</div>
+ 					</div>
+		        </fieldset>
+		    </form>
+		    <h4>{{ 'MODIFY_PERMISSIONS' | translate }}</h4>
+		    <form class="form-horizontal">
+		        <fieldset>
+		  			<div class="form-group">
+		  				<p class="text-center">{{ 'HAS_PERMISSIONS' | translate }} : <b>{{ mydata.permission | uppercase }}</b></p>
+				    	<label class="col-sm-2 control-label" for="newpermission">{{ 'CHANGE_TO' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<select ng-model="mydata.permissionid" ng-selected="mydata.permissionid" id="newpermission" type="text" class="form-control input-md sc">
+					    		<option value="2">Admin</option>
+					    		<option value="1">Submitter</option>
+					    		<option value="0">Reader</option>
+				    		</select>
+				    	</div>
+ 					</div><br>
+		        </fieldset>
+		    </form>
+        	<h4>{{ 'MODIFY_PASSWORD' | translate }}</h4>
+        	<form class="form-horizontal">
+		        <fieldset>
+		  			<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput3">{{ 'PASSWORD' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<input ng-model="mydata.password" id="textinput3" type="password" class="form-control input-md sc" autocomplete="off">
+				    	</div>
+ 					</div><br>
+ 					<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput4">{{ 'AGAIN' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<input ng-model="mydata.passwordagain" id="textinput4" type="password" class="form-control input-md sc" autocomplete="off">
+				    	</div>
+ 					</div>
+ 					<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput4">{{ 'CONFIRM_CHANGE' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<checkbox
+				    			large
+							    ng-model="mydata.changepassword"
+							    name="textinput4"
+							    ng-true-value="yes"
+							    ng-false-value="no"
+							    class="sc btn-primary"
+							></checkbox>
+				    	</div>
+ 					</div>
+		        </fieldset>
+		    </form>
+        	<h4>{{ 'MODIFY_PROJECTS' | translate }}</h4>
+        	<h4>{{ 'MODIFY_CONFIRM' | translate }}</h4>
+        	<form class="form-horizontal">
+		        <fieldset>
+		  			<div class="form-group">
+				    	<label class="col-sm-2 control-label" for="textinput5">{{ 'TYPE_PASS' | translate }}</label>
+				    	<div class="col-sm-10">
+				    		<input ng-model="mydata.confirmpass" id="textinput5" type="password" class="form-control input-md sc" autocomplete="off">
+				    	</div>
+ 					</div><br>
+		        </fieldset>
+		    </form>
+            Selected: <b>{{ selectedItem }}</b>
+        </div>
+        <div class="modal-footer mdl-footer">
+        	<button class="btn btn-danger" type="button" ng-click="cancel()">{{ 'CANCEL' | translate }}</button>
+            <button class="btn btn-primary" type="button" ng-click="submit(mydata)">{{ 'SUBMIT' | translate }}</button>
+        </div>
+    </form>
+</script>
+<div ng-include='"app/views/templates/footer.html"'></div>

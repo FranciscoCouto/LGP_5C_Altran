@@ -1,0 +1,48 @@
+
+.row, .clearfix{
+  margin-top: 70px;
+  margin-bottom: 40px;
+}
+
+.col-md-6,.col-md-4,.col-md-5 {
+    margin-bottom:40px;
+}
+
+.sc option { 
+    background-color: #fff; 
+    color:#000;
+}
+
+input[type="text"],input[type="date"],.sc {
+  
+    background: rgba(0,0,0,0.3);
+    height: 45px;
+    color:white;
+    border:none;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+color: white !important;
+}
+ 
+input[type="text"]:-moz-placeholder { /* Firefox 18- */
+color: white !important;  
+}
+ 
+input[type="text"]::-moz-placeholder {  /* Firefox 19+ */
+color: white !important;  
+}
+ 
+input[type="text"]:-ms-input-placeholder {  
+color: white !important;  
+}
+
+.breadcrumb {background: rgba(0,0,0,0.3); border: none; border-radius: 7px; display: block;}
+.breadcrumb li {font-size: 14px;}
+.breadcrumb a {color: rgba(255, 255, 255, 1);}
+.breadcrumb a:hover {color: #5772AA; text-decoration: none;}
+.breadcrumb>.active {color: rgba(255, 255, 255, 1); font-weight: bold;}
+.breadcrumb>li+li:before {color: rgba(204, 204, 204, 1); content: "\232A\00a0";}
+
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { background: rgba(0,0,0,0.3); }

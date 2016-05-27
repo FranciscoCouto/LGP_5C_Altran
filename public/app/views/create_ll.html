@@ -1,0 +1,76 @@
+<link rel="stylesheet" href="styles/create_ll.css">
+
+<div ng-include='"app/views/templates/header.html"'></div>
+<div class="container"><br>
+  <ol class="breadcrumb">
+    <li><a href="/home">{{ 'HOME' | translate }}</a>
+    </li>
+    <li class="active">{{ 'CREATE_LL' | translate }}</li>
+  </ol>
+    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-8" name="createll">
+      <form class="form-horizontal">
+        <fieldset>
+
+        <div class="form-group">
+          <label class="control-label" for="project">{{ 'SELECT_PROJECT' | translate }}</label><br>
+          <select id="project" ng-model="lesson.project" class="form-control sc" name="project">
+            <option value="">{{ 'NONE' | translate }}</option>
+            <option ng-repeat="project in projects" value="{{ project.name }}">{{ project.name }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="technologies">{{ 'SELECT_TECHS' | translate }}</label><br>
+          <div
+            isteven-multi-select
+            input-model="technologies"
+            output-model="lesson.technologies"
+            button-label="technology"
+            item-label="technology"
+            tick-property="ticked"
+            helper-elements="all none filter"
+            translation="localLang"
+            id="technologies"
+            name="technologies"
+            orientation="horizontal" 
+          >
+          </div>
+        </div>
+
+          <!-- Textarea -->
+        <div class="form-group">
+          <label class="control-label" for="textarea1">{{ 'DESCRIPTION' | translate }}</label><br>            
+          <textarea rows="8" class="ll form-control sc" id="textarea1" ng-trim="false" name="textarea1" maxlength="1000" ng-model="lesson.situation" required>default text</textarea>
+          <p class="text-right">{{ 1000 - lesson.situation.length}} {{ 'CHARS_LEFT' | translate }}</p>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="textarea2">{{ 'ACTION_TAKEN' | translate }}</label><br>               
+          <textarea rows="8" class="ll form-control sc" id="textarea2" ng-trim="false" name="textarea2" maxlength="1000" ng-model="lesson.actionTaken" required>default text</textarea>
+          <p class="text-right">{{ 1000 - lesson.actionTaken.length}} {{ 'CHARS_LEFT' | translate }}</p>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="textarea3">{{ 'RESULT_DESCRIPTION' | translate }}</label><br>                 
+          <textarea rows="8" class="ll form-control sc" id="textarea3" ng-trim="false" name="textarea3" maxlength="1000" ng-model="lesson.result" required>default text</textarea>
+          <p class="text-right">{{ 1000 - lesson.result.length}} {{ 'CHARS_LEFT' | translate }}</p>
+        </div>
+
+        <!-- Button (Double) -->
+        <div class="form-group">
+          <label class="col-md-3 control-label" for="button1id"></label><br>
+          <div class="col-md-12">
+            <button ng-click="createLesson(lesson, false)" id="button1id" name="button1id" class="btn btn-success" ng-disabled="createll.$invalid">{{ 'SUBMIT' | translate }}</button>
+            <button ng-click="createLesson(lesson, true)" id="button1id" name="button1id" class="btn btn-success">{{ 'SAVE_DRAFT' | translate }}</button>
+            <button id="button2id" name="button2id" class="btn btn-danger">{{ 'CANCEL' | translate }}</button>
+          </div>
+        </div>
+
+        </fieldset>
+      </form>
+
+      <div class="row animation error-message text-center" ng-repeat="item in items">
+          {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+      </div>
+    </div>    
+</div>

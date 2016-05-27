@@ -1,0 +1,381 @@
+/* 
+Custom CSS for...
+'Modern Business' HTML Theme by Start Bootstrap
+
+All Start Bootstrap themes are licensed under Apache 2.0. 
+For more info and more free Bootstrap 3 HTML themes, visit http://startbootstrap.com!
+*/
+
+/* Global Styles */
+
+html {
+    height: 100%;
+}
+body {
+  margin: 0;
+	/*background-image: linear-gradient(rgb(124, 165, 182), rgb(12, 33, 97));
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
+  font-family: 'corbertregular';
+	padding-top: 50px;
+  padding-bottom: 20px;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  background-color: #344770;
+  color: #fff;
+}
+select {
+  color: #344770;
+}
+/* Footer Styles */
+footer {
+	font-weight: bold;
+	color: #fff;
+	/* position: absolute; */
+	width: 100%;
+	height: 60px;
+	margin-top:100px;
+}
+
+/* @media(min-height:600px) {
+	footer {
+		bottom: 0;
+	}
+} */
+
+.modal-header, .modal-body, .modal-footer {
+  color: #000;
+}
+
+.card {
+  color: #000;
+}
+
+/* Message error styles */
+.animation {
+    -webkit-transition: 1s;
+    transition: 1s;
+}
+.animation.ng-enter {
+    opacity: 0;
+}
+.animation.ng-leave {
+    opacity: 1;
+}
+.animation.ng-enter.ng-enter-active {
+    opacity: 1;
+}
+.animation.ng-leave.ng-leave-active {
+    opacity: 0;
+}
+.error-message {
+    position: absolute;
+    background-color: #CD5555;
+    width: 35%;
+    max-width: 65%;
+    margin: auto;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin-bottom: 5%;
+    border-radius: 6px;
+    padding: 10px;
+    color: white;
+}
+
+.glyphicon-remove {
+    text-decoration: none;
+    font-weight: bold;
+}
+.glyphicon-white {
+    color: white;
+}
+
+.dropdown {
+    cursor:pointer;
+}
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	background-color: #FFFFFE;
+}
+
+.img-home-portfolio,
+.img-customer,
+.portfolio-item {
+    margin-bottom: 30px;
+}
+
+.tab-pane {
+    margin-top: 15px;
+}
+
+/* Page Sections */
+.section,
+.section-colored {
+    padding: 50px 0;
+}
+
+.section-colored {
+    background-color: #e1e1e1;
+    /* change this to change the background color of a colored section */
+}
+
+.sidebar {
+    margin-top: 40px;
+}
+
+.sidebar ul {
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #cccccc;
+}
+
+/* Half Page Height Carousel Customization */
+.carousel {
+    height: 50%;
+}
+
+.item,
+.active,
+.carousel-inner {
+    height: 100%;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+/* Social Icons Styles */
+.list-social-icons {
+    margin-bottom: 45px;
+}
+
+.tooltip-social a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.facebook-link a:hover {
+    color: #3b5998;
+}
+
+.linkedin-link a:hover {
+    color: #007fb1;
+}
+
+.twitter-link a:hover {
+    color: #39a9e0;
+}
+
+.google-plus-link a:hover {
+    color: #d14836;
+}
+
+/* Service Page Styles */
+.service-icon {
+    font-size: 50px;
+}
+
+/* 404 Page Styles */
+.error-404 {
+    font-size: 8em;
+}
+
+/* Pricing Page Styles */
+.price {
+    font-size: 4em;
+}
+
+.price-cents {
+    vertical-align: super;
+    font-size: 50%;
+}
+
+.price-month {
+    font-size: 35%;
+    font-style: italic;
+}
+
+.unselectable {
+	-webkit-user-select: none; /* Chrome/Safari */        
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* IE10+ */
+}
+
+/* Navbar Styles */
+.navbar {
+	background-color: #FFFFFE;
+	color: black;
+	line-height: 50px;
+  background-image: none;
+  border-bottom: 5px solid #5772AA;
+}
+
+.navbar-brand {
+  /* padding: 0px; /* firefox bug fix */ 
+  padding-left: 15px;
+  margin-left: 15px;
+}
+
+.navbar-header > a > img {
+	width:100px;
+	margin-left:20px;
+}
+
+.navbar .nav > li > a {
+  color:  #5772aa;
+	font-size: 19px;
+	font-weight:bold;
+}
+
+.navbar .nav > li > a:hover,
+.navbar .nav > li > a:active,
+.navbar .nav > li > a:focus {
+  color:  #fff;
+  background-color: #5772aa;
+}
+
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  color: #fff;
+  background-color: #5772aa;
+}
+
+/* User List */
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+  border-right:0; 
+  box-shadow:0 0 0; 
+  border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.bg-blue {
+    background-color: #5772aa;
+    color: #fff;
+}
+
+.panel-bg {
+  border-color: #5772aa;
+}
+
+.bg-black {
+    background-color: #000;
+    color: #fff;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.btn-circle:hover, .btn-circle:active, .btn-circle:focus {
+  background-color: #5772aa; /* #286090 */
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-outline {
+    background-color: white;
+    background-image: none;
+    color: white;
+    transition: all .5s;
+}
+
+.btn-primary.btn-outline {
+    color: #428bca;
+}
+
+.btn-success.btn-outline {
+    color: #5cb85c;
+}
+
+.btn-info.btn-outline {
+    color: #5bc0de;
+}
+
+.btn-warning.btn-outline {
+    color: #f0ad4e;
+}
+
+.btn-danger.btn-outline {
+    color: #d9534f;
+}
+
+.btn-primary.btn-outline:focus,
+.btn-success.btn-outline:focus,
+.btn-info.btn-outline:focus,
+.btn-warning.btn-outline:focus,
+.btn-danger.btn-outline:focus {
+    color: #fff;
+}
+
+.btn-primary.btn-outline:hover,
+.btn-success.btn-outline:hover,
+.btn-info.btn-outline:hover,
+.btn-warning.btn-outline:hover,
+.btn-danger.btn-outline:hover {
+    color: #fff;
+}
+
+.vertical-center {
+  min-height: 8%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 8vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.box-shadow--2dp {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12)
+}
+.box-shadow--3dp {
+    box-shadow: 0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .2), 0 1px 8px 0 rgba(0, 0, 0, .12)
+}
+.box-shadow--4dp {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2)
+}
+.box-shadow--6dp {
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .2)
+}
+.box-shadow--8dp {
+    box-shadow: 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .2)
+}
+
+/* Responsive Styles */
+@media (max-width:767px) and (min-width:395px) {
+    #userbox {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .carousel {
+        height: 70%;
+        /* increases the carousel height so it looks good on phones */
+    }
+}

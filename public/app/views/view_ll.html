@@ -1,0 +1,152 @@
+<link rel="stylesheet" href="styles/view_ll.css">
+
+
+<div ng-include='"app/views/templates/header.html"'></div>
+
+<div id="viewll" class="container">
+	<div class="row">
+		<div class="col-lg-5 col-xs-12 col-md-5">
+			<div class="panel">
+			  <div class="panel-heading">Title</div>
+			  <div class="panel-body noborder"><textarea id="lltitle" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Title</textarea></div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-xs-12 col-md-3">
+			<div class="panel">
+			  <div class="panel-heading">Client</div>
+			  <div class="panel-body noborder"><textarea id="llclient" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Title</textarea></div>
+			</div>
+		</div>
+		<div class="col-lg-2 col-xs-6 col-md-2">
+			<div id="llstatusp" class="panel">
+			  <div class="panel-heading">Status</div>
+			  <div id="llstatus" class="panel-body text-center">Unknown</div>
+			</div>
+		</div>
+		
+		<div  class="col-lg-1 col-xs-3 col-md-1 nohpadding text-center">
+		
+			<div ng-if="isDnS()" class="row">
+				<button id="submitBtn" id="submitBtn" type="button" class="toolbtn btn btn-success">Submit</button>
+			</div>
+			
+			<div ng-if="isDnS()" class="row">
+				<button id="saveBtn" type="button" class="toolbtn btn btn-primary">Save</button>
+			</div>
+		
+			<div ng-if="isAdminAndApproved()" class="row">
+				<button ng-click="adminDisable()" id="disableBtn" type="button" class="toolbtn btn btn-default">Disable</button>
+			</div>
+			
+			<div ng-if="isAdminAndInactive()" class="row">
+				<button ng-click="adminEnable()" type="button" class="toolbtn btn btn-success">Enable</button>
+			</div>
+		
+			<div ng-if="isAdminAndSubmitted()" class="row">
+				<button ng-click="adminApprove()" id="approveBtn" type="button" class="toolbtn btn btn-success">Approve</button>
+			</div>
+			
+			<div ng-if="isAdminAndSubmitted() || isAdminAndApproved()" class="row">
+				<button ng-click="adminReject()" type="button" class="toolbtn btn btn-danger">Reject</button>
+			</div>
+			
+			
+
+		</div>		
+		
+		<div ng-if="isAdmin()" class="col-lg-1 col-xs-3 col-md-1 nohpadding text-center">
+			<div class="toolbox">
+				<i id="audi" class="ic fa fa-history" ariad-hidden="true"></i>
+			</div>
+		</div>
+
+	</div>
+	
+	<div style="margin-top:20px;" class="row">
+		<div class="lldata col-lg-9 col-xs-12 col-md-9">
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-md-12">
+					<div class="panel">
+						<div class="panel-heading">Situation</div>
+						<div class="panel-body noborder">
+							<textarea ng-readonly="!isDnS()" id="llsituation" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-md-12">
+					<div class="panel">
+						<div class="panel-heading">Action</div>
+						<div class="panel-body noborder">
+							<textarea ng-readonly="!isDnS()" id="llaction" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-xs-12 col-md-12">
+					<div class="panel">
+						<div class="panel-heading">Results</div>
+						<div class="panel-body noborder">
+							<textarea ng-readonly="!isDnS()" id="llresults" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="llinfo" class="col-lg-3 col-xs-12 col-md-3">
+			<div id="llfeedp" class="row">
+				<div class="panel">
+					<div class="panel-heading">Feedback</div>
+					<div class="panel-body noborder">
+						<textarea  rows="5" id="llfeed" class="lldesc form-control">No Feedback.</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Manager</div>
+					<div  class="panel-body noborder"><textarea id="llmanager" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Dimension</div>
+					<div class="panel-body noborder"><textarea id="lldimension" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Start Date</div>
+					<div class="panel-body noborder"><textarea id="llstart" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Expected Finish Date</div>
+					<div class="panel-body noborder"><textarea id="llexpected" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Finish Date</div>
+					<div class="panel-body noborder"><textarea id="llfinish" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="panel">
+					<div class="panel-heading">Technologies</div>
+					<div  class="panel-body noborder"><textarea id="lltech" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+				</div>
+			</div>
+			
+		</div>
+		
+		
+	</div>
+	
+</div>
+
+<div ng-include='"app/views/templates/footer.html"'></div>

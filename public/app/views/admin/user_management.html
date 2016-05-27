@@ -1,0 +1,50 @@
+<script src="scripts/users.js"></script>
+<link href="styles/user.css" type="text/css" rel="stylesheet">
+
+<div ng-include='"app/views/templates/header.html"'></div>
+
+<form ng-submit="addUser(user)" enctype="multipart/form-data">
+<div class="container">
+  <div class="row">
+ 
+ 
+  <div class="col-md-6">
+    <div class="wrap">
+    <h3>Personal Information</h3>
+
+      <div class="form-group">
+        <input ng-model="user.name" type="text" class="form-control bg-blue" id="inputName" placeholder="Colaborator Name" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="user.email" type="email" class="form-control bg-blue" id="inputEmail" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <input ng-model="user.password" type="password" class="form-control bg-blue" id="inputPassword" placeholder="Password" style="color:white" required>
+    </div>
+    <div class="form-group">
+      <label for="singleSelect">Permission Level</label><br>
+      <select name="singleSelect" class="bg-blue" id="singleSelect" ng-model="user.permission">
+        <option value="">---Please select---</option> <!-- not selected / blank option -->
+        <option value="0">Viewer</option> <!-- interpolation -->
+        <option value="1">Input</option>
+        <option value="2">Admin</option>
+      </select>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-6">
+     <div class="wrap">
+    <h3>Select Avatar</h3>
+      <div class="thumb" > <img id="img" ng-src={{image}} /></div>
+    <label for="upload">Choose File
+      <input id="upload" type="file" name="file" onchange="angular.element(this).scope().changeFile(this.files)"/></label>
+    </div>
+</div>
+   
+
+    
+  </div>
+      <button type="submit" class="btn btn-primary btn-outline center-block">{{ 'ADD_USER' | translate | uppercase }}</button>
+      
+</div>
+</form>
