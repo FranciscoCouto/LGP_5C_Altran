@@ -167,9 +167,9 @@
                 res.status(404).send('Could not verify session');
             }
         });
-        
+
         server.post('/api/createuser', function (req, res) {
-            
+
     var form = new formidable.IncomingForm();
      //Formidable uploads to operating systems tmp dir by default
     form.uploadDir = "./private/images";       //set upload directory
@@ -197,7 +197,7 @@
                             });
         }
         });
-        
+
             if(permission!="1" && permission!="2" && permission!="0"){
                 fs.unlink('./public/images/'+email+".jpg");
                 // Check if permission is valid.
@@ -724,6 +724,24 @@
                     });
          });
 
+         server.post("/api/deletetech",function(req,res){
+
+             var idtech = req.body.idtech;
+
+             console.log("deleting tech with id: "+idtech);
+
+             database.deleteTechnology(idtech)
+                .then(function() {
+                    res.sendStatus(200);
+                })
+                .catch(function (err) {
+                  // Sending the error to the log file
+                  console.log('Error deleting technology');
+                  console.log(err);
+
+                });
+         });
+
          //<!------------------------------------------------------------------ Project Types ---------------------------------------------------------------------------------------------------->
 
 
@@ -751,6 +769,24 @@
 
                     });
          });
+
+         server.post("/api/deletetype",function(req,res){
+
+          var idtype = req.body.idtype;
+
+          console.log("deleting project type with id: "+idtype);
+
+          database.deleteProjectType(idtype)
+             .then(function() {
+                 res.sendStatus(200);
+             })
+             .catch(function (err) {
+               // Sending the error to the log file
+               console.log('Error deleting project type');
+               console.log(err);
+
+             });
+      });
 
 
          //<!------------------------------------------------------------------ Business Sectors ---------------------------------------------------------------------------------------------------->
@@ -782,6 +818,24 @@
 
                     });
          });
+
+         server.post("/api/deletesector",function(req,res){
+
+            var idsector = req.body.idsector;
+
+            console.log("deleting sector with id: "+idsector);
+
+            database.deleteSector(idsector)
+               .then(function() {
+                   res.sendStatus(200);
+               })
+               .catch(function (err) {
+                 // Sending the error to the log file
+                 console.log('Error deleting sector');
+                 console.log(err);
+
+               });
+        });
 
 
 

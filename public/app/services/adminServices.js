@@ -1,21 +1,34 @@
-(function () {
+(function() {
 
-'use strict';
-var adminServices = function ($q, $http, $cookies, $window) {
-    var deferred = $q.defer();
+    'use strict';
+    var adminServices = function($q, $http, $cookies, $window) {
+        var deferred = $q.defer();
 
-      // Function to create a user
+        // Function to create a user
         this.registerUser = function(user) {
-                return $http.post('/api/createuser', user, {
-                    withCredentials: true,
-                    headers: {'Content-Type': undefined },
-                    transformRequest: angular.identity
-                });
+            return $http.post('/api/createuser', user, {
+                withCredentials: true,
+                headers: {
+                    'Content-Type': undefined
+                },
+                transformRequest: angular.identity
+            });
         };
 
         this.insertTech = function(tech) {
 
             return $http.post('/api/technologies', tech)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
+        this.deleteTech = function(tech) {
+
+            return $http.post('/api/deletetech', tech)
                 .success(function(res) {
                     deferred.resolve('Success');
                 })
@@ -35,9 +48,31 @@ var adminServices = function ($q, $http, $cookies, $window) {
                 });
         };
 
+        this.deleteType = function(type) {
+
+            return $http.post('/api/deletetype', type)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
         this.insertSector = function(sector) {
 
             return $http.post('/api/sectors', sector)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
+        this.deleteSector = function(sector) {
+            console.log("deleting sector " + JSON.stringify(sector))
+            return $http.post('/api/deletesector', sector)
                 .success(function(res) {
                     deferred.resolve('Success');
                 })
@@ -61,7 +96,7 @@ var adminServices = function ($q, $http, $cookies, $window) {
         };
         // Function to update a user's password
         this.updateUserPass = function(info) {
-            return $http.put('/api/updateuserpass',info)
+            return $http.put('/api/updateuserpass', info)
                 .success(function(res) {
                     deferred.resolve('Success');
                 })
@@ -71,7 +106,7 @@ var adminServices = function ($q, $http, $cookies, $window) {
         };
         // Function to update user's informations (email, permission...)
         this.edition = function(user) {
-            return $http.put('/api/updateuseremail',user)
+            return $http.put('/api/updateuseremail', user)
                 .success(function(res) {
                     deferred.resolve('Success');
                 })
@@ -80,9 +115,9 @@ var adminServices = function ($q, $http, $cookies, $window) {
                 });
         };
 
-};
+    };
 
-// Injecting modules used for better minifing later on
+    // Injecting modules used for better minifing later on
     adminServices.$inject = ['$q', '$http', '$cookies', '$window'];
 
     // Enabling the service in the app

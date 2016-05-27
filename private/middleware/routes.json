@@ -22,7 +22,10 @@
 			"/api/lessonsByStatus?status=rejected",
 			"/api/lessonsTop",
 			"/api/lessonsByStatus",
-			"/api/audit"
+			"/api/audit",
+			"/api/deletetech",
+			"/api/deletesector",
+			"/api/deletetype"
 		],
 
 		"logged": [
