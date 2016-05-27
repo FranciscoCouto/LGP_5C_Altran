@@ -9,7 +9,6 @@
 	    $scope.login = function(user,remember){
              userServices.login(user, remember)
                 .then(function (res) {
-                    alert(JSON.stringify(res));
                     $scope.items.pop();
                     $scope.items.push();
                     /* if(res.data.permission=="2")
