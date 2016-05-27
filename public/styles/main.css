@@ -245,6 +245,20 @@ footer {
   background-color: #5772aa;
 }
 
+/* Inputs */
+.sc {
+  
+    background: rgba(0,0,0,0.3);
+    height: 45px;
+    color:white;
+    font-size: 14px;
+    border:none;
+}
+.sc option { 
+    background-color: #fff; 
+    color:#000;
+}
+
 /* User List */
 .stylish-input-group .input-group-addon{
     background: white !important; 

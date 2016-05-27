@@ -1,16 +1,5 @@
-input[type="text"],input[type="date"],input[type="textarea"],.sc {
-  
-    background: rgba(0,0,0,0.3);
-    height: 45px;
-    color:white;
-    border:none;
-}
 textarea {
     resize: none;
-}
-.sc option { 
-    background-color: #fff; 
-    color:#000;
 }
 
 /*.sc option:not(:checked) { 

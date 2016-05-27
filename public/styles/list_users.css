@@ -38,15 +38,3 @@ h4 {
   border-bottom: solid 4px rgb(72,89,126);  
 }
 
-input[type="text"],input[type="date"],input[type="textarea"],.sc {
-  
-    background: rgba(0,0,0,0.3);
-    height: 45px;
-    color:white;
-    font-size: 14px;
-    border:none;
-}
-.sc option { 
-    background-color: #fff; 
-    color:#000;
-}
