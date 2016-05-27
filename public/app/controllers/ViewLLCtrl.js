@@ -16,6 +16,7 @@
 		})
 		.catch( function (err){
 			console.log(err);
+			$location.path("/forbidden");
 		});
 
 		
@@ -25,42 +26,31 @@
 			$scope.lldata = res.data[0];
 
 			if ($scope.lldata == null) {
-				console.log("Invalid LL id.")
+				console.log("Invalid LL id.");
+				$location.path("/forbidden");
 				return;
 			} 
 
 			console.log("DATA: " + JSON.stringify($scope.lldata));
-			$("#lltitle").text($scope.lldata["project"]);
-			$("#llclient").text($scope.lldata["client"]);
-			$("#llmanager").text($scope.lldata["manager"]);
-			$("#lldimension").text($scope.lldata["numberConsultants"]);
-			$("#llstart").text($scope.lldata["dateBeginning"].substring(0,10));
-			$("#llexpected").text($scope.lldata["dateEndExpected"].substring(0,10));
-			$("#llfinish").text($scope.lldata["dateEnd"].substring(0,10));
-			$("#lltech").text($scope.lldata["technologies"]);
-
-			$("#llfeed").text($scope.lldata["feedback"]);
+			$scope.lldata.project = $scope.lldata.project? $scope.lldata.project : 'Altran';
+			$scope.lldata.client = $scope.lldata.client? $scope.lldata.client : 'Altran';
 			$scope.llstatus = $scope.lldata["status"];
-			
-			if (!$scope.isDraft()) $("#llfeedp").hide();
+		
 
 			if ($scope.llstatus == "draft") {
 				$('#llstatus').css("background-color", "#f0ad4e");
-				$('#llstatus').text("Draft");
 			} else if ($scope.llstatus == "submitted") {
 				$('#llstatus').css("background-color", "#5bc0de");
-				$('#llstatus').text("Submitted");
 			} else if ($scope.llstatus == "approved") {
 				$('#llstatus').css("background-color", "#5cb85c");
-				$('#llstatus').text("Approved");
 			} else if ($scope.llstatus == "inactive") {
 				$('#llstatus').css("background-color", "#d9534f");
-				$('#llstatus').text("Inactive");
 			}
 		
 		})
 		.catch(function (err) {
 			console.log(err.data);
+			$location.path("/forbidden");
 		});
 		
 		$scope.adminApprove = function() {
@@ -339,6 +329,13 @@
     ViewLLCtrl.$inject = ['$scope', '$location', 'lessonServices' , 'userServices'];
 
     // Enabling the controller in the app
-    angular.module('lessonslearned').controller('ViewLLCtrl', ViewLLCtrl);
+    angular.module('lessonslearned')
+    	.controller('ViewLLCtrl', ViewLLCtrl)
+    	.filter('capitalize', function() {
+		    return function(input, all) {
+		      var reg = (all) ? /([^\W_]+[^\s-]*) */g : /([^\W_]+[^\s-]*)/;
+		      return (!!input) ? input.replace(reg, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+		    }
+		 });
 }());
 
