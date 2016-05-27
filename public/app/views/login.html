@@ -1,7 +1,7 @@
 <div ng-include='"app/views/templates/header.html"'></div>
 
 <div id="homeTitle" class="container">
-		<p class="unselectable">Lessons Learned</p>
+		<p class="unselectable">{{ 'LESSONS' | translate }}</p>
 	</div>
 
 	<div class="section">
@@ -11,32 +11,32 @@
 				<form ng-submit="login(user,remember)" class="form-signin">
 					<input style="display:none" type="email" name="fakeusernameremembered"/>
 					<input style="display:none" type="password" name="fakepasswordremembered"/>
-					<input id="inputUsername" ng-model="user.email" type="email" class="form-control" name="fakeusernameremembered" placeholder="Username" required autofocus >
-					<input id="inputPassword" ng-model="user.password" type="password"  class="form-control" name="fakepasswordremembered" placeholder="Password" required >
+					<input id="inputUsername" ng-model="user.email" type="email" class="form-control" name="fakeusernameremembered" placeholder="{{ 'USERNAME' | translate }}" required autofocus >
+					<input id="inputPassword" ng-model="user.password" type="password"  class="form-control" name="fakepasswordremembered" placeholder="{{ 'PASSWORD' | translate }}" required >
 					<input type="checkbox" id="remember" ng-model="remember" value="false">
-                    <label for="remember">Remember me</label>
-					<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+                    <label for="remember">{{ 'REMEMBERME' | translate }}</label>
+					<button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">{{ 'SIGNIN' | translate }}</button>
 				</form><!-- /form -->
 				<a href="#" class="forgot-password">
-					Forgot the password?
+					{{ 'FORGOT' | translate }}
 				</a>
 			</div><!-- /card-container -->
 			<div ng-if="hasSession.logged">
-				Deseja continuar como
+				{{ 'CONTINUEAS' | translate }}
 				<a href="/home" class="forgot-password">
 					 {{hasSession.data.name}}
 				</a><br>
-				<a ng-click="logout()">Loggout</a>
-			</div>
-			<div class="row animation error-message text-center" ng-repeat="item in items">
-                {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
-            </div>
+				<a ng-click="logout()">{{ 'LOGOUT' | translate }}</a>
 			</div>
 			
+			</div>
+			<div class="row animation error-message text-center" ng-repeat="item in items">
+                {{ item | translate }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+            </div>
 		</div><!-- /container -->
 		
 		
 			
 	</div>
     
-    <div ng-include='"app/views/templates/footer.html"'></div>
+    

@@ -6,7 +6,6 @@
          $scope.items = [];
 		 
 		$scope.permission = -1;
-         
 	    $scope.login = function(user,remember){
              userServices.login(user, remember)
                 .then(function (res) {

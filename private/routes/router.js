@@ -90,7 +90,7 @@
                     res.status(200).send(user);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve users information');
+                    res.status(406).send('ERRORUSERINFORMATION');
                 });
 
         });
@@ -102,7 +102,7 @@
                     res.status(200).send(user);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve Managers information');
+                    res.status(406).send('ERRORMANAGERINFORMATION');
                 });
 
         });
@@ -116,7 +116,7 @@
                     res.status(200).send(user);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve users information');
+                    res.status(406).send('ERRORUSERINFORMATION');
                 });
 
         });
@@ -128,26 +128,26 @@
             };
             database.confirmLoginByEmail(user)
                 .then(function (user) {
-                    console.log(user);
                     utils.encode(user.token)
                         .then(function (encoded) {
                             user.token=encoded;
                             res.status(200).json(user);
                         })
                         .catch(function (err) {
-                            console.log(err);
+                           res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORLOGIN1"
+                    });
                         });
 
                 })
 
                 .catch(function (err) {
 
-                    console.log(err);
-
                     // Send the Response with message error
                     res.status(406).json({
                         message_class: 'error',
-                        message: "Username or password invalid."
+                        message: "ERRORLOGIN"
                     });
 
                 });
@@ -161,10 +161,10 @@
                         res.status(200).json(user);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not verify session');
+                        res.status(406).send('ERRORSESSION');
                     });
             } else {
-                res.status(404).send('Could not verify session');
+                res.status(406).send('ERRORSESSION');
             }
         });
 
@@ -180,7 +180,7 @@
            fs.unlink(fields.image.path);
             res.status(400).json({
                     message_class: 'error',
-                    message: 'Error uploading image.'
+                    message: 'ERRORCREATEIMAGE'
                 });
        }
         var email,pass,name,permission;
@@ -193,7 +193,7 @@
             fs.unlink(fields.image.path);
              res.status(406).json({
                                 message_class: 'error',
-                                message: "Could not rename image"
+                                message: "ERRORRENAMEIMAGE"
                             });
         }
         });
@@ -203,7 +203,7 @@
                 // Check if permission is valid.
                 res.status(400).json({
                     message_class: 'error',
-                    message: 'Permission not valid.'
+                    message: 'ERRORCREATEPERMISSION'
                 });
             }
 
@@ -212,7 +212,7 @@
                 fs.unlink('./public/images/'+email+".jpg");
                 res.status(400).json({
                     message_class: 'error',
-                    message: 'Email not valid.'
+                    message: 'ERRORCREATEEMAIL'
                 });
             }
 
@@ -229,14 +229,16 @@
                             // Send the Response with message error
                             res.status(406).json({
                                 message_class: 'error',
-                                message: "Email already in use."
+                                message: "ERRORCREATEUSER"
                             });
 
                         } else {
                             fs.unlink('./public/images/'+email+".jpg");
                             // Sending the error to the log file
-                            console.log('@authRouter.js: Error inserting user to database');
-                            console.log(err);
+                            res.status(406).json({
+                                message_class: 'error',
+                                message: "ERRORCREATINGUSERDB"
+                            });
 
                         }
                     });
@@ -248,8 +250,6 @@
 
             var email = req.body.email.toLowerCase();
 
-            console.log(email);
-
             database.deleteUserByEmail(email)
                 .then(function() {
 
@@ -258,41 +258,16 @@
                 })
                 .catch(function (err) {
 
-                    console.log(err);
 
                     // Send the Response with message error
                     res.status(406).json({
                         message_class: 'error',
-                        message: "No such user with that email."
+                        message: "ERRORDELETEUSER"
                     });
 
                 });
         });
 
-        server.delete("/api/deleteuser",function(req,res){
-
-            var iduser = req.body.iduser;
-
-            console.log(iduser);
-
-            database.deleteUserByID(iduser)
-                .then(function() {
-
-                    res.status(200);
-
-                })
-                .catch(function (err) {
-
-                    console.log(err);
-
-                    // Send the Response with message error
-                    res.status(406).json({
-                        message_class: 'error',
-                        message: "No such user with that id."
-                    });
-
-                });
-        });
 
         server.put("/api/updateuseremail",function(req,res){
 
@@ -314,12 +289,12 @@
                 .then(function(){
                     database.updateUserByID(user.id,user.email, user.name, user.permission)
                         .then(function() {
-                            res.status(200).send("ok");
+                            res.status(200);
                         })
                         .catch(function (err) {
                             res.status(406).json({
                                 message_class: 'error',
-                                message: "No such user with that ID."
+                                message: "ERRORUPDATEUSEREMAIL"
                             });
 
                         });
@@ -328,7 +303,7 @@
                     // Send the Response with message error
                     res.status(406).json({
                         message_class: 'error',
-                        message: "Wrong Admin Password."
+                        message: "ERRORUPDATEUSEREMAILPASS"
                     });
 
                 });
@@ -348,19 +323,18 @@
                 email: req.body.adminemail
             }
 
-            console.log("update user pass " + admin.pass + admin.email);
             if(user.password == user.password_again && user.password.length > 0) {
                 database.checkPasswordbyEmail(admin.email, admin.pass)
                 .then(function(){
 
                     database.updateUserPass(user.id,user.password)
                         .then(function() {
-                            res.status(200).send("ok");
+                            res.sendStatus(200);
                         })
                         .catch(function (err) {
                             res.status(406).json({
                                 message_class: 'error',
-                                message: "Couldn't update user password."
+                                message: "ERRORUPDATEPASS"
                             });
 
                         });
@@ -368,7 +342,7 @@
                  .catch(function (err) {
                     res.status(406).json({
                         message_class: 'error',
-                        message: "Wrong Admin Password."
+                        message: "ERRORADMINPASS"
                     });
 
                 });
@@ -377,7 +351,7 @@
             else {
                 res.status(406).json({
                     message_class: 'error',
-                    message: "Passwords don't match."
+                    message: "ERRORMATCHPASS"
                 });
             }
         });
@@ -385,7 +359,6 @@
          //<!------------------------------------------------------------------ LESSONS ---------------------------------------------------------------------------------------------------->
 
         server.get('/api/lessonsTop', function (req, res) {
-                console.log('QQ');
                 database.getTop()
                    .then(function (lessons) {
                         res.status(200).send(lessons);
@@ -401,7 +374,7 @@
                         res.status(200).send(lessons);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve LL information');
+                        res.status(406).send('ERRORLESSONSTOP');
                     });
         });
 
@@ -414,7 +387,7 @@
                         res.status(200).send(lessons);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Search by keyword ' + keyword + ' returned nothing.');
+                        res.status(406).send('ERRORSEARCHLL');
                     });
         });
 
@@ -422,13 +395,12 @@
 
                // var status = req.params.status;
                var status = req.query.status;
-                console.log(req.query.status);
                 database.getLessonByStatus(status)
                    .then(function (lessons) {
                         res.status(200).send(lessons);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve LLs with that state.');
+                        res.status(406).send('ERRORLLBYSTATUS');
                     });
         });
 
@@ -440,7 +412,7 @@
                     res.status(200).send(lesson);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve LL information with that id.');
+                    res.status(406).send('ERRORLESSONID');
                 });
         });
 
@@ -448,22 +420,20 @@
 
              var idlesson = req.body.idlesson;
 
-             console.log(idlesson);
 
              database.deleteLessonByID(idlesson)
                 .then(function() {
 
-                    res.status(200);
+                    res.sendStatus(200);
 
                 })
                 .catch(function (err) {
 
-                    console.log(err);
 
                     // Send the Response with message error
                     res.status(406).json({
                         message_class: 'error',
-                        message: "No such lesson with that id."
+                        message: "ERRORLESSONID"
                     });
 
                 });
@@ -477,15 +447,14 @@
                 database.updateLessonFieldByID(businessSector,idLesson)
                     .then(function() {
 
-                        res.status(200);
+                        res.sendStatus(200);
                     })
                     .catch(function (err) {
 
-                        console.log(err);
                         // Send the Response with message error
                         res.status(406).json({
                             message_class: 'error',
-                            message: "No such lesson with that id."
+                            message: "ERRORLESSONID"
                         });
 
                     });
@@ -506,11 +475,10 @@
                         res.sendStatus(200);
                     })
                     .catch(function (err) {
-                        console.log(err);
                         // Send the Response with message error
                         res.status(406).json({
                             message_class: 'error',
-                            message: "No such lesson with that id."
+                            message: "ERRORLESSONID"
                         });
 
                     });
@@ -531,17 +499,15 @@
 
                 var technologies = req.body.technologies;
 
-                technologies.forEach(function(tech) {
-                    console.log(tech);
-                })
                 database.insertLesson(dateCreated,maker,project,datetime,situation,action,result,technologies, status)
                     .then(function (lesson) {
                         res.sendStatus(200);
                     })
                     .catch(function (err) {
-                        // TODO Sending the error to the log file
-                        console.log('Error inserting lesson to database');
-                        console.log(err);
+                        res.status(406).json({
+                            message_class: 'error',
+                            message: "ERRORINSERTINGLL"
+                        });
 
                     });
          });
@@ -559,7 +525,7 @@
                         // Send the Response with message error
                         res.status(406).json({
                             message_class: 'error',
-                            message: "No such lesson with that id."
+                            message: "ERRORLESSONID"
                         });
 
                     });
@@ -568,7 +534,7 @@
              else{
                 res.status(406).json({
                             message_class: 'error',
-                            message: "Incorrect state! Choose one of the following: draft|submitted|approved|inactive."
+                            message: "ERRORUPDATINGLESSONSTATE"
                 });
              }
         });
@@ -585,7 +551,7 @@
                         // Send the Response with message error
                         res.status(406).json({
                             message_class: 'error',
-                            message: "No such lesson with that id."
+                            message: "ERRORLESSONID"
                         });
 
                     });
@@ -600,7 +566,7 @@
                         res.status(200).send(projects);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve projects information');
+                        res.status(406).send('ERRORPROJECTINFO');
                     });
         });
 
@@ -612,7 +578,7 @@
                     res.status(200).send(ll);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve lessons information with that manager id.');
+                    res.status(406).send('ERRORLLMANAGERID');
                 });
         });
 
@@ -625,7 +591,7 @@
                     res.status(200).send(ll);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve lesson information with that manager id.');
+                    res.status(406).send('ERRORLLMANAGERID');
                 });
         });
 
@@ -637,7 +603,7 @@
                     res.status(200).send(projs);
                 })
                 .catch(function (err) {
-                    res.status(406).send('Could not retrieve projects information with that manager id.');
+                    res.status(406).send('ERRORPROJECTMANAGERID');
                 });
         });
 
@@ -664,8 +630,7 @@
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
-                        console.log('Error inserting project to database');
-                        console.log(err);
+                        res.status(406).send('ERRORINSERTINGPROJECTDB');
 
                     });
          });
@@ -679,15 +644,14 @@
                  database.updateProjectDateByID(idproject,date)
                     .then(function() {
 
-                        res.status(200);
+                        res.sendStatus(200);
                     })
                     .catch(function (err) {
 
-                        console.log(err);
                         // Send the Response with message error
                         res.status(406).json({
                             message_class: 'error',
-                            message: "No such project with that id."
+                            message: "ERRORPROJECTID"
                         });
 
                     });
@@ -704,7 +668,7 @@
                         res.status(200).send(techs);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve technologies information');
+                        res.status(406).send('ERRORTECHINFO');
                     });
         });
 
@@ -718,8 +682,7 @@
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
-                        console.log('Error inserting technology to database');
-                        console.log(err);
+                         res.status(406).send('ERRORTECHINFODB');
 
                     });
          });
@@ -727,17 +690,13 @@
          server.post("/api/deletetech",function(req,res){
 
              var idtech = req.body.idtech;
-
-             console.log("deleting tech with id: "+idtech);
-
              database.deleteTechnology(idtech)
                 .then(function() {
                     res.sendStatus(200);
                 })
                 .catch(function (err) {
                   // Sending the error to the log file
-                  console.log('Error deleting technology');
-                  console.log(err);
+                  res.status(406).send('ERRORDELETINGTECHDB');
 
                 });
          });
@@ -751,7 +710,7 @@
                         res.status(200).send(types);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve project types information');
+                        res.status(406).send('ERRORPROJECTTYPEINFO');
                     });
         });
 
@@ -764,8 +723,7 @@
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
-                        console.log('Error inserting project type to database');
-                        console.log(err);
+                        res.status(406).send('ERRORINSERTPROJECTTYPEDB');
 
                     });
          });
@@ -774,16 +732,13 @@
 
           var idtype = req.body.idtype;
 
-          console.log("deleting project type with id: "+idtype);
-
           database.deleteProjectType(idtype)
              .then(function() {
                  res.sendStatus(200);
              })
              .catch(function (err) {
                // Sending the error to the log file
-               console.log('Error deleting project type');
-               console.log(err);
+               res.status(406).send('ERRORDELETINGPROJECTTYPE');
 
              });
       });
@@ -799,7 +754,7 @@
                         res.status(200).send(sectors);
                     })
                     .catch(function (err) {
-                        res.status(406).send('Could not retrieve business sectors information');
+                        res.status(406).send('ERRORGETSECTOR');
                     });
         });
 
@@ -813,8 +768,7 @@
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
-                        console.log('Error inserting business sector to database');
-                        console.log(err);
+                        res.status(406).send('ERRORINSERTSECTORDB');
 
                     });
          });
@@ -823,16 +777,13 @@
 
             var idsector = req.body.idsector;
 
-            console.log("deleting sector with id: "+idsector);
-
             database.deleteSector(idsector)
                .then(function() {
                    res.sendStatus(200);
                })
                .catch(function (err) {
                  // Sending the error to the log file
-                 console.log('Error deleting sector');
-                 console.log(err);
+                 res.status(406).send('ERRORDELETSECTOR');
 
                });
         });
@@ -846,12 +797,10 @@
              var lesson_id = req.headers.referer.split("/")[4];
              database.getAuditByLesson(lesson_id)
                .then(function (audit) {
-                   console.log("qqqqqqqqq");
                     res.status(200).send(audit);
                 })
                 .catch(function (err) {
-                    console.log("qqqqqqqqwwwwwwwwwwwwwwwwq");
-                    res.status(406).send('Could not retrieve Audit information for that lesson.');
+                    res.status(406).send('ERRORAUDITINFO');
                 });
         });
 

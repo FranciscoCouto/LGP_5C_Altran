@@ -69,15 +69,11 @@ footer {
     opacity: 0;
 }
 .error-message {
-    position: absolute;
     background-color: #CD5555;
-    width: 35%;
-    max-width: 65%;
     margin: auto;
-    bottom: 0px;
+    max-width: 350px;
     left: 0;
     right: 0;
-    margin-bottom: 5%;
     border-radius: 6px;
     padding: 10px;
     color: white;
