@@ -604,6 +604,18 @@
                     });
         });
 
+        server.get("/api/lessonsbymanager",function(req,res){
+
+             var managerid = req.headers.managerid;
+             database.getLessonsByUser(managerid)
+               .then(function (ll) {
+                    res.status(200).send(ll);
+                })
+                .catch(function (err) {
+                    res.status(406).send('Could not retrieve lessons information with that manager id.');
+                });
+        });
+
         server.get("/api/checklessonmanager",function(req,res){
 
              var managerid = req.headers.managerid;

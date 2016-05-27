@@ -13,6 +13,7 @@
 			"/api/searchlessons",
 			"/api/projectsbymanager",
 			"/api/checklessonmanager",
+			"/api/lessonsbymanager",
 			"/api/technologies",
 			"/api/projects",
 			"/api/lessonsByStatus?status=approved",

@@ -18,6 +18,22 @@
                 });
         };
 
+        // Function to retrieve ALL lessons from a user
+        this.getAllLessonsByUser = function(userid) {
+            var config = {
+                headers: {
+                    'managerid': userid
+                }
+            };
+            return $http.get('/api/lessonsbymanager', config)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
 
     };
 

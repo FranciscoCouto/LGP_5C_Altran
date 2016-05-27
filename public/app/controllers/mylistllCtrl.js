@@ -14,28 +14,24 @@
               $scope.user = result.data;
               console.log(JSON.stringify(result.data));
               $scope.userid = result.data.idusers;
+              console.log($scope.userid);
+
+            listllServices.getAllLessonsByUser($scope.userid)
+            .then(function(result) {
+              console.log(JSON.stringify(result.data));
+                $scope.lessons = result.data;
+
+            })
+            .catch(function(err) {
+                $scope.lessons = null;
+            });
 
 
           })
           .catch(function(err) {
               console.log('User error.');
-              alert(err);
+              console.log(err);
           });
-
-      listllServices.getAllLessons()
-          .then(function(result) {
-
-                  $scope.lessons = $filter('filter')(result.data, {
-                      idusers: $scope.userid
-                  }, true);
-
-
-          })
-          .catch(function(err) {
-              console.log('Lessons List error.');
-              alert(err);
-          });
-
 
       $scope.Status = function(status) {
           return function(lesson) {
@@ -55,9 +51,6 @@
       };
 
       $scope.fieldTable = [{
-	      field: "all",
-          title: "All"
-      }, {
           field: "active",
           title: "Active"
       }, {

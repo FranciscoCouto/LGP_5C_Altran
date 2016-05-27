@@ -355,6 +355,20 @@
          });
     }
 
+    exports.getLessonsByUser = function(iduser){
+         return new Promise(function (resolve, reject) {
+         client.query("SELECT idLessonsLearned, status, creationdate, aproveddate, GROUP_CONCAT(technology SEPARATOR ', ') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.technologies as t3, public.lesson_tech as t4, public.lessonsLearned as t1 LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject WHERE t1.manager = ? AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech GROUP BY idLessonsLearned, t5.name, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client",[iduser],
+            function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+                });
+         });
+    }
+
     exports.getLessonByKeyword = function(keyword){
          return new Promise(function (resolve, reject) {
          var searchit = '%' + keyword +'%';
