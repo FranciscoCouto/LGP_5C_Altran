@@ -8,9 +8,13 @@
 	    $scope.login = function(user,remember){
              userServices.login(user, remember)
                 .then(function (res) {
-                    $window.location.href = '/home';
+                    alert(JSON.stringify(res.data));
                     $scope.items.pop();
                     $scope.items.push();
+                     if(res.data.permission=="2")
+                        $window.location.href = '/home';
+                    else
+                        $window.location.href = '/listll';
                 })
                 .catch(function (err) {
                     $scope.items.pop();

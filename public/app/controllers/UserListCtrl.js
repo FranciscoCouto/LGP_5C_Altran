@@ -13,6 +13,9 @@
 		services.getUsers()
             .then(function (result) {
                 $scope.users = result.data;
+				$scope.users.forEach(function(element) {
+					element.image="images/"+element.email+".jpg";
+				}, this);
                 $scope.items.pop();
                 $scope.items.push();
                 $scope.$watch('search.filter', function (term) {
