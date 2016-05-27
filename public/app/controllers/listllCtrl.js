@@ -63,6 +63,9 @@
         };
 
         $scope.fieldTable = [{
+		    field: "all",
+            title: "All"
+        }, {
             field: "approved",
             title: "approved"
         }, {

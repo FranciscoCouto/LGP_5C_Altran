@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-            <a href="/"><img src="images/logo_transparent.gif"></a>
+            <a href="/home"><img src="images/logo_transparent.gif"></a>
 
         </div>
 
@@ -20,18 +20,20 @@
 					<li class="active">Current</li>
 				</ul> -->
 				
-				<li ng-if="hasSession.logged" class="dropdown">
-					<a id="navmenu" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>Menu</a>
+				<li id="navmenu" ng-if="hasSession.logged" class="dropdown ">
+					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>Menu</a>
 					<ul class="dropdown-menu">
-						<li><a href="">Users</a>
+						<li><a href="/home">Home</a>
 						</li>
-						<li><a href="">Lessons</a>
+						<li><a href="/users">Users</a>
 						</li>
-						<li><a href="">Statistics</a>
+						<li><a href="/listll">Lessons</a>
 						</li>
-						<li><a href="">Projects</a>
+						<li><a href="/statistics">Statistics</a>
 						</li>
-						<li><a href="">Settings</a>
+						<li><a href="/projects">Projects</a>
+						</li>
+						<li><a href="/settings">Settings</a>
 						</li>
 					</ul>
 				</li>

@@ -48,8 +48,8 @@
 		</div>		
 		
 		<div class="col-lg-2 col-xs-3 col-md-2 nohpadding toolbox">
-				<i ng-if="!isDraft() && isAdmin()" id="audi" class="ic fa fa-history" ariad-hidden="true"></i>
-				<i ng-if="!isDraft()" id="export" class ="ic fa fa-download" ariad-hidden="true"></i>
+				<i data-toggle="tooltip" title="View Audit-Trail" ng-if="!isDraft() && isAdmin()" id="audi" class="ic fa fa-history" ariad-hidden="true"></i>
+				<i data-toggle="tooltip" title="Export PDF" ng-if="!isDraft()" id="export" class ="ic fa fa-download" ariad-hidden="true"></i>
 		</div>
 
 	</div>
