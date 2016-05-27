@@ -1,70 +1,65 @@
-<link rel="stylesheet" href="styles/list_users.css">
 
 <div ng-include='"app/views/templates/header.html"'></div>
 
-<div class="container-fluid"><br>
-	<div class="container">
-		<!-- search -->
-		<div class="row">
-			<ol class="breadcrumb">
-			    <li><a href="/home">{{ 'HOME' | translate }}</a></li>
-			    <li class="active">{{ 'USER_MANAGEMENT' | translate }}</li>
-			 </ol>
-			<div class="input-group stylish-input-group">
-                <input type="text" class="form-control"  placeholder="{{ 'SEARCH' | translate}}..." ng-model="search.filter">
-                <span class="input-group-addon">
-                    <button type="submit">
-                        <span class="glyphicon glyphicon-search"></span>
-                    </button>  
-                </span>
-        	</div>
-    	</div><br>
-        <!-- user list -->
-		<div id="userbox" class="row panel panel-default panel-bg bg-blue" ng-repeat="user in (users | filter:search.filter).slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) ">
-			<div class="panel-body box-shadow--2dp">
 
-				<div class="col-lg-2 col-md-2 col-sm-1 col-xs-6 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-					<img src="images/user_light_small.png" alt="User" class="pull-left img-circle">
-				</div>
+<div class="container">
+	<!-- search -->
+	<div class="row">
+		<div class="input-group stylish-input-group">
+			<input type="text" class="form-control"  placeholder="{{ 'SEARCH' | translate}}..." ng-model="search.filter">
+			<span class="input-group-addon">
+				<button type="submit">
+					<span class="glyphicon glyphicon-search"></span>
+				</button>  
+			</span>
+		</div>
+	</div><br>
+	<!-- user list -->
+	<div id="userbox" class="row panel panel-default panel-bg bg-blue" ng-repeat="user in (users | filter:search.filter).slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) ">
+		<div class="panel-body box-shadow--2dp">
 
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-push-8 col-md-push-8 col-sm-push-9 clearfix">
-					<button type="button" class="btn btn-primary btn-circle pull-right btn-lg box-shadow--2dp" ng-click="editUser(user)"><i class="glyphicon glyphicon-pencil"></i></button>
-				</div>
-				
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
-				  	<span class="hidden-xs vertical-center">{{ user.name }}</span>
-				  	<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.name }}</span>
-				</div>
+			<div class="col-lg-2 col-md-2 col-sm-1 col-xs-6 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
+				<img src="images/user_light_small.png" alt="User" class="pull-left img-circle">
+			</div>
 
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
-					<span class="hidden-xs vertical-center">{{ user.email }}</span>
-				  	<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.email }}</span>	  	
-				</div>
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-push-8 col-md-push-8 col-sm-push-9 clearfix">
+				<button type="button" class="btn btn-primary btn-circle pull-right btn-lg box-shadow--2dp" ng-click="editUser(user)"><i class="glyphicon glyphicon-pencil"></i></button>
+			</div>
+			
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
+				<span class="hidden-xs vertical-center">{{ user.name }}</span>
+				<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.name }}</span>
+			</div>
 
-				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1">
-				  	<span class="hidden-xs vertical-center">
-				  		<span ng-show="user.permission == 0">Reader</span>
-				  		<span ng-show="user.permission == 1">Submitter</span>
-				  		<span ng-show="user.permission == 2">Admin</span>
-				  	</span>
-				  	<span class="hidden-lg hidden-md hidden-sm text-center">
-				  		<span ng-show="user.permission == 0">Reader</span>
-				  		<span ng-show="user.permission == 1">Submitter</span>
-				  		<span ng-show="user.permission == 2">Admin</span>
-				  	</span>
-			  	</div>
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1">
+				<span class="hidden-xs vertical-center">{{ user.email }}</span>
+				<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.email }}</span>	  	
+			</div>
+
+			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1">
+				<span class="hidden-xs vertical-center">
+					<span ng-show="user.permission == 0">Reader</span>
+					<span ng-show="user.permission == 1">Submitter</span>
+					<span ng-show="user.permission == 2">Admin</span>
+				</span>
+				<span class="hidden-lg hidden-md hidden-sm text-center">
+					<span ng-show="user.permission == 0">Reader</span>
+					<span ng-show="user.permission == 1">Submitter</span>
+					<span ng-show="user.permission == 2">Admin</span>
+				</span>
 			</div>
 		</div>
-		<uib-pagination total-items="users.length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="5" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
-		<div class="text-center">
-			<a href="/user_management" type="button" class="btn btn-primary btn-outline">{{ 'ADD_USER' | translate | uppercase }}</a>
-		</div>
-		<div class="row animation error-message text-center" ng-repeat="item in items">
-                {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
-        </div>
-
 	</div>
+	<uib-pagination total-items="users.length" items-per-page="itemsPerPage" ng-model="currentPage" max-size="5" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
+	<div class="text-center">
+		<a href="/user_management" type="button" class="btn btn-primary btn-outline">{{ 'ADD_USER' | translate | uppercase }}</a>
+	</div>
+	<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
+
 </div>
+
 
 <!-- Modal -->
 <script type="text/ng-template" id="usersTpl">

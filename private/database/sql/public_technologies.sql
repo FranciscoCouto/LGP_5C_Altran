@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `technologies`;
 CREATE TABLE `technologies` (
   `idtechnologies` int(11) NOT NULL AUTO_INCREMENT,
   `technology` varchar(45) NOT NULL,
+   `visible` int(11) DEFAULT '1',
   PRIMARY KEY (`idtechnologies`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

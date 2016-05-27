@@ -25,6 +25,7 @@ DROP TABLE IF EXISTS `project_types`;
 CREATE TABLE `project_types` (
   `idType` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
+  `visible` int(11) DEFAULT '1',
   PRIMARY KEY (`idType`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

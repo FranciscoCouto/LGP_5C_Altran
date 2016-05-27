@@ -9,22 +9,14 @@
             .then(function(result) {
 
                 $scope.technologies = result.data;
-                console.log(JSON.stringify($scope.technologies));
+                console.log("technologies fetched from db: " + JSON.stringify($scope.technologies));
 
                 angular.forEach($scope.technologies, function(technology) {
                     $scope.techValues.push(technology.technology);
                 });
 
-                $scope.techValues.push(',');
                 console.log($scope.techValues);
-
-                configTech = {
-                    // Tags joiner of the output value
-                    values: $scope.techValues // pre-defined tags data
-
-                };
-                var foo = new Tags(document.querySelector('input[name="tags3"]'), configTech);
-                foo.beautify();
+                $scope.newTech = $scope.techValues;
 
 
 
@@ -38,23 +30,15 @@
             .then(function(result) {
 
                 $scope.types = result.data;
-                console.log(JSON.stringify($scope.types));
+                console.log("types fetched form db: " + JSON.stringify($scope.types));
 
                 angular.forEach($scope.types, function(type) {
                     $scope.typeValues.push(type.name);
                 });
 
-                $scope.typeValues.push(',');
                 console.log($scope.typeValues);
 
-                configTypes = {
-                    // Tags joiner of the output value
-                    values: $scope.typeValues // pre-defined tags data
-
-                };
-                var foo = new Tags(document.querySelector('input[name="tags2"]'), configTypes);
-                foo.beautify();
-
+                $scope.newType = $scope.typeValues;
 
 
             })
@@ -67,22 +51,15 @@
             .then(function(result) {
 
                 $scope.sectors = result.data;
-                console.log(JSON.stringify($scope.sectors));
+                console.log("sectors fetched from db: " + JSON.stringify($scope.sectors));
 
                 angular.forEach($scope.sectors, function(sector) {
                     $scope.sectorValues.push(sector.name);
                 });
 
-                $scope.sectorValues.push(',');
+
                 console.log($scope.sectorValues);
-
-                configSectors = {
-                    // Tags joiner of the output value
-                    values: $scope.sectorValues // pre-defined tags data
-
-                };
-                var foo = new Tags(document.querySelector('input[name="tags"]'), configSectors);
-                foo.beautify();
+                $scope.newSector = $scope.sectorValues;
 
 
 
@@ -94,19 +71,26 @@
 
         $scope.addTech = function() {
 
-						console.log($scope.newTech);
+            console.log(JSON.stringify($scope.newTech));
+
 
             genServices.getTechnologies()
                 .then(function(result) {
                     $scope.technologies = result.data;
-                    angular.forEach($scope.technologies, function(technology) {
-                        if(technology.technology==$scope.newTech){
-                          alert("oi la");
+                    for (var i = 0, lenInput = $scope.newTech.length; i < lenInput; i++) {
+                        for (var j = 0, lenDB = $scope.technologies.length; j < lenDB; j++) {
+                            if ($scope.technologies[j].technology === $scope.newTech[i].text) {
+                                console.log('Test next input, breaking.');
+                                break;
+                            }
+                            if (j === $scope.technologies.length - 1) {
+                                adminServices.insertTech({
+                                    "technology": $scope.newTech[i].text
+                                });
+                                console.log("tech added");
+                            }
                         }
-
-
-                    });
-                    adminServices.insertTech({"technology": $scope.newTech});
+                    }
                 })
                 .catch(function(err) {
                     console.log('Fetch technologies error.');
@@ -123,13 +107,15 @@
                 .then(function(result) {
                     $scope.types = result.data;
                     angular.forEach($scope.types, function(type) {
-                        if(type.name==$scope.newType){
-                          alert("oi la");
+                        if (type.name == $scope.newType) {
+                            alert("oi la");
                         }
 
 
                     });
-                    adminServices.insertType({"projecttype": $scope.newType});
+                    adminServices.insertType({
+                        "projecttype": $scope.newType
+                    });
                 })
                 .catch(function(err) {
                     console.log('Fetch types error.');
@@ -146,18 +132,30 @@
                 .then(function(result) {
                     $scope.sectors = result.data;
                     angular.forEach($scope.sectors, function(sector) {
-                        if(sector.name==$scope.newSector){
-                          alert("oi la");
+                        if (sector.name == $scope.newSector) {
+                            alert("oi la");
                         }
 
                     });
-                    adminServices.insertSector({"sector": $scope.newSector});
+                    adminServices.insertSector({
+                        "sector": $scope.newSector
+                    });
                 })
                 .catch(function(err) {
                     console.log('Fetch types error.');
                     alert(err);
                 });
 
+        };
+
+        $scope.techRemoved = function(tag) {
+            $scope.log.push('Removed: ' + tag.text);
+        };
+        $scope.typeRemoved = function(tag) {
+            $scope.log.push('Removed: ' + tag.text);
+        };
+        $scope.sectorRemoved = function(tag) {
+            $scope.log.push('Removed: ' + tag.text);
         };
 
 

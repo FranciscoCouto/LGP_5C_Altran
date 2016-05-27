@@ -498,10 +498,10 @@
                  var situation = req.body.situation;
                  var action = req.body.action;
                  var result = req.body.result;
-                 var technologies = req.body.technologies;
+                 var manager = req.body.manager;
                  var idLesson = req.body.idlesson;
 
-                 database.updateLessonTextByID(action, situation, result, idLesson, technologies)
+                 database.updateLessonTextByID(action, situation, result, idLesson, manager)
                     .then(function() {
                         res.sendStatus(200);
                     })

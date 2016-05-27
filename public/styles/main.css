@@ -379,3 +379,19 @@ footer {
         /* increases the carousel height so it looks good on phones */
     }
 }
+
+.nav .breadcrumb {
+	line-height: 20px;
+	font-weight: bold;
+	font-size: 18px;
+	border: 1px solid black;
+}
+
+ @media (min-width: 768px) {
+    .nav .breadcrumb {
+        float: left;
+        margin: 7px 10px;
+    }
+}
+
+

@@ -77,6 +77,17 @@
                 });
         };
 
+        // Function to update ll's info
+        this.editLLFields = function(ll) {
+            return $http.put('/api/updatelessontext',ll)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
         // Function to logout a user
         this.logout = function() {
             console.log($cookies);

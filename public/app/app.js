@@ -12,7 +12,8 @@
         'angular-advanced-searchbox',
         'isteven-multi-select',
         'angular.filter',
-        'ui.checkbox'
+        'ui.checkbox',
+        'ngTagsInput'
     ]);
 
     /**
@@ -383,8 +384,8 @@
             })
         $translateProvider.preferredLanguage('pt');
     }]);
-	
-	
+
+
 	app.directive('head', ['$rootScope','$compile',
 		function($rootScope, $compile){
 			return {

@@ -1,9 +1,7 @@
 #viewll {
-	margin-top: 5vw;
+	margin-top: 50px;
 	font-weight:bold;
 }
-
-
 
 .panel {
 	border:0px;
@@ -26,7 +24,7 @@
 }
 
 .panel-body {
-	padding-top:10px;
+	padding-top:5px;
 	height: 100%;
 	color:#000;
 	
@@ -81,7 +79,7 @@ textarea {
 .form-control {
 	border-top-left-radius: 0px;
 	border-top-right-radius: 0px;
-	font-size:19px;
+	font-size:15px;
 }
 .form-control:read-only { 
     background-color: #E7ECFF !important;
@@ -104,8 +102,10 @@ textarea {
 }
 
 .toolbtn {
-	width: 100px;
+	width: 80px;
 	font-weight: bold;
+	padding-bottom: 5px;
+	padding-top: 5px;
 }
 
 #approveBtn, #disableBtn, #submitBtn {
@@ -118,7 +118,7 @@ textarea {
 	-ms-user-select: none; /* IE10+ */
 	-o-user-select: none;
 	user-select: none;
-	height:40px;
+	height:35px;
 	border-bottom-left-radius:3px;
 	border-bottom-right-radius:3px;
 }

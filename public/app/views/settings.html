@@ -7,7 +7,7 @@
     <br>
     <br>
     <!-- Trigger the modal with a button -->
-    <input name="tags3" type="text" ng-model="newTech" id="tagsID">
+    <tags-input  ng-model="newTech" add-on-space="true" on-tag-removed="techRemoved($tag)"> </tags-input>
     <button type="button" class="btn btn-primary btn-outline " ng-click="addTech();" data-toggle="modal" data-target="#myModal" id="cen">Inserir tecnologia</button>
     <br>
     <br>
@@ -22,7 +22,7 @@
     <br>
     <br>
     <!-- Trigger the modal with a button -->
-    <input name="tags2" type="text" ng-model="newType">
+    <tags-input  ng-model="newType" add-on-space="true" on-tag-removed="typeRemoved($tag)"></tags-input>
     <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal3" ng-click="addType();">Inserir Tipo</button>
 
 
@@ -38,7 +38,7 @@
     <br>
     <br>
     <!-- Trigger the modal with a button -->
-    <input name="tags" type="text" ng-model="newSector">
+    <tags-input ng-model="newSector" add-on-space="true" on-tag-removed="sectorRemoved($tag)"></tags-input>
     <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal2" ng-click="addSector();">Inserir Setor</button>
     <br>
     <br>

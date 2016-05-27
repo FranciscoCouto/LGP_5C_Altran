@@ -5,16 +5,16 @@
 
 <div id="viewll" class="container">
 	<div class="row">
-		<div class="col-lg-5 col-xs-12 col-md-5">
+		<div class="col-lg-4 col-xs-12 col-md-4">
 			<div class="panel">
 			  <div class="panel-heading">Title</div>
-			  <div class="panel-body noborder"><textarea id="lltitle" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Title</textarea></div>
+			  <div class="panel-body noborder"><textarea id="lltitle" rows="1" readonly class="lldesc form-control">Placeholder Title</textarea></div>
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12 col-md-3">
 			<div class="panel">
 			  <div class="panel-heading">Client</div>
-			  <div class="panel-body noborder"><textarea id="llclient" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Title</textarea></div>
+			  <div class="panel-body noborder"><textarea id="llclient" rows="1" readonly class="lldesc form-control">Placeholder Title</textarea></div>
 			</div>
 		</div>
 		<div class="col-lg-2 col-xs-6 col-md-2">
@@ -25,13 +25,12 @@
 		</div>
 		
 		<div  class="col-lg-1 col-xs-3 col-md-1 nohpadding text-center">
-		
-			<div ng-if="isDnS()" class="row">
-				<button id="submitBtn" id="submitBtn" type="button" class="toolbtn btn btn-success">Submit</button>
+			<div ng-if="isDnS()" class="row"> <!--- test -->
+				<button ng-click="submitDraft()" id="submitBtn" type="button" class="toolbtn btn btn-success">Submit</button>
 			</div>
 			
 			<div ng-if="isDnS()" class="row">
-				<button id="saveBtn" type="button" class="toolbtn btn btn-primary">Save</button>
+				<button ng-click="saveDraft()" id="saveBtn" type="button" class="toolbtn btn btn-primary">Save</button>
 			</div>
 		
 			<div ng-if="isAdminAndApproved()" class="row">
@@ -49,15 +48,11 @@
 			<div ng-if="isAdminAndSubmitted() || isAdminAndApproved()" class="row">
 				<button ng-click="adminReject()" type="button" class="toolbtn btn btn-danger">Reject</button>
 			</div>
-			
-			
-
 		</div>		
 		
-		<div ng-if="isAdmin()" class="col-lg-1 col-xs-3 col-md-1 nohpadding text-center">
-			<div class="toolbox">
-				<i id="audi" class="ic fa fa-history" ariad-hidden="true"></i>
-			</div>
+		<div class="col-lg-2 col-xs-3 col-md-2 nohpadding toolbox">
+				<i ng-if="!isDraft() && isAdmin()" id="audi" class="ic fa fa-history" ariad-hidden="true"></i>
+				<i ng-if="!isDraft()" id="export" class ="ic fa fa-download" ariad-hidden="true"></i>
 		</div>
 
 	</div>
@@ -69,7 +64,7 @@
 					<div class="panel">
 						<div class="panel-heading">Situation</div>
 						<div class="panel-body noborder">
-							<textarea ng-readonly="!isDnS()" id="llsituation" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+							<textarea ng-readonly="!isDnS()" id="llsituation" ng-model="lldata.situation" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
 						</div>
 					</div>
 				</div>
@@ -79,7 +74,7 @@
 					<div class="panel">
 						<div class="panel-heading">Action</div>
 						<div class="panel-body noborder">
-							<textarea ng-readonly="!isDnS()" id="llaction" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+							<textarea ng-readonly="!isDnS()" id="llaction" ng-model="lldata.action" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
 						</div>
 					</div>
 				</div>
@@ -89,7 +84,7 @@
 					<div class="panel">
 						<div class="panel-heading">Results</div>
 						<div class="panel-body noborder">
-							<textarea ng-readonly="!isDnS()" id="llresults" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
+							<textarea ng-readonly="!isDnS()" id="llresults" ng-model="lldata.result" class="form-control largetextarea" rows="10" >Placeholder text.</textarea>
 						</div>
 					</div>
 				</div>
@@ -101,26 +96,26 @@
 				<div class="panel">
 					<div class="panel-heading">Feedback</div>
 					<div class="panel-body noborder">
-						<textarea  rows="5" id="llfeed" class="lldesc form-control">No Feedback.</textarea>
+						<textarea readonly rows="5" id="llfeed" class="lldesc form-control">No Feedback.</textarea>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
 					<div class="panel-heading">Manager</div>
-					<div  class="panel-body noborder"><textarea id="llmanager" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+					<div  class="panel-body noborder"><textarea id="llmanager" rows="1" readonly class="lldesc form-control">Placeholder Text</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
 					<div class="panel-heading">Dimension</div>
-					<div class="panel-body noborder"><textarea id="lldimension" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+					<div class="panel-body noborder"><textarea id="lldimension" rows="1" readonly class="lldesc form-control">Placeholder Text</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
 					<div class="panel-heading">Start Date</div>
-					<div class="panel-body noborder"><textarea id="llstart" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+					<div class="panel-body noborder"><textarea id="llstart" rows="1" readonly class="lldesc form-control">Placeholder Text</textarea></div>
 				</div>
 			</div>
 			<div class="row">
@@ -132,13 +127,13 @@
 			<div class="row">
 				<div class="panel">
 					<div class="panel-heading">Finish Date</div>
-					<div class="panel-body noborder"><textarea id="llfinish" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+					<div class="panel-body noborder"><textarea id="llfinish" rows="1" readonly class="lldesc form-control">Placeholder Text</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
 					<div class="panel-heading">Technologies</div>
-					<div  class="panel-body noborder"><textarea id="lltech" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">Placeholder Text</textarea></div>
+					<div  class="panel-body noborder"><textarea id="lltech" rows="1" readonly class="lldesc form-control">Placeholder Text</textarea></div>
 				</div>
 			</div>
 			

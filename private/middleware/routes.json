@@ -15,7 +15,7 @@
 			"/api/checklessonmanager",
 			"/api/technologies",
 			"/api/projects",
-			"/api/lessonsByStatus?status=active",
+			"/api/lessonsByStatus?status=approved",
 			"/api/lessonsByStatus?status=inactive",
 			"/api/lessonsByStatus?status=submitted",
 			"/api/lessonsByStatus?status=rejected",

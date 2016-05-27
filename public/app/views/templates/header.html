@@ -9,14 +9,19 @@
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
             <a href="/"><img src="images/logo_transparent.gif"></a>
-			
+
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="HomeCtrl">
             <ul class="nav navbar-nav navbar-right">
+				<ul class="breadcrumb list-inline">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li class="active">Data</li>
+				</ul>
 
-				<li ng-if="hasSession.logged"><a href="" ><i class="fa fa-bell-o" aria-hidden="true"></i></a> </li>
+				
 				<li ng-if="hasSession.logged" class="dropdown">
 					<a id="langs" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{lang}}</a>
 					<ul class="dropdown-menu">
@@ -32,7 +37,7 @@
 				<li ng-if="hasSession.logged" class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{hasSession.data.name}} </a>
 					<ul class="dropdown-menu">
-						<li ng-if="hasSession.data.permission == 1"><a href="#/profile">My LL's</a>
+						<li ng-if="hasSession.data.permission == 1"><a href="/mylistll">My LL's</a>
 						</li>
 						<li><a ng-click="logout()">Log Out</a>
 						</li>

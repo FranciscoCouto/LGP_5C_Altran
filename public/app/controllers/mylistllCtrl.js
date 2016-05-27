@@ -55,6 +55,9 @@
       };
 
       $scope.fieldTable = [{
+	      field: "all",
+          title: "All"
+      }, {
           field: "active",
           title: "Active"
       }, {
