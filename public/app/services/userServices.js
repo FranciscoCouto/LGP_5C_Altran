@@ -9,6 +9,7 @@
 
             return $http.post('/api/login', user)
                 .success(function(res) {
+                    
                     var now = new Date(),
                         exp;
                     if (remember) {
@@ -17,11 +18,10 @@
                         exp = null;
                     }
 
-                    $cookies.put('session', res, {
+                    $cookies.put('session', res.token, {
                         path: '/',
                         expires: exp
-                    });
-
+                    });s
                     //$window.location.href = '/home';
 
                     deferred.resolve('Success');

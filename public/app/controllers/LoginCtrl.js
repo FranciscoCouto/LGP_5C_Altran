@@ -9,13 +9,13 @@
 	    $scope.login = function(user,remember){
              userServices.login(user, remember)
                 .then(function (res) {
-                    alert(JSON.stringify(res.data));
+                    alert(JSON.stringify(res));
                     $scope.items.pop();
                     $scope.items.push();
-                     if(res.data.permission=="2")
+                    /* if(res.data.permission=="2")
                         $window.location.href = '/home';
                     else
-                        $window.location.href = '/listll';
+                        $window.location.href = '/listll';*/
                 })
                 .catch(function (err) {
                     $scope.items.pop();
@@ -49,7 +49,6 @@
         $scope.logout = function(){
             userServices.logout();
         };
-		
          $scope.pop = function () {
             $scope.items.pop();
         };
