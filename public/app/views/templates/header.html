@@ -15,10 +15,26 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="HomeCtrl">
             <ul class="nav navbar-nav navbar-right">
-				<ul class="breadcrumb list-inline">
+				<!-- <ul class="breadcrumb list-inline">
 					<li><a href="#">Home</a></li>
 					<li class="active">Current</li>
-				</ul>
+				</ul> -->
+				
+				<li ng-if="hasSession.logged" class="dropdown">
+					<a id="navmenu" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>Menu</a>
+					<ul class="dropdown-menu">
+						<li><a href="">Users</a>
+						</li>
+						<li><a href="">Lessons</a>
+						</li>
+						<li><a href="">Statistics</a>
+						</li>
+						<li><a href="">Projects</a>
+						</li>
+						<li><a href="">Settings</a>
+						</li>
+					</ul>
+				</li>
 
 				
 				<li ng-if="hasSession.logged" class="dropdown">

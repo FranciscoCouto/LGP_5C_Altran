@@ -4,6 +4,8 @@
 		 console.log('Page loaded.');
          $scope.hasSession="";
          $scope.items = [];
+		 
+		$scope.permission = -1;
          
 	    $scope.login = function(user,remember){
              userServices.login(user, remember)
@@ -23,12 +25,21 @@
                 });
             
         };
+		
+		$scope.hasAdminLevel = function() {
+			return $scope.permission <= 2;
+		}
+		
+		$scope.hasSubLevel = function() {
+			return $scope.permission <= 1;
+		}
 
         
          $scope.logged = function(){
             userServices.logged()
                 .then(function(res){
                     $scope.hasSession=res;
+					$scope.permission=res.data.permission;
                     $scope.hasSession.logged=true;
                 })
                 .catch( function (err){
