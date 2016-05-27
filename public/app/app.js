@@ -205,7 +205,16 @@
                 CREATOR: 'Creator',
                 APPROVER: 'Approver',
                 EDITOR: 'Editor',
-                TYPE_OF_CHANGE: 'Operation'
+                TYPE_OF_CHANGE: 'Operation',
+                
+                //LOGIN
+                FORGOT: 'Forgot the password?',
+                CONTINUEAS: 'Do you wish to continue as ',
+                LOGOUT: 'Logout',
+                USERNAME: 'Username',
+                REMEMBERME: 'Remember me',
+                SIGNIN: 'Sign in'
+                
             })
             .translations('pt', {
                 HOME: 'Começar',
