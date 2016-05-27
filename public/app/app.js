@@ -30,58 +30,59 @@
 
              .when("/home", {
                 templateUrl: "app/views/home.html",
-                controller: "HomeCtrl"
+                controller: "HomeCtrl",
+				css: "styles/home.css"
             })
 
             // Management side
             .when("/user_management", {
                 templateUrl: "app/views/admin/user_management.html",
-                controller: "AdminCtrl"
+                controller: "AdminCtrl",
+				css: "styles/user.css"
+				
             })
 
             .when("/create_project", {
                 templateUrl: "app/views/admin/create_project.html",
-                controller: "Create_projCtrl"
+                controller: "Create_projCtrl",
+				css: "styles/create_project.css"
+				
             })
 
             .when("/users", {
                 templateUrl: "app/views/admin/user_list.html",
-                controller: "UserListCtrl"
+                controller: "UserListCtrl",
+				css: "styles/list_users.css"
             })
 
             .when("/listll", {
                 templateUrl: "app/views/list_ll.html",
-                controller: "listllCtrl"
+                controller: "listllCtrl",
+				css: "styles/list_ll.css"
             })
 
             .when("/mylistll", {
                 templateUrl: "app/views/mylist_ll.html",
-                controller: "mylistllCtrl"
+                controller: "mylistllCtrl",
+				css: "styles/list_ll.css"
             })
 
             .when("/create_ll", {
                 templateUrl: "app/views/create_ll.html",
-                controller: "CreateLLCtrl"
+                controller: "CreateLLCtrl",
+				css: "styles/create_ll.css"
             })
 
 			.when("/view_ll/:id/", {
                 templateUrl: "app/views/view_ll.html",
-                controller: "ViewLLCtrl"
-            })
-
-            .when("/edit_ll/:id/", {
-                templateUrl: "app/views/edit_ll.html",
-                controller: "EditLLCtrl"
+                controller: "ViewLLCtrl",
+				css: "styles/view_ll.css"
             })
 
             .when("/list_audit/:id/", {
                 templateUrl: "app/views/list_audit.html",
-                controller: "AuditListCtrl"
-            })
-
-            .when("/view_audit/:id/", {
-                templateUrl: "app/views/view_audit.html",
-                controller: "AuditCtrl"
+                controller: "AuditListCtrl",
+				css: "styles/list_ll.css"
             })
 
             .when("/list_projects", {
@@ -91,7 +92,8 @@
 
 			.when("/settings",{
                 templateUrl: "app/views/settings.html",
-                controller: "SetCtrl"
+                controller: "SetCtrl",
+				css: "styles/settings.css"
             })
             .when("/statistics",{
                 templateUrl: "app/views/statistics.html",

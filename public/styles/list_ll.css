@@ -9,6 +9,13 @@ table{
 #newLLbtn {
 }
 
+
+#newLLbtn {
+	margin-bottom: 10px;
+}
+
+
+
 .tbl-header{
   background-color: rgba(255,255,255,0.1);
  }
@@ -17,7 +24,6 @@ table{
 
   overflow-x:auto;
   margin-top: 0px;
-
 }
 th{
   padding: 20px 15px;
