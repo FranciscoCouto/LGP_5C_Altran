@@ -66,10 +66,10 @@
 
                         <tr ng-repeat="project in projects | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams">
                             <td>{{project.name}}</td>
-                            <td>{{project.manager}} </td>
+                            <td>{{project.RManager}} </td>
                             <td>{{project.client}}</td>
                             <td>{{project.deliveringModel}}</td>
-                            <td>{{project.sector}}</td>
+                            <td>{{project.RSector}}</td>
                         </tr>
 
             </div>

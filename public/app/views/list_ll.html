@@ -59,6 +59,9 @@
                                   <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> INSPECT</a>
+                            </th>
 
 
 
@@ -88,6 +91,7 @@
                             <td ng-if="!isEmpty(lesson.client)">{{lesson.client}}</td>
                             <td ng-if="isEmpty(lesson.client)">Altran</td>
                             <td ng-if="isAdmin==1">{{lesson.status}}</td>
+                            <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" href="/view_ll/{{lesson.idLessonsLearned}}""><i class="glyphicon glyphicon-eye-open"></i></a></td>
                         </tr>
 
             </div>

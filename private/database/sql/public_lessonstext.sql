@@ -40,7 +40,7 @@ CREATE TABLE `lessonstext` (
 
 LOCK TABLES `lessonstext` WRITE;
 /*!40000 ALTER TABLE `lessonstext` DISABLE KEYS */;
-INSERT INTO `lessonstext` VALUES (1,1,'Situação 222','Ação 21312312','Desc asdasdas'),(2,2,'Ta paraditooo','Ta muitoooo paraditooo','Uiii nem se fala aquiiii'),(3,3,'Siga pra bingooo','Uh la laaa','Aiii que projetaooooo');
+INSERT INTO `lessonstext` VALUES (1,1,'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt feugiat risus, eget condimentum dolor pellentesque et. Curabitur tristique eleifend purus, vel volutpat elit gravida et. Nulla ex risus, luctus eu orci in, efficitur commodo neque. Donec nec porta dui. Aenean egestas convallis tellus, id scelerisque leo. Donec nisi turpis, molestie vitae auctor vitae, volutpat vel lacus. Praesent tempus purus id quam venenatis elementum. Phasellus non orci ut mi luctus pharetra. Duis ligula eros, rutrum eu ultrices ac, tristique eget.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt feugiat risus, eget condimentum dolor pellentesque et. Curabitur tristique eleifend purus, vel volutpat elit gravida et. Nulla ex risus, luctus eu orci in, efficitur commodo neque. Donec nec porta dui. Aenean egestas convallis tellus, id scelerisque leo. Donec nisi turpis, molestie vitae auctor vitae, volutpat vel lacus. Praesent tempus purus id quam venenatis elementum. Phasellus non orci ut mi luctus pharetra. Duis ligula eros, rutrum eu ultrices ac, tristique eget.','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt feugiat risus, eget condimentum dolor pellentesque et. Curabitur tristique eleifend purus, vel volutpat elit gravida et. Nulla ex risus, luctus eu orci in, efficitur commodo neque. Donec nec porta dui. Aenean egestas convallis tellus, id scelerisque leo. Donec nisi turpis, molestie vitae auctor vitae, volutpat vel lacus. Praesent tempus purus id quam venenatis elementum. Phasellus non orci ut mi luctus pharetra. Duis ligula eros, rutrum eu ultrices ac, tristique eget.'),(2,2,'Ta paraditooo','Ta muitoooo paraditooo','Uiii nem se fala aquiiii'),(3,3,'Siga pra bingooo','Uh la laaa','Aiii que projetaooooo');
 /*!40000 ALTER TABLE `lessonstext` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-26 23:53:44
+-- Dump completed on 2016-05-28  3:18:15

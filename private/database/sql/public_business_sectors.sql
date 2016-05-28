@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `business_sectors`;
 CREATE TABLE `business_sectors` (
   `idSector` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
-  `visible` int(11) DEFAULT '1',
+  `visible` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idSector`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -36,7 +36,7 @@ CREATE TABLE `business_sectors` (
 
 LOCK TABLES `business_sectors` WRITE;
 /*!40000 ALTER TABLE `business_sectors` DISABLE KEYS */;
-INSERT INTO `business_sectors` VALUES (1,'Telecomunicações'),(2,'Administração Pública'),(3,'Distribuição'),(4,'Saúde'),(5,'Financeiro'),(6,'Media');
+INSERT INTO `business_sectors` VALUES (1,'Telecomunicações',1),(2,'Administração Pública',1),(3,'Distribuição',1),(4,'Saúde',1),(5,'Financeiro',1),(6,'Media',1);
 /*!40000 ALTER TABLE `business_sectors` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-26 23:53:44
+-- Dump completed on 2016-05-28  3:18:15

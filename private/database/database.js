@@ -573,7 +573,7 @@
 
     exports.getProjects = function(){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT * FROM public.project";
+         var query = "SELECT t1.*, t2.name as RManager, t3.name as RSector FROM public.project as t1 INNER JOIN users as t2 ON (t1.manager = t2.idusers) INNER JOIN business_sectors as t3 ON(t1.sector = t3.idSector)";
          query = mysql.format(query);
          client.query(query,function (err, result) {
                     if (err) {

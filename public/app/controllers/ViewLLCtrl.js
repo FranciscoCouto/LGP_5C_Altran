@@ -289,13 +289,13 @@
         //   this.line(....)
         //   this.text(....)
       };
-      var doc = new jsPDF();
+      var doc = new jsPDF("portrait", "mm" , 'a4');
       doc.mymethod();
-      var pdfPart1 = $("#viewll").not('[id="btnshi"]')
+      var pdfPart1 = $("#viewll")
 
 
       var specialElementHandlers = {
-        '#loadVar': function(element, renderer) {
+        '#btnshi': function(element, renderer) {
           return true;
         }
       };
@@ -314,7 +314,7 @@
 	});
 
 
-      doc.output('save', 'Download.pdf');
+      doc.output('save', 'LessonLearned'+$scope.lldata.idLessonsLearned+'.pdf');
     
 
 
