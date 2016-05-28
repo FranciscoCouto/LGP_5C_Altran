@@ -21,7 +21,7 @@
                     $cookies.put('session', res.token, {
                         path: '/',
                         expires: exp
-                    });s
+                    });
                     //$window.location.href = '/home';
 
                     deferred.resolve('Success');

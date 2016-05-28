@@ -11,10 +11,10 @@
                 .then(function (res) {
                     $scope.items.pop();
                     $scope.items.push();
-                    /* if(res.data.permission=="2")
+                     if(res.data.permission=="2")
                         $window.location.href = '/home';
                     else
-                        $window.location.href = '/listll';*/
+                        $window.location.href = '/listll';
                 })
                 .catch(function (err) {
                     $scope.items.pop();
