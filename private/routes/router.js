@@ -155,15 +155,12 @@
         });
 
         server.get('/api/verifysession', function (req, res){
-            console.log(req.cookies);
              if (req.cookies.session) {
                 cookie.verifySession(req.cookies.session)
                     .then(function (user) {
-                        console.log(user);
                         res.status(200).json(user);
                     })
                     .catch(function (err) {
-                        console.log(err);
                         res.status(406).send('ERRORSESSION');
                     });
             } else {
