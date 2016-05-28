@@ -23,7 +23,12 @@
                 });
             
         };
-		
+		$scope.redirect = function(){
+            if($scope.hasSession.data.permission=="2")
+                        $window.location.href = '/home';
+                    else
+                        $window.location.href = '/listll';
+        };
 		$scope.hasAdminLevel = function() {
 			return $scope.permission <= 2;
 		}
