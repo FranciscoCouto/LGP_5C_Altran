@@ -175,7 +175,7 @@
 
     var form = new formidable.IncomingForm();
      //Formidable uploads to operating systems tmp dir by default
-    form.uploadDir = "./private/images";       //set upload directory
+    form.uploadDir = "./public/images";       //set upload directory
     form.encoding = 'utf-8';
     form.keepExtensions = false;     //keep file extension
    form.parse(req, function(err, fields, files) {
