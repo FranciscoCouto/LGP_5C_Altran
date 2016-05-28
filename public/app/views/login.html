@@ -23,7 +23,7 @@
 			</div><!-- /card-container -->
 			<div ng-if="hasSession.logged">
 				{{ 'CONTINUEAS' | translate }}
-				<a href="/home" class="forgot-password">
+				<a ng-click="redirect()" class="forgot-password">
 					 {{hasSession.data.name}}
 				</a><br>
 				<a ng-click="logout()">{{ 'LOGOUT' | translate }}</a>
