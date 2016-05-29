@@ -18,7 +18,7 @@
 --
 -- Table structure for table `lessonslearned`
 --
-
+USE public;
 DROP TABLE IF EXISTS `lessonslearned`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -61,4 +61,3 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2016-05-28  3:18:16
-USE `lessonslearned`; 
