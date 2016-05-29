@@ -310,7 +310,7 @@
 
     exports.getLessonByID = function(idlesson){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT idLessonsLearned, t6.name as manager, feedback, project, status, creationdate, aproveddate, situation,action,result, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonsLearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project WHERE t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result";
+         var query = "SELECT idLessonsLearned, t6.name as manager, feedback, project, status, creationdate, aproveddate, situation,action,result, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project WHERE t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result";
          query = mysql.format(query,idlesson);
          client.query(query,function (err, result) {
                     if (err) {
@@ -343,7 +343,7 @@
 
     exports.checkLessonManager = function(idManager, idLesson){
          return new Promise(function (resolve, reject) {
-            client.query("SELECT idLessonsLearned, t6.name as manager, project, status, creationdate, aproveddate, situation,action,result, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonsLearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project WHERE t1.manager = ? AND t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result", [idManager,idLesson],
+            client.query("SELECT idLessonsLearned, t6.name as manager, project, status, creationdate, aproveddate, situation,action,result, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project WHERE t1.manager = ? AND t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result", [idManager,idLesson],
                 function (err, result) {
                     if (err) {
                         console.log(err);
@@ -357,7 +357,7 @@
 
     exports.getLessonsByUser = function(iduser){
          return new Promise(function (resolve, reject) {
-         client.query("SELECT idLessonsLearned, status, creationdate, aproveddate, GROUP_CONCAT(technology SEPARATOR ', ') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.technologies as t3, public.lesson_tech as t4, public.lessonsLearned as t1 LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject WHERE t1.manager = ? AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech GROUP BY idLessonsLearned, t5.name, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client",[iduser],
+         client.query("SELECT idLessonsLearned, status, creationdate, aproveddate, GROUP_CONCAT(technology SEPARATOR ', ') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.technologies as t3, public.lesson_tech as t4, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject WHERE t1.manager = ? AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech GROUP BY idLessonsLearned, t5.name, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client",[iduser],
             function (err, result) {
                     if (err) {
                         console.log(err);
@@ -372,7 +372,7 @@
     exports.getLessonByKeyword = function(keyword){
          return new Promise(function (resolve, reject) {
          var searchit = '%' + keyword +'%';
-         var query = "SELECT t1.manager,t1.status,t1.creationdate,t1.idLessonsLearned,t3.name as title,t2.action,t2.result,t6.technology,t4.name FROM  public.lessonsLearned as t1,  public.lessonstext as t2, public.project as t3 , public.users as t4, public.lesson_tech as t5, public.technologies as t6 WHERE  t1.idLessonsLearned = t2.idLessonLearned  AND (t2.situation Like '?' OR t2.action LIKE '?' OR t2.result LIKE '?') AND (t1.manager=t4.idusers) AND (t5.idlesson=t1.idLessonsLearned) AND (t5.idtech=t6.idtechnologies)";
+         var query = "SELECT t1.manager,t1.status,t1.creationdate,t1.idLessonsLearned,t3.name as title,t2.action,t2.result,t6.technology,t4.name FROM  public.lessonslearned as t1,  public.lessonstext as t2, public.project as t3 , public.users as t4, public.lesson_tech as t5, public.technologies as t6 WHERE  t1.idLessonsLearned = t2.idLessonLearned  AND (t2.situation Like '?' OR t2.action LIKE '?' OR t2.result LIKE '?') AND (t1.manager=t4.idusers) AND (t5.idlesson=t1.idLessonsLearned) AND (t5.idtech=t6.idtechnologies)";
          query = mysql.format(query,searchit,searchit,searchit);
          client.query(query,function (err, result) {
                     if (err) {
@@ -386,7 +386,7 @@
 
     exports.deleteLessonByID = function(iduser){
          return new Promise(function (resolve, reject) {
-         var query = "DELETE from public.lessonsLearned WHERE idLessonsLearned = ?";
+         var query = "DELETE from public.lessonslearned WHERE idLessonsLearned = ?";
 
             query = mysql.format(query,iduser);
 
@@ -469,7 +469,7 @@
             if (err) {
                 reject(err);
             } else {
-                client.query('INSERT INTO public.lessonsLearned SET ?', {creationdate: dateCreated, manager: result[0].idusers, project: projectID, status: status},
+                client.query('INSERT INTO public.lessonslearned SET ?', {creationdate: dateCreated, manager: result[0].idusers, project: projectID, status: status},
                         function (err1, result1) {
                             if (err1) {
                                 reject(err1);
@@ -510,7 +510,7 @@
                         if (err) {
                             reject(err);
                         } else {
-                        client.query('INSERT INTO public.lessonsLearned SET ?', {dateCreated: dateCreated, maker: result[0].idusers, project: result4[0].idproject},
+                        client.query('INSERT INTO public.lessonslearned SET ?', {dateCreated: dateCreated, maker: result[0].idusers, project: result4[0].idproject},
                             function (err1, result1) {
                                 if (err1) {
                                     reject(err1);
@@ -541,7 +541,7 @@
 
     exports.updateLessonStateByID = function(idlesson,state){
         return new Promise(function (resolve, reject) {
-            client.query('UPDATE public.lessonsLearned SET status = ? WHERE idLessonsLearned = ?',  [state, idlesson ],
+            client.query('UPDATE public.lessonslearned SET status = ? WHERE idLessonsLearned = ?',  [state, idlesson ],
                 function (err, result) {
                     if (err) {
                         console.log(err);
@@ -556,7 +556,7 @@
 
     exports.updateLessonFeedbackByID = function(idlesson,feedback){
         return new Promise(function (resolve, reject) {
-            client.query('UPDATE public.lessonsLearned SET feedback = ? WHERE idLessonsLearned = ?',  [feedback, idlesson ],
+            client.query('UPDATE public.lessonslearned SET feedback = ? WHERE idLessonsLearned = ?',  [feedback, idlesson ],
                 function (err, result) {
                     if (err) {
                         console.log(err);
