@@ -15,7 +15,7 @@
         var name3 = document.getElementById("datas").innerHTML.split(",")[9];
         var best4 = document.getElementById("datas").innerHTML.split(",")[10];
         var name4 = document.getElementById("datas").innerHTML.split(",")[11];
-      
+        
         if(typeof best1 != 'undefined'){
         var best1 = best1.replace(/[^\w\s]/gi, '');
         var name1 = name1.replace(/[^\w\s]/gi, '');

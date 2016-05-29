@@ -327,7 +327,7 @@
     exports.getLessonByStatus = function(status){
         console.log('cheguei crl');
          return new Promise(function (resolve, reject) {
-         var query = "SELECT * FROM public.lessonsLearned as t1, public.project as t2 WHERE t1.status = ? AND t1.project = t2.idproject";
+         var query = "SELECT * FROM public.lessonslearned as t1, public.project as t2 WHERE t1.status = ? AND t1.project = t2.idproject";
          query = mysql.format(query,status);
          client.query(query,function (err, result) {
                     if (err) {
