@@ -59,17 +59,16 @@
                                   <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> INSPECT</a>
-                            </th>
-
-
-
+                            
                             <th ng-show="isAdmin==1">
 
                                 <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
                                 </select>
 
+                            </th>
+
+                            <th>
+                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> INSPECT</a>
                             </th>
 
                         </tr>

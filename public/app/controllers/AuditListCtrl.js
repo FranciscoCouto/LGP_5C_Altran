@@ -2,7 +2,7 @@
  * Create the controller
  */
 (function() {
-    var AuditListCtrl = function($scope, auditServices, filterFilter, $filter) {
+    var AuditListCtrl = function($scope, $uibModal,$log, auditServices, filterFilter, $filter) {
 
     	auditServices.getAudit()
             .then(function (result) {
@@ -22,14 +22,41 @@
             .catch(function (err) {
                 console.log('Error geting audit for ll');
         	});
+
+        $scope.viewAudit = function(audit) {
+            console.log("Modal opened.");
+            var modalInstance = $uibModal.open({
+                animation: true,
+                templateUrl: 'auditTpl',
+                controller: 'DialogController',
+                resolve: {
+                    selectedAudit: function () {
+                        return audit;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (selectedAudit) {
+                $route.reload();
+            }, function () {
+                $log.info('Modal dismissed at: ' + new Date());
+            });
+        }
         
     };
 
+    var DialogController = function ($scope, $uibModalInstance, $window, selectedAudit) {
+            
+        $scope.selectedItem = selectedAudit;
+        console.log($scope.selectedItem);
+    };
 
     // Injecting modules used for better minifing later on
-    AuditListCtrl.$inject = ['$scope', 'auditServices', 'filterFilter', '$filter'];
-
+    AuditListCtrl.$inject = ['$scope', '$uibModal','$log', 'auditServices', 'filterFilter', '$filter'];
+    DialogController.$inject = ['$scope', '$uibModalInstance','$window', 'selectedAudit'];
 
     // Enabling the controller in the app
-    angular.module('lessonslearned').controller('AuditListCtrl', AuditListCtrl);
+    angular.module('lessonslearned')
+        .controller('AuditListCtrl', AuditListCtrl)
+        .controller('DialogController', DialogController);;
 }());

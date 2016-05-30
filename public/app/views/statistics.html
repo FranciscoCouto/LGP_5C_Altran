@@ -1,9 +1,30 @@
-<script src="scripts/statistics.js"></script>
-<div id="datas" style="visibility: hidden;">{{approved}},{{inactive}},{{rejected}},{{submitted}},{{top}}</div>
 <div ng-include='"app/views/templates/header.html"'></div>
+<script src="scripts/statistics.js"></script>
+
+<div id="datas" style="visibility: hidden;">
+	{{approved}},{{inactive}},{{rejected}},{{submitted}},{{top}}
+</div>
+
 <div data-ng-init="init()"></div>
-<div id="piechart_3d" style="width: 60vw; height: 30vw;"></div>
-<div id="barchart_values" style="width:60vw; height: 30vw<"></div>
 
+</div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+        <div id="piechart_3d" style="width: 80%; height: 70%;"></div>
+  </div>
+  <div class="col-md-7">
+       <div id="barchart_values" style="width: 90%; height: 60%;">
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-5">
+        <p></p>
+  </div>
+  <div class="col-md-7">
+       <p></p>
+  </div>
+</div>
+</div>
 
-    

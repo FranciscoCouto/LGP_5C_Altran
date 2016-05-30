@@ -2,13 +2,13 @@
 
 <div ng-include='"app/views/templates/header.html"'></div>
     <div class="container">
-        <div class="card card-container">
+        <div class="card card-container ">
 
             <div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12">
-					<form>
+					<form class="col-md-6">
 						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control " placeholder="Search..." ng-model="searchParams">
+							<input type="text" class="form-control " placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
 							<span class="input-group-addon">
 								<button type="submit">
 									<span class="glyphicon glyphicon-search"></span>
@@ -16,7 +16,11 @@
 							</span>
 						</div>
 					</form>
+                    <div class="text-center col-md-6 ">
+                    <a href="/user_management" type="button" class="btn btn-primary btn-outline">{{ 'ADD_PROJECT' | translate | uppercase }}</a>
+                </div>
 				</div>
+
             </div>
             <br>
 
@@ -27,30 +31,30 @@
                     <thead>
                         <tr>
                             <th>
-                                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"> Name   </a>
+                                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"> {{'PROJECT_NAME' | translate}} </a>
                                 <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
                                 <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'manager'; sortReverse = !sortReverse"> Manager  </a>
+                                <a href="#" ng-click="sortType = 'manager'; sortReverse = !sortReverse"> {{'PROJECT_MANAGER' | translate}}  </a>
                                 <span ng-show="sortType == 'manager' && !sortReverse" class="fa fa-caret-down"></span>
                                 <span ng-show="sortType == 'manager' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> Client  </a>
+                                <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> {{'CLIENT' | translate}}</a>
                                 <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
                                 <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'deliveringmodel'; sortReverse = !sortReverse"> Delivering Model
+                                <a href="#" ng-click="sortType = 'deliveringmodel'; sortReverse = !sortReverse"> {{'DELIVERING_MODEL' | translate}} 
                                   <span ng-show="sortType == 'deliveringmodel' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'deliveringmodel' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> SECTOR
+                                <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}} 
                                   <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
