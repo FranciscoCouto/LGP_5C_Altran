@@ -717,6 +717,19 @@
         });
     }
 
+    exports.deleteProjectType = function(projid){
+         return new Promise(function (resolve, reject) {
+         client.query('UPDATE public.project_types SET visible=0 WHERE idType = ?', [projid],
+            function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve('Deleted project type with id: ' + projid);
+                    }
+                });
+         });
+    }
+
     <!------------------------------------------------------------------------------------------------ Business Sectors ------------------------------------------------------------->
 
 
@@ -750,6 +763,18 @@
     }
 
 
+    exports.deleteSector = function(sectorid){
+         return new Promise(function (resolve, reject) {
+         client.query('UPDATE public.business_sectors SET visible=0 WHERE idSector = ?', [sectorid],
+            function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve('Deleted Sector with id: ' + sectorid);
+                    }
+                });
+         });
+    }
 
 
      <!------------------------------------------------------------------------------------------------ Audit Trail ------------------------------------------------------------->
