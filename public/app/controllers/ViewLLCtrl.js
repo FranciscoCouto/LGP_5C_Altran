@@ -2,7 +2,7 @@
 * Create the controller for the Admin Home Page
 */
 (function(){
-	var  ViewLLCtrl = function($scope, $location, lessonServices, userServices) {
+	var  ViewLLCtrl = function($scope,$filter, $location, lessonServices, userServices) {
 
 		console.log('ViewLLCtrl loaded.');
 		
@@ -281,52 +281,155 @@
 		$scope.isAdminAndInactive = function() {
 			return $scope.isAdmin() && $scope.isInactive();
 		}
-		
-	$scope.PDFclick = function() {
-      jsPDF.API.mymethod = function() {
-        // 'this' will be ref to internal API object. see jsPDF source
-        // , so you can refer to built-in methods like so:
-        //   this.line(....)
-        //   this.text(....)
-      };
-      var doc = new jsPDF("portrait", "mm" , 'a4');
-      doc.mymethod();
-      var pdfPart1 = $("#viewll")
 
+ 
+  $scope.downloadPdf = function() {
 
-      var specialElementHandlers = {
-        '#btnshi': function(element, renderer) {
-          return true;
-        }
-      };
+  	var docDefinition = {
+    content: [
+      	'Lesson Learned Exporting \n',
+  		'Altran Technologies, SA \n\n\n\n\n',
+    {
 
-      doc.fromHTML(pdfPart1.html(), 15, 15, {
-        'width': 170,
-        'elementHandlers': specialElementHandlers
-      });
+    alignment: 'justify',
+    columns: [
+		  {
+		  	width: '*',
+	       text: 'LL Title', 
+			style: 'header' 
+	      },
+	      '\n\n',
+	      {
+	      	width: '*',
+	       text: 'Client', 
+			style: 'header' 
+	      },
+	      '\n\n',
+	      {
+	      	width: '*',
+	       text: 'LL Status', 
+			style: 'header' 
+	      },
+	      '\n\n',
+			]
+		},
 
-      doc.setFont("courier");
+	{
 
-	doc.setProperties({
-	    title: 'Lesson Learned Export',
-	    author: 'Altran'
+	alignment: 'justify',
+    columns: [
 
-	});
+	      $scope.lldata["project"] + '\n\n',
 
+	      $scope.lldata["client"] + '\n\n' ,
 
-      doc.output('save', 'LessonLearned'+$scope.lldata.idLessonsLearned+'.pdf');
-    
+	      $scope.lldata["status"] + '\n\n',
+			]
+		},
+      
+      {
+       text: 'Situation Description', 
+		style: 'header' 
+      },
+      $scope.lldata["situation"] + '\n\n',
+      {
+       text: 'Action Taken', 
+		style: 'header' 
+      },
+      $scope.lldata["action"] + '\n\n',
+      {
+       text: 'Result Description', 
+		style: 'header' 
+      },
+      $scope.lldata["result"] + '\n\n',
+       {
 
+    alignment: 'justify',
+    columns: [
+		  {
+		  	width: '*',
+	       text: 'Manager', 
+			style: 'header' 
+	      },
+	      {
+	      	width: '*',
+	       text: 'Dimension', 
+			style: 'header' 
+	      },
+	      {
+	      	width: '*',
+	       text: 'Technologies', 
+			style: 'header' 
+	      },
+			]
+		},
+	{
+      columns: [
 
-    };
-		
-		
-	
-		
+	      $scope.lldata["manager"] + '\n\n',
+
+	      $scope.lldata["numberConsultants"] + '\n\n' ,
+
+	      $scope.lldata.technologies + '\n\n',
+			]
+	},
+     
+     {
+
+    alignment: 'justify',
+    columns: [
+		  {
+		  	width: '*',
+	       text: 'Start Date', 
+			style: 'header' 
+	      },
+	      '\n\n',
+	      {
+	      	width: '*',
+	       text: 'Expected Finish Date', 
+			style: 'header' 
+	      },
+	      '\n\n',
+	      {
+	      	width: '*',
+	       text: 'Finish Date', 
+			style: 'header' 
+	      },
+	      '\n\n',
+			]
+		},
+	{
+      columns: [
+
+	      $filter('date')($scope.lldata["dateBeginning"], "dd/MM/yyyy"),
+
+	      $filter('date')($scope.lldata["dateEndExpected"], "dd/MM/yyyy"),
+
+		  $filter('date')($scope.lldata["dateEnd"], "dd/MM/yyyy"),
+			]
+	},
+
+    ],
+    styles: {
+	    header: {
+	      fontSize: 14,
+	      bold: true
+	    },
+	    text: {
+	     fontSize: 12,
+	      italics: true
+	    },
+	    defaultStyle: {
+			columnGap: 20,
+		}
+	}
+  };
+    pdfMake.createPdf(docDefinition).download('LL'+$scope.lldata["idLessonsLearned"]+'.pdf');
+  };
 
 	 };
 	 // Injecting modules used for better minifing later on
-    ViewLLCtrl.$inject = ['$scope', '$location', 'lessonServices' , 'userServices'];
+    ViewLLCtrl.$inject = ['$scope', '$filter', '$location', 'lessonServices' , 'userServices'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned')

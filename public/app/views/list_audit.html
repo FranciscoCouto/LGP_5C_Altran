@@ -92,7 +92,7 @@
         <h3 class="modal-title">{{ 'VIEWING_CHANGES' | translate }}</h3>
     </div>
         <div class="modal-body mdl-content">
-            <h4>{{ 'FIELDS_CHANGED'}}</h4>
+            <h4>{{ 'FIELDS_CHANGED' | translate}}</h4>
                 <fieldset>
                 <form class="form-horizontal" ng-if="selectedItem.editiondate != null">
                     <div class="form-group">
@@ -102,19 +102,19 @@
                         </div>
                     </div><br>
                     <div class="form-group" ng-if="selectedItem.action != null">
-                        <label class="col-sm-2" control-label" for="textinput2">{{ 'ACTION' | translate }}</label>
+                        <label class="col-sm-2" control-label" for="textinput2">{{ 'ACTION_TAKEN' | translate }}</label>
                         <div class="col-sm-10">
                             <textarea disabled rows="4" ng-model="selectedItem.action" id="textinput2" class="form-control input-md sc" style="font-weight: 300;font-size: 14px;color: #fff;background-color: rgb(52,71,112);border-bottom: solid 1px rgb(72,89,126);"></textarea>
                         </div>
                     </div><br>
                     <div class="form-group" ng-if="selectedItem.situation != null">
-                        <label class="col-sm-2" control-label" for="textinput2">{{ 'SITUATION' | translate }}</label>
+                        <label class="col-sm-2" control-label" for="textinput2">{{ 'DESCRIPTION' | translate }}</label>
                         <div class="col-sm-10">
                             <textarea disabled rows="4" ng-model="selectedItem.situation" id="textinput2" type="textarea" class="form-control input-md sc" style="font-weight: 300;font-size: 14px;color: #fff;background-color: rgb(52,71,112);border-bottom: solid 1px rgb(72,89,126);"></textarea>
                         </div>
                     </div><br>
                     <div class="form-group" ng-if="selectedItem.result != null">
-                        <label class="col-sm-2" control-label" for="textinput2">{{ 'RESULT' | translate }}</label>
+                        <label class="col-sm-2" control-label" for="textinput2">{{ 'RESULT_DESCRIPTION' | translate }}</label>
                         <div class="col-sm-10">
                             <textarea disabled rows="4" ng-model="selectedItem.result" id="textinput2" type="textarea" class="form-control input-md sc" style="font-weight: 300;font-size: 14px;color: #fff;background-color: rgb(52,71,112);border-bottom: solid 1px rgb(72,89,126);"></textarea>
                         </div>

@@ -28,7 +28,7 @@
             var modalInstance = $uibModal.open({
                 animation: true,
                 templateUrl: 'auditTpl',
-                controller: 'DialogController',
+                controller: 'DialogController2',
                 resolve: {
                     selectedAudit: function () {
                         return audit;
@@ -45,7 +45,7 @@
         
     };
 
-    var DialogController = function ($scope, $uibModalInstance, $window, selectedAudit) {
+    var DialogController2 = function ($scope, $uibModalInstance, $window, selectedAudit) {
             
         $scope.selectedItem = selectedAudit;
         console.log($scope.selectedItem);
@@ -53,10 +53,10 @@
 
     // Injecting modules used for better minifing later on
     AuditListCtrl.$inject = ['$scope', '$uibModal','$log', 'auditServices', 'filterFilter', '$filter'];
-    DialogController.$inject = ['$scope', '$uibModalInstance','$window', 'selectedAudit'];
+    DialogController2.$inject = ['$scope', '$uibModalInstance','$window', 'selectedAudit'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned')
         .controller('AuditListCtrl', AuditListCtrl)
-        .controller('DialogController', DialogController);;
+        .controller('DialogController2', DialogController2);
 }());

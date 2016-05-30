@@ -206,6 +206,8 @@
                 APPROVER: 'Approver',
                 EDITOR: 'Editor',
                 TYPE_OF_CHANGE: 'Operation',
+                FIELDS_CHANGED: 'Fields Changed',
+                VIEWING_CHANGES: 'Viewing Changes',
                 
                 //LOGIN
                 FORGOT: 'Forgot the password?',
@@ -342,6 +344,8 @@
                 APPROVER: 'Approver',
                 EDITOR: 'Editor',
                 TYPE_OF_CHANGE: 'Operação',
+                FIELDS_CHANGED: 'Campos Mudados',
+                VIEWING_CHANGES: 'Ver Mudanças',
                 
                 //LOGIN
                 FORGOT: 'Não se lembra da senha?',
@@ -478,7 +482,8 @@
                 APPROVER: 'Approver',
                 EDITOR: 'Editor',
                 TYPE_OF_CHANGE: 'Operation',
-                
+                FIELDS_CHANGED: 'Fields Changed',
+                VIEWING_CHANGES: 'Viewing Changes',
                 //LOGIN
                 FORGOT: 'Vous avez oublié le mot de passe?',
                 CONTINUEAS: 'Voulez-vous continuer comme ',
