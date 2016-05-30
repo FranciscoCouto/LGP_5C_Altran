@@ -84,11 +84,9 @@
                             <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
                             <td>{{lesson.technology}} </td>
                             <td>{{lesson.name}}</td>
-                            <td ng-if="!isEmpty(lesson.title)">{{lesson.title}}</td>
-                            <td ng-if="isEmpty(lesson.title)">{{'NO_PROJECT' | translate}}</td>
+                            <td >{{lesson.title}}</td>
                             <td>{{lesson.sector}}</td>
-                            <td ng-if="!isEmpty(lesson.client)">{{lesson.client}}</td>
-                            <td ng-if="isEmpty(lesson.client)">Altran</td>
+                            <td >{{lesson.client}}</td>
                             <td ng-if="isAdmin==1">{{lesson.status}}</td>
                             <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" href="/view_ll/{{lesson.idLessonsLearned}}""><i class="glyphicon glyphicon-eye-open"></i></a></td>
                         </tr>

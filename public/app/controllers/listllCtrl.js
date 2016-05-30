@@ -5,7 +5,7 @@
     var listllCtrl = function($scope, listllServices, userServices, filterFilter, $filter) {
         $scope.isAdmin = 0;
         $scope.sortType = 'title';
-        $scope.statusString = "approved";
+        $scope.statusString = "all";
         console.log('Page loaded.');
 
         userServices.logged()
@@ -28,12 +28,31 @@
             .then(function(result) {
                 if ($scope.isAdmin == 1) {
                     $scope.lessons = result.data;
-                    console.log(JSON.stringify(result.data));
+                    var count = 0;
+                angular.forEach($scope.lessons, function (lesson) {
+                    if(lesson.client == null){
+                     $scope.lessons[count].client = 'Altran';
+                    }
+                    if(lesson.title == null){
+                     $scope.lessons[count].title = 'No Project';
+                    }
+                    count++;
+                });
 
                 } else {
                     $scope.lessons = $filter('filter')(result.data, {
                         status: "approved"
                     }, true);
+                     var count = 0;
+                angular.forEach($scope.lessons, function (lesson) {
+                    if(lesson.client == null){
+                     $scope.lessons[count].client = 'Altran';
+                    }
+                    if(lesson.title == null){
+                     $scope.lessons[count].title = 'No Project';
+                    }
+                    count++;
+                });
                 }
 
             })
@@ -53,6 +72,9 @@
                     return lesson.status == 'submitted';
                 } else if ($scope.statusString == "inactive") {
                     return lesson.status == 'inactive';
+                }
+                else{
+                    return lesson.status;
                 }
             }
 
