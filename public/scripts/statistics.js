@@ -58,6 +58,7 @@
           ['Rejeitadas',  z],
           ['Submetidas',  w],
         ]);
+
         var data2 = google.visualization.arrayToDataTable([
         ["Element", "Top LL", { role: "style" } ],
         [name1, best1, "#b87333"],
@@ -65,6 +66,7 @@
         [name3, best3, "gold"],
         [name4, best4, "color: #e5e4e2"]
       ]);
+
         var view = new google.visualization.DataView(data2);
       view.setColumns([0, 1,
                        { calc: "stringify",
@@ -75,10 +77,10 @@
 
         var options = {
        titleTextStyle: {
-    color: 'white',
-},
-legend: {textStyle: {color: 'white'}},
-          title: 'Estado Lessons Learned',
+          color: 'white',
+        },
+      legend: {textStyle: {color: 'white'}},
+          title: 'Lessons Learned By State',
           backgroundColor: '#344770',
           fontName: 'corbertregular',
           color:'white',
@@ -93,16 +95,16 @@ legend: {textStyle: {color: 'white'}},
         legend: { position: "none" },
       };
 */
-var options2 = {
-       titleTextStyle: {
-    color: 'white',
-},
-legend: {textStyle: {color: 'white'}},
-vAxis:{textStyle: {color: 'white'}},
-          title: 'Top Submitters Lessons Learned',
-          backgroundColor: '#344770',
-          fontName: 'corbertregular',
-          color:'white',
+      var options2 = {
+             titleTextStyle: {
+          color: 'white',
+      },
+      legend: {textStyle: {color: 'white'}},
+      vAxis:{textStyle: {color: 'white'}},
+                title: 'Top Submitters By Lessons Learned',
+                backgroundColor: '#344770',
+                fontName: 'corbertregular',
+                color:'white',
           
         };
         var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
@@ -112,3 +114,6 @@ vAxis:{textStyle: {color: 'white'}},
         chart.draw(data, options);
 
       }
+$(window).resize(function(){
+  drawChart();
+});
