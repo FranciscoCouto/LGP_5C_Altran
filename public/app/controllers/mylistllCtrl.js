@@ -5,7 +5,7 @@
     var mylistllCtrl = function($scope,listllServices, userServices, filterFilter, $filter) {
 
       $scope.sortType = 'title';
-      $scope.statusString = "active";
+      $scope.statusString = "approved";
       console.log('Page loaded.');
 
       userServices.logged()
@@ -37,8 +37,8 @@
           return function(lesson) {
               console.log("estado clicado:" + $scope.statusString);
 
-              if ($scope.statusString == "active" || $scope.isAdmin==0) {
-                  return lesson.status == 'active';
+              if ($scope.statusString == "approved") {
+                  return lesson.status == 'approved';
               } else if ($scope.statusString == "submitted") {
                   return lesson.status == 'submitted';
               } else if ($scope.statusString == "inactive") {
@@ -51,8 +51,8 @@
       };
 
       $scope.fieldTable = [{
-          field: "active",
-          title: "Active"
+          field: "approved",
+          title: "Approved"
       }, {
           field: "inactive",
           title: "Inactive"
@@ -60,10 +60,9 @@
           field: "submitted",
           title: "Pending approval"
         }, {
-            field: "draft",
-            title: "Draft"
-
-      }];
+          field: "draft",
+          title: "Draft"
+        }];
 
       $scope.selected = $scope.fieldTable[0];
 

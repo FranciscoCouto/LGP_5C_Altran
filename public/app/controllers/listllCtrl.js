@@ -36,6 +36,9 @@
                     if(lesson.title == null){
                      $scope.lessons[count].title = 'No Project';
                     }
+                    if(lesson.sector == null){
+                     $scope.lessons[count].sector = 'No Sector';
+                    }
                     count++;
                 });
 

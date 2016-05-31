@@ -74,7 +74,6 @@
             res.render('index');
         });
 
-
         // Route to send forbidden view
         server.get('/forbidden', function (req, res) {
             res.render('index');
@@ -557,20 +556,7 @@
                     });
         });
 
-        //<!------------------------------------------------------------------ PROJECT ---------------------------------------------------------------------------------------------------->
-
-        server.get('/api/projects', function (req, res) {
-
-                database.getProjects()
-                   .then(function (projects) {
-                        res.status(200).send(projects);
-                    })
-                    .catch(function (err) {
-                        res.status(406).send('ERRORPROJECTINFO');
-                    });
-        });
-
-        server.get("/api/lessonsbymanager",function(req,res){
+         server.get("/api/lessonsbymanager",function(req,res){
 
              var managerid = req.headers.managerid;
              database.getLessonsByUser(managerid)
@@ -594,6 +580,20 @@
                     res.status(406).send('ERRORLLMANAGERID');
                 });
         });
+
+        //<!------------------------------------------------------------------ PROJECT ---------------------------------------------------------------------------------------------------->
+
+        server.get('/api/projects', function (req, res) {
+
+                database.getProjects()
+                   .then(function (projects) {
+                        res.status(200).send(projects);
+                    })
+                    .catch(function (err) {
+                        res.status(406).send('ERRORPROJECTINFO');
+                    });
+        });
+
 
         server.get("/api/projectsbymanager",function(req,res){
 

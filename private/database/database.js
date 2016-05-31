@@ -296,7 +296,7 @@
 
     exports.getLessons = function(){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,t3.technology,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.business_sectors as t7,public.lessonslearned as t1 ) LEFT JOIN public.project as t5 ON t1.project = t5.idproject AND t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers";
+         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.lessonslearned as t1 ) LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP By idLessonsLearned";
          query = mysql.format(query);
          client.query(query,function (err, result) {
                     if (err) {
@@ -357,7 +357,7 @@
 
     exports.getLessonsByUser = function(iduser){
          return new Promise(function (resolve, reject) {
-         client.query("SELECT idLessonsLearned, status, creationdate, aproveddate, GROUP_CONCAT(technology SEPARATOR ', ') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM public.technologies as t3, public.lesson_tech as t4, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject WHERE t1.manager = ? AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech GROUP BY idLessonsLearned, t5.name, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client",[iduser],
+         client.query("SELECT idLessonsLearned,status, creationdate, aproveddate,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies, t5.name as sector, t2.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, numberConsultants, daysDuration, client FROM (public.technologies as t3, public.lesson_tech as t4, public.lessonslearned as t1) LEFT OUTER JOIN public.project as t2 ON t1.project = t2.idproject LEFT OUTER JOIN public.business_sectors as t5 ON t2.sector = t5.idSector WHERE t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = ? GROUP BY idLessonsLearned",[iduser],
             function (err, result) {
                     if (err) {
                         console.log(err);

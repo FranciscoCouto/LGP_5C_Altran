@@ -160,7 +160,7 @@
                 SUBMIT: 'Submit',
                 SAVE_DRAFT: 'Save as draft',
                 CANCEL: 'Cancel',
-                CREATE_LL: 'Creating Lesson Learned',
+                CREATE_LL: 'Create Lesson Learned',
 
                 //Create Project
                 LL_TITLE: 'Lesson Learned title',
@@ -298,7 +298,7 @@
                 SUBMIT: 'Submeter',
                 SAVE_DRAFT: 'Guardar rascunho',
                 CANCEL: 'Cancelar',
-                CREATE_LL: 'Criação de Lição Aprendida',
+                CREATE_LL: 'Criar Lesson Learned',
 
                 //Create Project
                 LL_TITLE: 'Título da Lesson Learned',
