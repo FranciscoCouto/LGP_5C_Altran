@@ -20,6 +20,19 @@
             .then(function(result) {
               console.log(JSON.stringify(result.data));
                 $scope.lessons = result.data;
+                 var count = 0;
+                angular.forEach($scope.lessons, function (lesson) {
+                    if(lesson.client == null){
+                     $scope.lessons[count].client = 'Altran';
+                    }
+                    if(lesson.project == null){
+                     $scope.lessons[count].project = 'No Project';
+                    }
+                    if(lesson.sector == null){
+                     $scope.lessons[count].sector = 'No Sector';
+                    }
+                    count++;
+                });
 
             })
             .catch(function(err) {
