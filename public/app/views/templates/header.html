@@ -1,4 +1,4 @@
-<nav id="navbar1" class="navbar navbar-inverse navbar-fixed-top unselectable" role="navigation">
+<nav id="navbar1" class="navbar navbar-inverse navbar-fixed-top unselectable" role="navigation" ng-controller="HomeCtrl">
     <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -8,12 +8,13 @@
                 <span class="icon-bar"></span>
             </button>
             <!-- You'll want to use a responsive image option so this logo looks good on devices - I recommend using something like retina.js (do a quick Google search for it and you'll find it) -->
-            <a href="/home"><img src="images/logo_transparent.gif"></a>
+            <a ng-if="hasSession.data.permission != 2" href="/listll"><img src="images/logo_transparent.gif"></a>
+            <a ng-if="hasSession.data.permission == 2" href="/home"><img src="images/logo_transparent.gif"></a>
 
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse" ng-controller="HomeCtrl">
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
 				<!-- <ul class="breadcrumb list-inline">
 					<li><a href="#">Home</a></li>
