@@ -610,7 +610,6 @@
         server.put("/api/updateProjectManagerByID", function(req, res){
              var idproject = req.body.idproject;
              var managername = req.body.managername;
-             console.log('hiii' + idproject + managername);
                database.updateProjectManagerByID(idproject,managername)
                     .then(function() {
                         res.sendStatus(200);

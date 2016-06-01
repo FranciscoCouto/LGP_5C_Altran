@@ -130,6 +130,10 @@
                 SETTINGS: 'Settings',
                 PROJECTS: 'Projects',
 
+                TECHS: 'Technolgies',
+                PROJECT_TYPES: 'Project Types',
+                BUSINESS_SECTORS: 'Business Sectors',
+
                 LANGUAGE: 'Language',
 
                 EXPORT: 'Export',
@@ -178,6 +182,10 @@
                 CREATE_PROJECT: 'Creating Project',
 
                 ALLOCATE_PM: 'Alocate PM',
+
+                UPDATE_TYPES: 'Update Project Types',
+                UPDATE_TECHS: 'Update Technolgies',
+                UPDATE_SECTORS: 'Update Business Sectors',
 
                 //Lista LL
                 ACTIVE: 'Active',
@@ -270,6 +278,11 @@
                 SETTINGS: 'Configurações',
                 PROJECTS: 'Projetos',
 
+
+                TECHS: 'Tecnologias',
+                PROJECT_TYPES: 'Tipos de Projeto',
+                BUSINESS_SECTORS: 'Setores de Negócio',
+
                 LANGUAGE: 'Dialeto',
 
                 EXPORT: 'Exportar',
@@ -318,6 +331,10 @@
                 CREATE_PROJECT: 'Criar Projecto',
 
                 ALLOCATE_PM: 'Alocar PM',
+
+                UPDATE_TYPES: 'Atualizar Tipos de Projeto',
+                UPDATE_TECHS: 'Atualizar Tecnologias',
+                UPDATE_SECTORS: 'Atualizar Setores de Negócio',
 
                 //Lista LL
                 ACTIVE: 'Ativas',
@@ -410,6 +427,10 @@
                 SETTINGS: 'Réglages',
                 PROJECTS: 'Projects',
 
+                TECHS: 'Technolgies',
+                PROJECT_TYPES: 'Project Types',
+                BUSINESS_SECTORS: 'Business Sectors',
+
                 LANGUAGE: 'Dialeto',
 
                 EXPORT: 'Exportation',
@@ -458,6 +479,10 @@
                 CREATE_PROJECT: 'Créer un projet',
 
                 ALLOCATE_PM: 'Alocate PM',
+
+                UPDATE_TYPES: 'Update Project Types',
+                UPDATE_TECHS: 'Update Technolgies',
+                UPDATE_SECTORS: 'Update Business Sectors',
 
                 //Lista LL
                 ACTIVE: 'Actif',

@@ -2,12 +2,12 @@
 <script src="scripts/tags.min.js"></script>
 <div ng-include='"app/views/templates/header.html"'></div>
 <div class="container">
-    <h4>Tecnologias</h4>
+    <h4>{{'TECHS' | translate}}</h4>
     <br>
     <br>
     <!-- Trigger the modal with a button -->
     <tags-input  ng-model="newTech" add-on-space="true" on-tag-removed="techRemoved($tag)"> </tags-input>
-    <button type="button" class="btn btn-primary btn-outline " ng-click="addTech();" data-toggle="modal" data-target="#myModal" id="cen">Inserir tecnologia</button>
+    <button type="button" class="btn btn-primary btn-outline " ng-click="addTech();" data-toggle="modal" data-target="#myModal" id="cen">{{'UPDATE_TECHS' | translate}}</button>
     <br>
     <br>
 
@@ -17,14 +17,13 @@
 <br>
 <br>
 <div class="container">
-    <h4>Tipo de Projeto</h4>
+    <h4>{{'PROJECT_TYPES' | translate}}</h4>
     <br>
     <br>
     <!-- Trigger the modal with a button -->
     <tags-input  ng-model="newType" add-on-space="true" on-tag-removed="typeRemoved($tag)"></tags-input>
-    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal3" ng-click="addType();">Inserir Tipo</button>
-
-
+    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal3" ng-click="addType();"> 
+    {{'UPDATE_TYPES' | translate}}</button>
 
     <br>
     <br>
@@ -33,12 +32,12 @@
 <br>
 <br>
 <div class="container">
-    <h4>Setor de Projeto</h4>
+    <h4>{{'BUSINESS_SECTORS' | translate}}</h4>
     <br>
     <br>
     <!-- Trigger the modal with a button -->
     <tags-input ng-model="newSector" add-on-space="true" on-tag-removed="sectorRemoved($tag)"></tags-input>
-    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal2" ng-click="addSector();">Inserir Setor</button>
+    <button type="button" class="btn btn-primary btn-outline " data-toggle="modal" data-target="#myModal2" ng-click="addSector();">{{'UPDATE_SECTORS' | translate}}</button>
     <br>
     <br>
 
