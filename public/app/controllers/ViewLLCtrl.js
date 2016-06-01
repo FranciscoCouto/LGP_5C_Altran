@@ -282,15 +282,12 @@
 			return $scope.isAdmin() && $scope.isInactive();
 		}
 
- 
   $scope.downloadPdf = function() {
-
   	var docDefinition = {
     content: [
       	'Lesson Learned Exporting \n',
   		'Altran Technologies, SA \n\n\n\n\n',
     {
-
     alignment: 'justify',
     columns: [
 		  {

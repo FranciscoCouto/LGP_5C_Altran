@@ -177,6 +177,8 @@
                 CONCLUSION_DATE: 'End Date',
                 CREATE_PROJECT: 'Creating Project',
 
+                ALLOCATE_PM: 'Alocate PM',
+
                 //Lista LL
                 ACTIVE: 'Active',
                 INACTIVE: 'Inactive',
@@ -315,6 +317,8 @@
                 CONCLUSION_DATE: 'Data de Conclusão',
                 CREATE_PROJECT: 'Criar Projecto',
 
+                ALLOCATE_PM: 'Alocar PM',
+
                 //Lista LL
                 ACTIVE: 'Ativas',
                 INACTIVE: 'Inativas',
@@ -452,6 +456,8 @@
                 EXPECTED_DATE: 'Date de fin prévue',
                 CONCLUSION_DATE: 'Date de fin',
                 CREATE_PROJECT: 'Créer un projet',
+
+                ALLOCATE_PM: 'Alocate PM',
 
                 //Lista LL
                 ACTIVE: 'Actif',

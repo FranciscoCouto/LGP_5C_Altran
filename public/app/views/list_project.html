@@ -58,6 +58,9 @@
                                   <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
+                            <th>
+                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'ALLOCATE_PM' | translate}} </a>
+                            </th>
 
                         </tr>
                     </thead>
@@ -74,11 +77,37 @@
                             <td>{{project.client}}</td>
                             <td>{{project.deliveringModel}}</td>
                             <td>{{project.RSector}}</td>
+                            <td><button type="button" class="btn btn-primary btn-circle btn-lg box-shadow--2dp" ng-click="editPM(project)"><i class="glyphicon glyphicon-pencil"></i></button></td>
                         </tr>
-
+                        </tbody>
+                        </table>
             </div>
-
-
         </div>
+        </div>
+            <!-- Modal -->
+<script type="text/ng-template" id="pmTpl">
+    <div class="modal-header mdl-header">
+        <h3 class="modal-title">{{ 'ALLOCATE_PM' | translate }}</h3>
+    </div>
+        <div class="modal-body mdl-content">
+            <h4>{{ 'CHOOSE_PERSON' | translate}}</h4>
+                <fieldset>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <select id="selectbasic" ng-model="mydata.name" name="selectbasic" class="form-control sc">
+                              <option value="" disabled selected>{{ 'NONE' | translate }}</option>
+                              <option ng-repeat="manager in managers" value="{{ manager.name }}"> {{ manager.name  }} </option>
+                            </select>
+                        </div>
+                    </div><br>
+                    </form>
+                </fieldset>        
+        </div>
+        <div class="modal-footer mdl-footer">
+            <button class="btn btn-danger" type="button" ng-click="cancel()">{{ 'CANCEL' | translate }}</button>
+            <button class="btn btn-primary" type="button" ng-click="submit(mydata)">{{ 'SUBMIT' | translate }}</button>
+        </div>
+</script>
 
     <script src="scripts/list_ll.js"></script>

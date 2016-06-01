@@ -642,6 +642,19 @@
         });
     }
 
+    exports.updateProjectManagerByID = function(idproject,namemanager){
+        return new Promise(function (resolve, reject) {
+            client.query('UPDATE public.project as t1 SET t1.manager = (SELECT t2.idusers FROM public.users AS t2 Where t2.name = ?) WHERE t1.idproject = ?',  [namemanager, idproject ],
+                function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve('Updated project manager');
+                    }
+                });
+        });
+    }
+
     <!------------------------------------------------------------------------------------------------ Technology ------------------------------------------------------------->
 
 

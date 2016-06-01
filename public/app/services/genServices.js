@@ -87,6 +87,17 @@ var genServices = function ($q, $http) {
                     deferred.reject(err);
                 });
         };
+
+         // Function to update ll's info
+        this.editProjectManager = function(manager) {
+            return $http.put("/api/updateProjectManagerByID",manager)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
 };
 
 // Injecting modules used for better minifing later on

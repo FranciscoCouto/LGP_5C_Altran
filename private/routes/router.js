@@ -607,6 +607,24 @@
                 });
         });
 
+        server.put("/api/updateProjectManagerByID", function(req, res){
+             var idproject = req.body.idproject;
+             var managername = req.body.managername;
+             console.log('hiii' + idproject + managername);
+               database.updateProjectManagerByID(idproject,managername)
+                    .then(function() {
+                        res.sendStatus(200);
+                    })
+                    .catch(function (err) {
+                        // Send the Response with message error
+                        res.status(406).json({
+                            message_class: 'error',
+                            message: "ERRORLESSONID"
+                        });
+
+                    });
+        });
+
         server.post("/api/createproject",function(req,res){
 
                 var type = req.body.type;

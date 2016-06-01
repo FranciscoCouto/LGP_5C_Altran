@@ -14,6 +14,7 @@
 			"/api/projectsbymanager",
 			"/api/checklessonmanager",
 			"/api/lessonsbymanager",
+			"/api/updateProjectManagerByID",
 			"/api/technologies",
 			"/api/projects",
 			"/api/lessonsByStatus?status=approved",
