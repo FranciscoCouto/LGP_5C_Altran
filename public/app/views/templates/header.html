@@ -22,19 +22,19 @@
 				</ul> -->
 				
 				<li id="navmenu" ng-if="hasSession.logged" class="dropdown ">
-					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>Menu</a>
+					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{'NAVIGATION' | translate}}</a>
 					<ul class="dropdown-menu">
-						<li><a href="/home">Home</a>
+						<li><a href="/home">{{'HOME' | translate}}</a>
 						</li>
-						<li><a href="/users">Users</a>
+						<li><a href="/users">{{'USERS' | translate}}</a>
 						</li>
-						<li><a href="/listll">Lessons</a>
+						<li><a href="/listll">{{'LESSONS' | translate}}</a>
 						</li>
-						<li><a href="/statistics">Statistics</a>
+						<li><a href="/statistics">{{'STATS' | translate}}</a>
 						</li>
-						<li><a href="/projects">Projects</a>
+						<li><a href="/projects">{{'PROJECTS' | translate}}</a>
 						</li>
-						<li><a href="/settings">Settings</a>
+						<li><a href="/settings">{{'SETTINGS' | translate}}</a>
 						</li>
 					</ul>
 				</li>
@@ -55,7 +55,7 @@
 				<li ng-if="hasSession.logged" class="dropdown">
 					<a class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{hasSession.data.name}} </a>
 					<ul class="dropdown-menu">
-						<li ng-if="hasSession.data.permission == 1"><a href="/mylistll">My LL's</a>
+						<li ng-if="hasSession.data.permission == 1"><a href="/mylistll">{{'MY_LL' | translate}}</a>
 						</li>
 						<li><a ng-click="logout()">Log Out</a>
 						</li>

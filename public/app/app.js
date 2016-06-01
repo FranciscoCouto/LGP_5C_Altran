@@ -129,6 +129,8 @@
                 AUDIT_TRAIL: 'Audit Trail',
                 SETTINGS: 'Settings',
                 PROJECTS: 'Projects',
+                MY_LL: 'My LLs',
+                NAVIGATION: 'Navigation',
 
                 TECHS: 'Technolgies',
                 PROJECT_TYPES: 'Project Types',
@@ -226,6 +228,10 @@
                 USERNAME: 'Username',
                 REMEMBERME: 'Remember me',
                 SIGNIN: 'Sign in',
+
+                //CREATE USER
+                PERSONAL_INFO: 'Personal Info',
+                PERSONAL_IMG: 'Collaborator Image',
                 
                 //ERRORS
                 ERRORLOGIN: 'Username or password invalid',
@@ -277,6 +283,8 @@
                 AUDIT_TRAIL: 'Histórico',
                 SETTINGS: 'Configurações',
                 PROJECTS: 'Projetos',
+                MY_LL: 'Minhas LL',
+                NAVIGATION: 'Navegação',
 
 
                 TECHS: 'Tecnologias',
@@ -375,6 +383,10 @@
                 USERNAME: 'Nome de Usuário',
                 REMEMBERME: 'Lembrar',
                 SIGNIN: 'Entrar',
+
+                //CREATE USER
+                PERSONAL_INFO: 'Dados do colaborador',
+                PERSONAL_IMG: 'Imagem Pessoal',
                 
                 //ERRORS
                 ERRORLOGIN: 'Nome de usuário ou senha errados',
@@ -426,6 +438,8 @@
                 AUDIT_TRAIL: 'Histoire',
                 SETTINGS: 'Réglages',
                 PROJECTS: 'Projects',
+                MY_LL: 'My LL',
+                NAVIGATION: 'Navigation',
 
                 TECHS: 'Technolgies',
                 PROJECT_TYPES: 'Project Types',
@@ -522,6 +536,10 @@
                 USERNAME: "Nom d'utilisateur",
                 REMEMBERME: 'Souviens-toi de moi',
                 SIGNIN: 'Connecter',
+
+                //CREATE USER
+                PERSONAL_INFO: 'Personal Info',
+                PERSONAL_IMG: 'Collaborator Image',
                 
                 //ERRORS
                 ERRORLOGIN: "Nom d'utilisateur ou mot de passe invalide",

@@ -60,11 +60,11 @@
         ]);
 
         var data2 = google.visualization.arrayToDataTable([
-        ["Element", "Top LL", { role: "style" } ],
+        ["Element", "Total", { role: "style" } ],
         [name1, best1, "#b87333"],
         [name2, best2, "silver"],
         [name3, best3, "gold"],
-        [name4, best4, "color: #e5e4e2"]
+        [name4, best4, "#e5e4e2"]
       ]);
 
         var view = new google.visualization.DataView(data2);
