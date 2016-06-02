@@ -10,13 +10,10 @@
 
 var url = req.url.split('/')[1];
         if (url == 'api') {
-console.log("url: "+req.url);
 
             // START REGION: API permissions (all)
             for (i = 0; i < routes.api.all.length; i++) {
-                console.log("url api: "+routes.api.all[i]);
                 if (routes.api.all[i].indexOf(req.url) > -1) {
-                    console.log("deu 1   "+routes.api.all[i]);
                     break;
                 }
             }
@@ -27,14 +24,12 @@ console.log("url: "+req.url);
 
  cookie.verifySession(req.cookies.session)
                 .catch(function (err) {
-                    console.log("caralho api:  "+err);
                    return res.sendStatus(403);
                 });
                 // START REGION: API permissions (logged)
                cookie.verifySession(req.cookies.session)
                     .then(function (cenas) {
                         var permission= cenas.permission;
-                        console.log("permission api: "+permission);
                         switch(permission){
                             case "0":
                                 for (i = 0; i < routes.api.logged.length; i++) {
@@ -61,10 +56,8 @@ console.log("url: "+req.url);
                                 }
                             break;
                             case "2": 
-                            console.log("entrou api");
                                 for (i = 0; i < routes.api.admin.length; i++) {
                                     if (req.url.indexOf(routes.api.admin[i]) > -1) {
-                                        console.log("deu api");
                                         break;
                                     }
                                 }
@@ -74,6 +67,8 @@ console.log("url: "+req.url);
                                     next();
                                 }
                             break;
+                            default:
+                             return res.sendStatus(403);
                         };
                         
 
@@ -94,7 +89,6 @@ console.log("url: "+req.url);
             
             cookie.verifySession(req.cookies.session)
                 .catch(function (err) {
-                    console.log("caralho view:  "+err);
                     if (res.statusCode == null) {
                         res.redirect('/forbidden');
                     }
@@ -118,7 +112,6 @@ console.log("url: "+req.url);
                 cookie.verifySession(req.cookies.session)
                     .then(function (cenas) {
                         var permission= cenas.permission;
-                        console.log("permission view: "+permission);
                         switch(permission){
                             case "0":
                                 for (i = 0; i < routes.views.logged.length; i++) {
@@ -128,6 +121,7 @@ console.log("url: "+req.url);
                                 }
 
                                 if (i == routes.views.logged.length) {
+                                    res.statusCode=306;
                                         res.redirect('/forbidden');
                                 } else {
                                     next();
@@ -136,13 +130,12 @@ console.log("url: "+req.url);
                             case "1":
                                for (i = 0; i < routes.views.advanced.length; i++) {
                                     if (url.indexOf(routes.views.advanced[i]) > -1) {
-                                        console.log("dafuk: "+url+ "   : "+routes.views.advanced[i]);
                                         break;
                                     }
                                 }
-                                console.log("tamanho: "+ routes.views.advanced.length+" "+i);
+                                
                                 if (i == routes.views.advanced.length) {
-                                    console.log("olaaaa");
+                                    res.statusCode=306;
                                         res.redirect('/forbidden');
 
                                 } else {
@@ -156,17 +149,21 @@ console.log("url: "+req.url);
                                         break;
                                     }
                                 }
-
                                 if (i == routes.views.admin.length) {
+                                    res.statusCode=306;
                                         res.redirect('/forbidden');
                                 } else {
                                     next();
                                 }
                             break;
+                        default:
+                        res.statusCode=306;
+                        res.redirect('/forbidden');
+                        };
                         
-                        }
                     })
                     .catch(function(err){
+                        res.statusCode=306;
                          res.redirect('/forbidden');
                     });
 
