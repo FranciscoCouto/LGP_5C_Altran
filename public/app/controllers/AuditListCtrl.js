@@ -47,15 +47,16 @@
         
     };
 
-    var DialogController2 = function ($scope, $uibModalInstance, $window, selectedAudit) {
+    var DialogController2 = function ($scope, $uibModalInstance, $window, selectedAudit, $filter) {
             
         $scope.selectedItem = selectedAudit;
+        $scope.selectedItem.editiondate = $filter('date')($scope.selectedItem.editiondate,'MM/dd/yyyy');
         console.log($scope.selectedItem);
     };
 
     // Injecting modules used for better minifing later on
     AuditListCtrl.$inject = ['$scope', '$uibModal','$log', 'auditServices', 'filterFilter', '$filter'];
-    DialogController2.$inject = ['$scope', '$uibModalInstance','$window', 'selectedAudit'];
+    DialogController2.$inject = ['$scope', '$uibModalInstance','$window', 'selectedAudit', '$filter'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned')

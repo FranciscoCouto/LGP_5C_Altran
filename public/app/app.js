@@ -81,7 +81,8 @@
 
             .when("/list_projects", {
                 templateUrl: "app/views/list_project.html",
-                controller: "ProjectListCtrl"
+                controller: "ProjectListCtrl",
+                css: "styles/list_ll.css"
             })
 
 			.when("/settings",{

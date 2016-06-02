@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="styles/list_users.css">
 <div ng-include='"app/views/templates/header.html"'></div>
     <div class="container">
         <div class="card card-container">
@@ -18,7 +17,7 @@
                 </div>
             </div>
             <br>
-
+            <div class="cenas">
                 <table cellpadding="0" cellspacing="0" border="0" >
                     <thead>
                         <tr class="tbl-header">
@@ -75,6 +74,7 @@
                     </tbody>
             </table>
         </div>
+        </div>
         <uib-pagination total-items="(audits | fuzzyBy: sortType: searchParams).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
     </div>
 
@@ -90,7 +90,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="textinput1">{{ 'EXPECTED_DATE' | translate }}</label>
                         <div class="col-sm-10">
-                            <input ng-model="selectedItem.editiondate| date:'MM/dd/yyyy'" id="textinput1" type="text" class="form-control input-md sc" disabled>
+                            <input ng-model="selectedItem.editiondate" id="textinput1" type="text" class="form-control input-md sc" disabled></input>
                         </div>
                     </div><br>
                     <div class="form-group" ng-if="selectedItem.action != null">
