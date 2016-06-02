@@ -3,7 +3,9 @@
  */
 (function() {
     var AuditListCtrl = function($scope, $uibModal,$log, auditServices, filterFilter, $filter) {
-
+        $scope.sortType = 'editor';
+        $scope.itemsPerPage = 5;
+        $scope.currentPage = 1;
     	auditServices.getAudit()
             .then(function (result) {
 

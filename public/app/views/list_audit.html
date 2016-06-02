@@ -1,29 +1,27 @@
 <link rel="stylesheet" href="styles/list_users.css">
 <div ng-include='"app/views/templates/header.html"'></div>
-<div class="section">
     <div class="container">
         <div class="card card-container">
 
             <div class="row">
-                <form>
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control " placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
-                        <span class="input-group-addon">
-                            <button type="submit">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div>
-                </form>
+                <div class="col-lg-12 col-xs-12 col-md-12">
+                  <form>
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control sc" placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                          </button>
+                          </span>
+                      </div>
+                  </form>
+                </div>
             </div>
             <br>
 
-
-
-            <div class="tbl-header">
                 <table cellpadding="0" cellspacing="0" border="0" >
                     <thead>
-                        <tr>
+                        <tr class="tbl-header">
                             <th>
                                 <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{ 'CREATION_DATE' | translate}}   </a>
                                 <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
@@ -31,46 +29,41 @@
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'changedate'; sortReverse = !sortReverse"> {{ 'CHANGE_DATE' | translate}}  </a>
-                                <span ng-show="sortType == 'changedate' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'changedate' && sortReverse" class="fa fa-caret-up"></span></span>
+                                <a href="#" ng-click="sortType = 'editiondate'; sortReverse = !sortReverse"> {{ 'CHANGE_DATE' | translate}}  </a>
+                                <span ng-show="sortType == 'editiondate' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'editiondate' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'creator'; sortReverse = !sortReverse"> {{ 'CREATOR' | translate}}  </a>
-                                <span ng-show="sortType == 'creator' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'creator' && sortReverse" class="fa fa-caret-up"></span></span>
+                                <a href="#" ng-click="sortType = 'Creator'; sortReverse = !sortReverse"> {{ 'CREATOR' | translate}}  </a>
+                                <span ng-show="sortType == 'Creator' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'Creator' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'approver'; sortReverse = !sortReverse"> {{ 'APPROVER' | translate}}
-                                  <span ng-show="sortType == 'approver' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'approver' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                                <a href="#" ng-click="sortType = 'Approver'; sortReverse = !sortReverse"> {{ 'APPROVER' | translate}}
+                                  <span ng-show="sortType == 'Approver' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'Approver' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'editor'; sortReverse = !sortReverse"> {{ 'EDITOR' | translate}}
-                                  <span ng-show="sortType == 'editor' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'editor' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                                <a href="#" ng-click="sortType = 'Editor'; sortReverse = !sortReverse"> {{ 'EDITOR' | translate}}
+                                  <span ng-show="sortType == 'Editor' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'Editor' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{ 'OPERATION' | translate}}
-                                  <span ng-show="sortType == 'typeofchange' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'typeofchange' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                                <a href="#" ng-click="sortType = 'operation'; sortReverse = !sortReverse"> {{ 'OPERATION' | translate}}
+                                  <span ng-show="sortType == 'operation' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'operation' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> INSPECT</a>
+                                <a href="#" ng-click="sortType = 'operation'; sortReverse = !sortReverse"> INSPECT</a>
                             </th>
 
                         </tr>
                     </thead>
-                </table>
-            </div>
-
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
                     <tbody>
 
-                        <tr ng-repeat="audit in audits | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams">
+                        <tr ng-repeat="audit in (audits | fuzzyBy: sortType: searchParams).slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
                             <td>{{audit.creationdate | date:'dd.MM.yyyy' }}</td>
                             <td>{{audit.editiondate | date:'dd.MM.yyyy' }} </td>
                             <td>{{audit.Creator}}</td>
@@ -79,11 +72,10 @@
                             <td>{{audit.operation}}</td>
                             <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" ng-click="viewAudit(audit)"><i class="glyphicon glyphicon-eye-open"></i></a></td>
                         </tr>
-
-            </div>
-
-
+                    </tbody>
+            </table>
         </div>
+        <uib-pagination total-items="(audits | fuzzyBy: sortType: searchParams).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
     </div>
 
     <!-- Modal -->
