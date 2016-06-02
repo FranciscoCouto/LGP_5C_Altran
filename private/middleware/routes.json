@@ -10,6 +10,7 @@
 			"/api/lessons",
 			"/api/user",
 			"/api/searchlessons",
+			"/api/technologies",
 			"/api/lessonsTop"	
 		],
 
@@ -40,6 +41,7 @@
 		
 		"advanced":[
 			"/api/updatelessontext",
+			"/api/technologies",
 			"/api/createlesson",
 			"/api/projectsbymanager",
 			"/api/lessonsbymanager",
@@ -74,7 +76,8 @@
 			"create_ll",
 			"edit_ll/",
 			"listll",
-			"view_ll/"
+			"view_ll/",
+			"mylistll"
 		]
 
 	}
