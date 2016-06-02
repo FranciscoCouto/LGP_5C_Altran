@@ -114,6 +114,22 @@
         $translateProvider
             .useSanitizeValueStrategy('escape')
             .translations('en', { //TODO: Translations from each language on different files
+               
+                ENABLE:'Enable',
+                APPROVE: 'Approve',
+                REJECT: 'Reject',
+                SITUATION: 'Situation',                
+                ACTION: 'Action',
+                RESULTS: 'Results',
+                FEEDBACK: 'Feedback',
+                DIMENSION: 'Dimension',
+                TECHNOLOGIES: 'Technologies',
+                DISABLE: 'Disable',
+                STATUS: 'Status',
+                ADMIN: 'Administrator',
+                SUBMITTER: 'Submitter',
+                READER: 'Reader',
+                CHOOSEFILE: 'Choose image',
                 HOME: 'Home',
                 ADMIN_PANEL: 'Administration',
                 USERS: 'Users',
@@ -176,7 +192,7 @@
                 EXPECTED_DATE: 'End Date Foreseen',
                 CONCLUSION_DATE: 'End Date',
                 CREATE_PROJECT: 'Creating Project',
-
+                
                 ALLOCATE_PM: 'Alocate PM',
 
                 UPDATE_TYPES: 'Update Project Types',
@@ -268,6 +284,24 @@
                                 
             })
             .translations('pt', {
+                
+                ENABLE:'Ativar',
+                APPROVE: 'Aprovar',
+                REJECT: 'Rejeitar',
+                SITUATION: 'Situação',                
+                ACTION: 'Ação',
+                RESULTS: 'Resultados',
+                FEEDBACK: 'Feedback',
+                DIMENSION: 'Dimensão',
+                TECHNOLOGIES: 'Tecnologias',
+                DISABLE: 'Desativar',
+                STATUS: 'Estado',
+                
+                ADMIN: 'Administrador',
+                SUBMITTER: 'Editor',
+                READER: 'Leitor',
+                CHOOSEFILE: 'Escolher imagem',
+                
                 HOME: 'Começar',
                 ADMIN_PANEL: 'Administração',
                 USERS: 'Utilizadores',
@@ -423,6 +457,24 @@
 
             })
             .translations('fr', {
+                
+               ENABLE:'Activer',
+                APPROVE: 'Approuver',
+                REJECT: 'Rejeter',
+                SITUATION: 'Situation',                
+                ACTION: 'Action',
+                RESULTS: 'Résultats',
+                FEEDBACK: "Retour d'information",
+                DIMENSION: 'Dimension',
+                TECHNOLOGIES: 'Technologies',
+                DISABLE: 'Désactiver',
+                STATUS: 'État',
+                
+                ADMIN: 'Administrateur',
+                SUBMITTER: 'Editeur',
+                READER: 'Lecteur',
+                
+                CHOOSEFILE: '',
                 HOME: 'Début',
                 ADMIN_PANEL: 'Administration',
                 USERS: 'Utilisateurs',

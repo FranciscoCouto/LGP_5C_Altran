@@ -80,6 +80,9 @@
 </div>
 <fieldset>
 <!-- Button (Double) -->
+	<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
   <button type="submit" class="btn btn-primary btn-outline pull-right">{{ 'ADD_PROJECT' | translate }}</button>
 
   <a href ="/list_projects" class="btn btn-primary btn-outline pull-right">{{ 'CANCEL' | translate }}</a>

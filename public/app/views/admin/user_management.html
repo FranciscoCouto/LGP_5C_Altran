@@ -25,9 +25,9 @@
       <label for="singleSelect">Permission Level</label><br>
       <select name="singleSelect" class="bg-blue" id="singleSelect" ng-model="user.permission">
         <option value="">---Please select---</option> <!-- not selected / blank option -->
-        <option value="0">Viewer</option> <!-- interpolation -->
-        <option value="1">Input</option>
-        <option value="2">Admin</option>
+        <option value="0">{{'ADMIN' | translate}}</option> <!-- interpolation -->
+        <option value="1">{{'SUBMITTER' | translate}}</option>
+        <option value="2">{{'READER' | translate}}</option>
       </select>
     </div>
     </div>
@@ -36,7 +36,7 @@
      <div class="wrap">
     <h3>{{'PERSONAL_IMG' | translate}}</h3>
       <div class="thumb" > <img id="img" ng-src={{image}} /></div>
-    <label for="upload">Choose File
+    <label for="upload">{{'CHOOSEFILE' | translate}}
       <input id="upload" type="file" name="file" onchange="angular.element(this).scope().changeFile(this.files)"/></label>
     </div>
 </div>
@@ -47,5 +47,10 @@
       <button type="submit" class="btn btn-primary btn-outline center-block">{{ 'ADD_USER' | translate | uppercase }}</button>
       
 </div>
+
+
+<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
 </div>
 </form>

@@ -129,6 +129,9 @@
         </div>
       </div>
       <div class="modal-footer">
+        	<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
         <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'CANCEL' | translate }}</button>
         <button ng-click="createLesson(lesson)" type="button" class="btn btn-primary">Create</button>
       </div>

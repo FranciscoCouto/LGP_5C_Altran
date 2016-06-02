@@ -218,7 +218,9 @@
             else{
             database.insertUser(email, pass, name, permission)
                 .then(function (user_id) {
-                    res.sendStatus(200);
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
                 })
                 .catch(function (err) {
 
@@ -342,7 +344,9 @@
 
                     database.updateUserPass(user.id,user.password)
                         .then(function() {
-                            res.sendStatus(200);
+                            res.status(200).json({
+                                message: "SUCCESS"
+                            });
                         })
                         .catch(function (err) {
                             res.status(406).json({
@@ -437,8 +441,9 @@
              database.deleteLessonByID(idlesson)
                 .then(function() {
 
-                    res.sendStatus(200);
-
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
                 })
                 .catch(function (err) {
 
@@ -460,7 +465,9 @@
                 database.updateLessonFieldByID(businessSector,idLesson)
                     .then(function() {
 
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
 
@@ -485,7 +492,9 @@
 
                  database.updateLessonTextByID(action, situation, result, idLesson, manager)
                     .then(function() {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Send the Response with message error
@@ -550,7 +559,9 @@
               if(state == 'draft' || state == 'submitted' || state == 'approved' || state == 'inactive'){
                 database.updateLessonStateByID(idLesson,state)
                     .then(function() {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Send the Response with message error
@@ -576,7 +587,9 @@
 
                 database.updateLessonFeedbackByID(idLesson,feedback)
                     .then(function() {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Send the Response with message error
@@ -644,7 +657,9 @@
              var managername = req.body.managername;
                database.updateProjectManagerByID(idproject,managername)
                     .then(function() {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Send the Response with message error
@@ -675,7 +690,9 @@
 
                 database.insertProject(type,name,manager,dateBeginning,dateEndExpected,dateEnd,deliveringModel,numberConsultants,daysDuration,client,sector)
                     .then(function (project) {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
@@ -693,7 +710,9 @@
                  database.updateProjectDateByID(idproject,date)
                     .then(function() {
 
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
 
@@ -727,7 +746,9 @@
 
                 database.addTechnology(technology)
                     .then(function () {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
@@ -741,7 +762,9 @@
              var idtech = req.body.idtech;
              database.deleteTechnology(idtech)
                 .then(function() {
-                    res.sendStatus(200);
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
                 })
                 .catch(function (err) {
                   // Sending the error to the log file
@@ -768,7 +791,9 @@
 
                 database.addProjectType(type)
                     .then(function (project) {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
@@ -783,7 +808,9 @@
 
           database.deleteProjectType(idtype)
              .then(function() {
-                 res.sendStatus(200);
+                res.status(200).json({
+                                message: "SUCCESS"
+                            });
              })
              .catch(function (err) {
                // Sending the error to the log file
@@ -813,7 +840,9 @@
 
                 database.addSector(sector)
                     .then(function (sector) {
-                        res.sendStatus(200);
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
                     })
                     .catch(function (err) {
                         // Sending the error to the log file
@@ -828,7 +857,9 @@
 
             database.deleteSector(idsector)
                .then(function() {
-                   res.sendStatus(200);
+                   res.status(200).json({
+                                message: "SUCCESS"
+                            });
                })
                .catch(function (err) {
                  // Sending the error to the log file

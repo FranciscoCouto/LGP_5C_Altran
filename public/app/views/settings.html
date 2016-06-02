@@ -42,3 +42,6 @@
     <br>
 
 </div>
+	<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>

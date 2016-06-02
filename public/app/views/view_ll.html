@@ -8,46 +8,48 @@
 	<div class="row" ng-show="lldata">
 		<div class="col-lg-4 col-xs-12 col-md-4">
 			<div class="panel">
-			  <div class="panel-heading">Title</div>
+			  <div class="panel-heading">{{LL_TITLE | translate}}</div>
 			  <div class="panel-body noborder"><textarea id="lltitle" rows="1" ng-model="lldata.project" readonly class="lldesc form-control">{{ lldata.project }}</textarea></div>
 			</div>
 		</div>
 		<div class="col-lg-3 col-xs-12 col-md-3">
 			<div class="panel">
-			  <div class="panel-heading">Client</div>
+			  <div class="panel-heading">{{CLIENT | translate}}</div>
 			  <div class="panel-body noborder"><textarea id="llclient" rows="1" ng-model="lldata.client" readonly class="lldesc form-control">{{ lldata.client | capitalize }}</textarea></div>
 			</div>
 		</div>
 		<div class="col-lg-2 col-xs-6 col-md-2">
 			<div id="llstatusp" class="panel">
-			  <div class="panel-heading">Status</div>
+			  <div class="panel-heading">{{STATUS | translate}}</div>
 			  <div id="llstatus" class="panel-body text-center">{{ lldata.status | capitalize }}</div>
 			</div>
 		</div>
-		
+			<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
 		<div id="btnshi" class="col-lg-1 col-xs-3 col-md-1 nohpadding text-center">
 			<div ng-if="isDnS()" class="row"> <!--- test -->
-				<button ng-click="submitDraft()" id="submitBtn" type="button" class="toolbtn btn btn-success">Submit</button>
+				<button ng-click="submitDraft()" id="submitBtn" type="button" class="toolbtn btn btn-success">{{SUBMIT | translate}}</button>
 			</div>
 			
 			<div ng-if="isDnS()" class="row">
-				<button ng-click="saveDraft()" id="saveBtn" type="button" class="toolbtn btn btn-primary">Save</button>
+				<button ng-click="saveDraft()" id="saveBtn" type="button" class="toolbtn btn btn-primary">{{SAVE_DRAFT | translate}}</button>
 			</div>
 		
 			<div ng-if="isAdminAndApproved()" class="row">
-				<button ng-click="adminDisable()" id="disableBtn" type="button" class="toolbtn btn btn-default">Disable</button>
+				<button ng-click="adminDisable()" id="disableBtn" type="button" class="toolbtn btn btn-default">{{DISABLE | translate}}</button>
 			</div>
 			
 			<div ng-if="isAdminAndInactive()" class="row">
-				<button ng-click="adminEnable()" type="button" class="toolbtn btn btn-success">Enable</button>
+				<button ng-click="adminEnable()" type="button" class="toolbtn btn btn-success">{{ENABLE | translate}}</button>
 			</div>
 		
 			<div ng-if="isAdminAndSubmitted()" class="row">
-				<button ng-click="adminApprove()" id="approveBtn" type="button" class="toolbtn btn btn-success">Approve</button>
+				<button ng-click="adminApprove()" id="approveBtn" type="button" class="toolbtn btn btn-success">{{APPROVE | translate}}</button>
 			</div>
 			
 			<div ng-if="isAdminAndSubmitted() || isAdminAndApproved()" class="row">
-				<button ng-click="adminReject()" type="button" class="toolbtn btn btn-danger">Reject</button>
+				<button ng-click="adminReject()" type="button" class="toolbtn btn btn-danger">{{REJECT | translate}}</button>
 			</div>
 		</div>		
 		
@@ -62,7 +64,7 @@
 			<div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12">
 					<div style="margin-bottom:0" class="panel">
-						<div class="panel-heading">Situation</div>
+						<div class="panel-heading">{{SITUATION | translate}}</div>
 						<div class="panel-body noborder">
 							<textarea maxlength="1000" ng-readonly="!isDnS()" id="llsituation" ng-model="lldata.situation" class="form-control largetextarea" rows="10" >{{ lldata.situation }}</textarea>
 						</div>
@@ -73,7 +75,7 @@
 			<div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12">
 					<div style="margin-bottom:0" class="panel">
-						<div class="panel-heading">Action</div>
+						<div class="panel-heading">{{ACTION | translate}}</div>
 						<div class="panel-body noborder">
 							<textarea maxlength="1000" ng-readonly="!isDnS()" id="llaction" ng-model="lldata.action" class="form-control largetextarea" rows="10" >{{ lldata.action }}</textarea>
 						</div>
@@ -84,7 +86,7 @@
 			<div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12">
 					<div style="margin-bottom:0" class="panel">
-						<div class="panel-heading">Results</div>
+						<div class="panel-heading">{{RESULTS | translate}}</div>
 						<div class="panel-body noborder">
 							<textarea maxlength="1000" ng-readonly="!isDnS()" id="llresults" ng-model="lldata.result"" class="form-control largetextarea" rows="10" >{{ lldata.result }}</textarea>
 						</div>
@@ -97,7 +99,7 @@
 		<div id="llinfo" class="col-lg-3 col-xs-12 col-md-3">
 			<div id="llfeedp" class="row" ng-show="isDraft() && !isAdmin()">
 				<div class="panel">
-					<div class="panel-heading">Feedback</div>
+					<div class="panel-heading">{{FEEDBACK | translate}}</div>
 					<div class="panel-body noborder">
 						<textarea readonly rows="5" id="llfeed" class="lldesc form-control">{{ lldata.feedback }}</textarea>
 					</div>
@@ -105,37 +107,37 @@
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Manager</div>
+					<div class="panel-heading">{{PROJECT_MANAGER | translate}}</div>
 					<div  class="panel-body noborder"><textarea id="llmanager" ng-model="lldata.manager" rows="1" readonly class="lldesc form-control">aa{{ lldata.manager | capitalize }}</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Dimension</div>
+					<div class="panel-heading">{{DIMENSION | translate}}</div>
 					<div class="panel-body noborder"><textarea id="lldimension" ng-model="lldata.numberConsultants" rows="1" readonly class="lldesc form-control">{{ lldata.numberConsultants }}</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Start Date</div>
+					<div class="panel-heading">{{STARTING_DATE | translate}}</div>
 					<div class="panel-body noborder"><textarea id="llstart" rows="1" readonly class="lldesc form-control">{{ lldata.dateBeginning | date:'yyyy-MM-dd' }}</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Expected Finish Date</div>
+					<div class="panel-heading">{{EXPECTED_DATE | translate}}</div>
 					<div class="panel-body noborder"><textarea id="llexpected" rows="1" ng-readonly="!isDnS()" class="lldesc form-control">{{ lldata.dateEndExpected | date:'yyyy-MM-dd' }}</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Finish Date</div>
+					<div class="panel-heading">{{CONCLUSION_DATE | translate}}</div>
 					<div class="panel-body noborder"><textarea id="llfinish" rows="1" readonly class="lldesc form-control">{{ lldata.dateEnd | date:'yyyy-MM-dd' }}</textarea></div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="panel">
-					<div class="panel-heading">Technologies</div>
+					<div class="panel-heading">{{TECHNOLOGIES | translate}}</div>
 					<div  class="panel-body noborder"><textarea id="lltech" rows="1" readonly class="lldesc form-control">{{ lldata.technologies }}</textarea></div>
 				</div>
 			</div>

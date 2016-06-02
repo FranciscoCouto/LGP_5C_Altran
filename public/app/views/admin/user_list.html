@@ -37,14 +37,14 @@
 
 			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1">
 				<span class="hidden-xs vertical-center">
-					<span ng-show="user.permission == 0">Reader</span>
-					<span ng-show="user.permission == 1">Submitter</span>
-					<span ng-show="user.permission == 2">Admin</span>
+					<span ng-show="user.permission == 2">{{'ADMIN' | translate}}</span>
+					<span ng-show="user.permission == 1">{{'SUBMITTER' | translate}}</span>
+					<span ng-show="user.permission == 0">{{'READER' | translate}}</span>
 				</span>
 				<span class="hidden-lg hidden-md hidden-sm text-center">
-					<span ng-show="user.permission == 0">Reader</span>
-					<span ng-show="user.permission == 1">Submitter</span>
-					<span ng-show="user.permission == 2">Admin</span>
+					<span ng-show="user.permission == 2">{{'ADMIN' | translate}}</span>
+					<span ng-show="user.permission == 1">{{'SUBMITTER' | translate}}</span>
+					<span ng-show="user.permission == 0">{{'READER' | translate}}</span>
 				</span>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 		<a href="/user_management" type="button" class="btn btn-primary btn-outline">{{ 'ADD_USER' | translate | uppercase }}</a>
 	</div>
 	<div class="row animation error-message text-center" ng-repeat="item in items">
-			{{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
 	</div>
 
 </div>
@@ -67,9 +67,7 @@
     </div>
     <form class="form-horizontal">
         <div class="modal-body mdl-content">
-        	<div class="row error-message text-center" ng-repeat="item in items">
-                {{ item }}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
-        	</div>
+        	
         	<h4>{{ 'MODIFY_DATA' | translate }}</h4>
         	<form class="form-horizontal">
 		        <fieldset>
@@ -95,9 +93,9 @@
 				    	<label class="col-sm-2 control-label" for="newpermission">{{ 'CHANGE_TO' | translate }}</label>
 				    	<div class="col-sm-10">
 				    		<select ng-model="mydata.permissionid" ng-selected="mydata.permissionid" id="newpermission" type="text" class="form-control input-md sc">
-					    		<option value="2">Admin</option>
-					    		<option value="1">Submitter</option>
-					    		<option value="0">Reader</option>
+					    		<option value="2">{{'ADMIN' | translate}}</option>
+					    		<option value="1">{{'SUBMITTER' | translate}}</option>
+					    		<option value="0">{{'READER' | translate}}</option>
 				    		</select>
 				    	</div>
  					</div><br>
@@ -145,6 +143,9 @@
  					</div><br>
 		        </fieldset>
 		    </form>
+			<div class="row error-message text-center" ng-repeat="item in items">
+                {{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+        	</div>
         </div>
         <div class="modal-footer mdl-footer">
         	<button class="btn btn-danger" type="button" ng-click="cancel()">{{ 'CANCEL' | translate }}</button>
