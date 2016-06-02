@@ -46,6 +46,7 @@
 			"/api/updatelessontext",
 			"/api/technologies",
 			"/api/createlesson",
+			"/api/updatelessonstate",
 			"/api/projectsbymanager",
 			"/api/lessonsbymanager",
 			"/api/lesson",
