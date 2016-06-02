@@ -194,6 +194,7 @@
                 CREATE_PROJECT: 'Creating Project',
                 
                 ALLOCATE_PM: 'Alocate PM',
+                CHOOSE_PERSON: 'Choose user',
 
                 UPDATE_TYPES: 'Update Project Types',
                 UPDATE_TECHS: 'Update Technolgies',
@@ -367,6 +368,7 @@
                 CREATE_PROJECT: 'Criar Projecto',
 
                 ALLOCATE_PM: 'Alocar PM',
+                CHOOSE_PERSON: 'Escolha o utilizador',
 
                 UPDATE_TYPES: 'Atualizar Tipos de Projeto',
                 UPDATE_TECHS: 'Atualizar Tecnologias',
@@ -538,7 +540,8 @@
                 CONCLUSION_DATE: 'Date de fin',
                 CREATE_PROJECT: 'Créer un projet',
 
-                ALLOCATE_PM: 'Alocate PM',
+                ALLOCATE_PM: 'Allocate PM',
+                CHOOSE_PERSON: 'Choose user',
 
                 UPDATE_TYPES: 'Update Project Types',
                 UPDATE_TECHS: 'Update Technolgies',

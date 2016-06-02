@@ -4,6 +4,10 @@
 (function() {
     var ProjectListCtrl = function($scope, $route, $uibModal,$log, genServices, filterFilter, $filter) { 
 
+        $scope.sortType = 'name';
+        $scope.itemsPerPage = 10;
+        $scope.currentPage = 1;
+
     	genServices.getProjects()
             .then(function (result) {
 				console.log(result);

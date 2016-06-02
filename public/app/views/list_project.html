@@ -2,31 +2,28 @@
 
 <div ng-include='"app/views/templates/header.html"'></div>
     <div class="container">
-        <div class="card card-container ">
+        <div class="card card-container">
 
             <div class="row">
 				<div class="col-lg-12 col-xs-12 col-md-12">
 					<form class="col-md-6">
-						<div class="input-group stylish-input-group">
-							<input type="text" class="form-control " placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
-							<span class="input-group-addon">
-								<button type="submit">
-									<span class="glyphicon glyphicon-search"></span>
-							</button>
-							</span>
-						</div>
-					</form>
-                    <div class="text-center col-md-6 ">
+                      <div class="input-group stylish-input-group">
+                          <input type="text" class="form-control sc" placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
+                          <span class="input-group-addon">
+                              <button type="submit">
+                                  <span class="glyphicon glyphicon-search"></span>
+                              </button>
+                          </span>
+                      </div>
+                    </form>
+                    <div class="text-center col-md-6">
                     <a href="/create_project" type="button" class="btn btn-primary btn-outline">{{ 'ADD_PROJECT' | translate | uppercase }}</a>
-                </div>
+                    </div>
 				</div>
-
             </div>
             <br>
 
-
-
-<div class="cenas">
+            <div class="cenas">
                 <table cellpadding="0" cellspacing="0" border="0" class="fixed">
                     <thead>
                         <tr class="tbl-header">
@@ -37,9 +34,9 @@
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'manager'; sortReverse = !sortReverse"> {{'PROJECT_MANAGER' | translate}}  </a>
-                                <span ng-show="sortType == 'manager' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'manager' && sortReverse" class="fa fa-caret-up"></span></span>
+                                <a href="#" ng-click="sortType = 'RManager'; sortReverse = !sortReverse"> {{'PROJECT_MANAGER' | translate}}  </a>
+                                <span ng-show="sortType == 'RManager' && !sortReverse" class="fa fa-caret-down"></span>
+                                <span ng-show="sortType == 'RManager' && sortReverse" class="fa fa-caret-up"></span></span>
 
                             </th>
                             <th>
@@ -49,21 +46,23 @@
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'deliveringmodel'; sortReverse = !sortReverse"> {{'DELIVERING_MODEL' | translate}} 
-                                  <span ng-show="sortType == 'deliveringmodel' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'deliveringmodel' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                                <a href="#" ng-click="sortType = 'deliveringModel'; sortReverse = !sortReverse"> {{'DELIVERING_MODEL' | translate}} 
+                                  <span ng-show="sortType == 'deliveringModel' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'deliveringModel' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}} 
-                                  <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+                                <a href="#" ng-click="sortType = 'RSector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}} 
+                                  <span ng-show="sortType == 'RSector' && !sortReverse" class="fa fa-caret-down"></span>
+                              <span ng-show="sortType == 'RSector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
                                 <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'ALLOCATE_PM' | translate}} </a>
                             </th>
 
                         </tr>
-                        <tr ng-repeat="project in projects | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams" class="tbl-content">
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="project in (projects| fuzzyBy: sortType: searchParams).slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
                             <td>{{project.name}}</td>
                             <td>{{project.RManager}} </td>
                             <td>{{project.client}}</td>
@@ -71,9 +70,10 @@
                             <td>{{project.RSector}}</td>
                             <td><button type="button" class="btn btn-primary btn-circle btn-lg box-shadow--2dp" ng-click="editPM(project)"><i class="glyphicon glyphicon-pencil"></i></button></td>
                         </tr>
-                    </thead>
+                    </tbody>
                 </table>
-</div>
+            </div>
+             <uib-pagination total-items="(projects | fuzzyBy: sortType: searchParams).length" items-per-page="itemsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
         </div>
         </div>
             <!-- Modal -->
