@@ -3,92 +3,138 @@
 <div ng-include='"app/views/templates/header.html"'></div>
 
 
-  <div class="container">
-      <div class="card card-container">
+<div class="container">
+<div class="card card-container">
 
-          <div class="row">
-			     <div class="col-lg-12 col-xs-12 col-md-12">
-              <form class="col-md-6">
-                  <div class="input-group stylish-input-group">
-                      <input type="text" class="form-control sc" placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
-                      <span class="input-group-addon">
-                          <button type="submit">
-                              <span class="glyphicon glyphicon-search"></span>
-                      </button>
-                      </span>
-                  </div>
-              </form>
-              <div class="text-center col-md-6">
-                  <a href="/create_ll" type="button" class="btn btn-primary btn-outline">{{ 'CREATE_LL' | translate | uppercase }}</a>
-                </div>
-			</div>
-          </div>
-          <br>
-
-<div class="cenas">
-              <table cellpadding="0" cellspacing="0" border="0" class="fixed" >
-                  <thead>
-                      <tr class="tbl-header">
-                          <th>
-                              <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{'CREATION_DATE' | translate}}   </a>
-                              <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
-
-                          </th>
-                          <th>
-                              <a href="#" ng-click="sortType = 'technologies'; sortReverse = !sortReverse"> {{'TECHNOLOGY' | translate}}   </a>
-                              <span ng-show="sortType == 'technologies' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'technologies' && sortReverse" class="fa fa-caret-up"></span></span>
-
-                          </th>
-
-                          <th>
-                              <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse"> {{'PROJECT' | translate}}
-                                <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                          </th>
-                          <th>
-                              <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}}
-                                <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                          </th>
-                          <th>
-                              <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> {{'CLIENT' | translate}}
-                                <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
-                            <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                          </th>
-
-                          <th >
-
-                              <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
-                              </select>
-
-                          </th>
+  <div class="row">
+	<div class="col-lg-12 col-xs-12 col-md-12">
+		<a id="newLLbtn" data-toggle="modal" data-target="#newLLmodal" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> {{ 'CREATE_LL' | translate | uppercase }}</a>
+	</div>
+	<div class="col-lg-12 col-xs-12 col-md-12">
+	  <form>
+		  <div class="input-group stylish-input-group">
+			  <input type="text" class="form-control sc" placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
+			  <span class="input-group-addon">
+				  <button type="submit">
+					  <span class="glyphicon glyphicon-search"></span>
+			  </button>
+			  </span>
+		  </div>
+	  </form>
+	</div>
+  </div>
+  <br>
 
 
-                            <th>
-                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
-                            </th>
 
-                      </tr>
-                       <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)" class="tbl-content">
-                          <td>{{lesson.creationdate | date:'dd.MM.yyyy' }}</td>
-                          <td>{{lesson.technologies}} </td>
-                          <td>{{lesson.project}}</td>
-                          <td>{{lesson.sector}}</td>
-                          <td>{{lesson.client}}</td>
-                          <td>{{lesson.status}}</td>
-                          <td><a class="btn btn-primary" href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
-                      </tr>
+  <div class="cenas">
+	  <table cellpadding="0" cellspacing="0" border="0" class="fixed">
+		  <thead>
+			  <tr class="tbl-header">
+				  <th>
+					  <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{'CREATION_DATE' | translate}}   </a>
+					  <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
+					  <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
 
-                  </thead>
-              </table>
+				  </th>
+				  <th>
+					  <a href="#" ng-click="sortType = 'technologies'; sortReverse = !sortReverse"> {{'TECHNOLOGY' | translate}}   </a>
+					  <span ng-show="sortType == 'technologies' && !sortReverse" class="fa fa-caret-down"></span>
+					  <span ng-show="sortType == 'technologies' && sortReverse" class="fa fa-caret-up"></span></span>
+
+				  </th>
+
+				  <th>
+					  <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse"> {{'PROJECT' | translate}}
+						<span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+				  </th>
+				  <th>
+					  <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}}
+						<span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+				  </th>
+				  <th>
+					  <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> {{'CLIENT' | translate}}
+						<span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
+					<span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
+				  </th>
+
+
+
+				  <th >
+
+					  <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
+					  </select>
+
+				  </th>
+
+
+					<th>
+						<a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
+					</th>
+
+			  </tr>
+         <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)" class="tbl-content">
+				  <td>{{lesson.creationdate | date:'dd.MM.yyyy' }}</td>
+				  <td>{{lesson.technologies}} </td>
+				  <td>{{lesson.project}}</td>
+				  <td>{{lesson.sector}}</td>
+				  <td>{{lesson.client}}</td>
+				  <td>{{lesson.status}}</td>
+				  <td><a class="btn btn-primary" href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+			  </tr>
+		  </thead>
+	  </table>
+  </div>
+
+
 </div>
-    
+</div>
 
 
+
+<div id="newLLmodal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+        <h4 class="modal-title" id="myModalLabel">{{ 'CREATE_LL' | translate }}</h4>
       </div>
+      <div class="modal-body">
+      <div class="form-group">
+          <label class="control-label" for="project">{{ 'SELECT_PROJECT' | translate }}</label><br>
+          <select id="project" ng-model="lesson.project" class="form-control sc" name="project">
+            <option value="">{{ 'NONE' | translate }}</option>
+            <option ng-repeat="project in projects" value="{{ project.name }}">{{ project.name }}</option>
+          </select>
+        </div>
 
+        <div class="form-group">
+          <label class="control-label" for="technologies">{{ 'SELECT_TECHS' | translate }}</label><br>
+          <div
+            isteven-multi-select
+            input-model="technologies"
+            output-model="lesson.technologies"
+            button-label="technology"
+            item-label="technology"
+            tick-property="ticked"
+            helper-elements="all none filter"
+            translation="localLang"
+            id="technologies"
+            name="technologies"
+            orientation="horizontal" 
+          >
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'CANCEL' | translate }}</button>
+        <button ng-click="createLesson(lesson)" type="button" class="btn btn-primary">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <script src="scripts/list_ll.js"></script>

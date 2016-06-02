@@ -2,23 +2,48 @@
  * Create the controller
  */
 (function() {
-    var mylistllCtrl = function($scope,listllServices, userServices, filterFilter, $filter) {
+    var mylistllCtrl = function($scope, listllServices, genServices, userServices, llServices, filterFilter, $filter) {
 
       $scope.sortType = 'title';
       $scope.statusString = "approved";
       console.log('Page loaded.');
+	  
+	   var manager = null;
+	  
+	  $scope.localLang = {
+            selectAll       : "Tick all",
+            selectNone      : "Tick none",
+            reset           : "Undo all",
+            search          : "Type here to search...",
+            nothingSelected : "Nothing is selected"
+        }
+	  
+	  genServices.getTechnologies()
+            .then(function (techs) {
+                $scope.technologies = techs.data;
+            })
+            .catch(function (err) {
+              
+            });
 
       userServices.logged()
           .then(function(result) {
               console.log('User data loaded.');
               $scope.user = result.data;
-              console.log(JSON.stringify(result.data));
               $scope.userid = result.data.idusers;
-              console.log($scope.userid);
+			  managerid = result.data.idusers;
+			  manager = result.data.name;
+			  
+			  genServices.getProjectsByManager(managerid)
+                    .then(function (projects) {
+                        $scope.projects = projects.data;
+                    })
+                    .catch(function (err) {
+                        $scope.items.push("Field projects: " + err.data);
+                    });
 
             listllServices.getAllLessonsByUser($scope.userid)
             .then(function(result) {
-              console.log(JSON.stringify(result.data));
                 $scope.lessons = result.data;
                  var count = 0;
                 angular.forEach($scope.lessons, function (lesson) {
@@ -48,8 +73,6 @@
 
       $scope.Status = function(status) {
           return function(lesson) {
-              console.log("estado clicado:" + $scope.statusString);
-
               if ($scope.statusString == "approved") {
                   return lesson.status == 'approved';
               } else if ($scope.statusString == "submitted") {
@@ -83,6 +106,30 @@
           $scope.statusString=$scope.selected.field;
       };
 
+	  
+	  $scope.createLesson = function(lesson) {
+
+	
+
+            var ll = 
+             {
+                 "project": lesson.project,
+                 "technologies": lesson.technologies,
+                 "actionTaken": "",
+                 "situation": "",
+                 "result": "",
+                 "maker": manager,
+                 "status": 'draft'
+             };
+
+            llServices.createLL(ll)
+                .then(function (result) {
+					window.location="/view_ll/" + result.data.insertId;
+                })
+                .catch(function (err) {
+					bootbox.alert("Failed to save Lesson Learned.");
+                });
+        }    
 
 
 
@@ -90,7 +137,7 @@
 
 
     // Injecting modules used for better minifing later on
-    mylistllCtrl.$inject = ['$scope', 'listllServices', 'userServices', 'filterFilter', '$filter'];
+    mylistllCtrl.$inject = ['$scope', 'listllServices', 'genServices', 'userServices', 'llServices', 'filterFilter', '$filter'];
 
 
     // Enabling the controller in the app
