@@ -298,146 +298,175 @@
 			return $scope.isAdmin() && $scope.isInactive();
 		}
 
+	$scope.exportLL = function() {
+		bootbox.dialog({
+			  message: "Export as...",
+			  buttons: {
+				success: {
+				  label: "PDF",
+				  className: "btn-danger",
+				  callback: function() {
+					$scope.downloadPdf();
+				  }
+				},
+				danger: {
+				  label: "CSV",
+				  className: "btn-primary",
+				  callback: function() {
+					$scope.downloadCSV();
+				  }
+				},
+				main: {
+				  label: "XLSX",
+				  className: "btn-success",
+				  callback: function() {
+					$scope.downloadExcel();
+				  }
+				}
+			  }
+		});
+	}	
+	
 	$scope.downloadPdf = function() {
-  	var docDefinition = {
-    content: [
-      	'Lesson Learned Exporting \n',
-  		'Altran Technologies, SA \n\n\n\n\n',
-    {
-    alignment: 'justify',
-    columns: [
+		var docDefinition = {
+		content: [
+			'Lesson Learned Exporting \n',
+			'Altran Technologies, SA \n\n\n\n\n',
+		{
+		alignment: 'justify',
+		columns: [
+			  {
+				width: '*',
+			   text: 'LL Title', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Client', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'LL Status', 
+				style: 'header' 
+			  },
+			  '\n\n',
+				]
+			},
+
+		{
+
+		alignment: 'justify',
+		columns: [
+
+			  $scope.lldata["project"] + '\n\n',
+
+			  $scope.lldata["client"] + '\n\n' ,
+
+			  $scope.lldata["status"] + '\n\n',
+				]
+			},
+		  
 		  {
-		  	width: '*',
-	       text: 'LL Title', 
+		   text: 'Situation Description', 
 			style: 'header' 
-	      },
-	      '\n\n',
-	      {
-	      	width: '*',
-	       text: 'Client', 
-			style: 'header' 
-	      },
-	      '\n\n',
-	      {
-	      	width: '*',
-	       text: 'LL Status', 
-			style: 'header' 
-	      },
-	      '\n\n',
-			]
-		},
-
-	{
-
-	alignment: 'justify',
-    columns: [
-
-	      $scope.lldata["project"] + '\n\n',
-
-	      $scope.lldata["client"] + '\n\n' ,
-
-	      $scope.lldata["status"] + '\n\n',
-			]
-		},
-      
-      {
-       text: 'Situation Description', 
-		style: 'header' 
-      },
-      $scope.lldata["situation"] + '\n\n',
-      {
-       text: 'Action Taken', 
-		style: 'header' 
-      },
-      $scope.lldata["action"] + '\n\n',
-      {
-       text: 'Result Description', 
-		style: 'header' 
-      },
-      $scope.lldata["result"] + '\n\n',
-       {
-
-    alignment: 'justify',
-    columns: [
+		  },
+		  $scope.lldata["situation"] + '\n\n',
 		  {
-		  	width: '*',
-	       text: 'Manager', 
+		   text: 'Action Taken', 
 			style: 'header' 
-	      },
-	      {
-	      	width: '*',
-	       text: 'Dimension', 
-			style: 'header' 
-	      },
-	      {
-	      	width: '*',
-	       text: 'Technologies', 
-			style: 'header' 
-	      },
-			]
-		},
-	{
-      columns: [
-
-	      $scope.lldata["manager"] + '\n\n',
-
-	      $scope.lldata["numberConsultants"] + '\n\n' ,
-
-	      $scope.lldata.technologies + '\n\n',
-			]
-	},
-     
-     {
-
-    alignment: 'justify',
-    columns: [
+		  },
+		  $scope.lldata["action"] + '\n\n',
 		  {
-		  	width: '*',
-	       text: 'Start Date', 
+		   text: 'Result Description', 
 			style: 'header' 
-	      },
-	      '\n\n',
-	      {
-	      	width: '*',
-	       text: 'Expected Finish Date', 
-			style: 'header' 
-	      },
-	      '\n\n',
-	      {
-	      	width: '*',
-	       text: 'Finish Date', 
-			style: 'header' 
-	      },
-	      '\n\n',
-			]
+		  },
+		  $scope.lldata["result"] + '\n\n',
+		   {
+
+		alignment: 'justify',
+		columns: [
+			  {
+				width: '*',
+			   text: 'Manager', 
+				style: 'header' 
+			  },
+			  {
+				width: '*',
+			   text: 'Dimension', 
+				style: 'header' 
+			  },
+			  {
+				width: '*',
+			   text: 'Technologies', 
+				style: 'header' 
+			  },
+				]
+			},
+		{
+		  columns: [
+
+			  $scope.lldata["manager"] + '\n\n',
+
+			  $scope.lldata["numberConsultants"] + '\n\n' ,
+
+			  $scope.lldata.technologies + '\n\n',
+				]
 		},
-	{
-      columns: [
+		 
+		 {
 
-	      $filter('date')($scope.lldata["dateBeginning"], "dd/MM/yyyy"),
+		alignment: 'justify',
+		columns: [
+			  {
+				width: '*',
+			   text: 'Start Date', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Expected Finish Date', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Finish Date', 
+				style: 'header' 
+			  },
+			  '\n\n',
+				]
+			},
+		{
+		  columns: [
 
-	      $filter('date')($scope.lldata["dateEndExpected"], "dd/MM/yyyy"),
+			  $filter('date')($scope.lldata["dateBeginning"], "dd/MM/yyyy"),
 
-		  $filter('date')($scope.lldata["dateEnd"], "dd/MM/yyyy"),
-			]
-	},
+			  $filter('date')($scope.lldata["dateEndExpected"], "dd/MM/yyyy"),
 
-    ],
-    styles: {
-	    header: {
-	      fontSize: 14,
-	      bold: true
-	    },
-	    text: {
-	     fontSize: 12,
-	      italics: true
-	    },
-	    defaultStyle: {
-			columnGap: 20,
+			  $filter('date')($scope.lldata["dateEnd"], "dd/MM/yyyy"),
+				]
+		},
+
+		],
+		styles: {
+			header: {
+			  fontSize: 14,
+			  bold: true
+			},
+			text: {
+			 fontSize: 12,
+			  italics: true
+			},
+			defaultStyle: {
+				columnGap: 20,
+			}
 		}
-	}
-  };
-    pdfMake.createPdf(docDefinition).download('LL'+$scope.lldata["idLessonsLearned"]+'.pdf');
+	  };
+		pdfMake.createPdf(docDefinition).download('LL'+$scope.lldata["idLessonsLearned"]+'.pdf');
   };
 
 
