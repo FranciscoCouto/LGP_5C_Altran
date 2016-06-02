@@ -3,6 +3,18 @@ table{
   table-layout: fixed;
 }
 
+#newLLbtn {
+}
+
+
+#newLLbtn {
+  margin-bottom: 10px;
+}
+
+.usertable {
+  padding: 20px 15px;
+}
+
 .mdl-header{
   background-color: rgb(72,89,126);
   padding: 20px 15px;

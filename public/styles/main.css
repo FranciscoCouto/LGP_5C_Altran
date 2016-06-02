@@ -309,8 +309,12 @@ footer {
   border-radius: 15px;
 }
 
-.btn-circle:hover, .btn-circle:active, .btn-circle:focus {
+.btn-primary .btn-circle:hover, .btn-circle:active, .btn-circle:focus {
   background-color: #5772aa; /* #286090 */
+}
+
+.btn-danger .btn-circle:hover, .btn-circle:active, .btn-circle:focus {
+  background-color: red;
 }
 
 .btn-circle.btn-lg {
