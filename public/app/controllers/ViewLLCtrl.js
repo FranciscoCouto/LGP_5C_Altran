@@ -213,7 +213,7 @@
 				return true;
 			})
 			.catch( function (err){
-				console.log(err);
+				bootbox.alert($filter('translate')(err.data.message));
 			});
 		}
 		
@@ -244,7 +244,7 @@
 					$('#llstatus').text("Submitted");
 				})
 				.catch( function (err){
-					console.log(err);
+					bootbox.alert($filter('translate')(err.data.message));
 				});
 			}); 
 			

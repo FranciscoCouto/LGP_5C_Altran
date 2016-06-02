@@ -490,6 +490,24 @@
                  var manager = req.body.manager;
                  var idLesson = req.body.idlesson;
 
+                if(!situation || !result || !action) {
+                    res.status(406).json({
+                           message_class: 'error',
+                            message: "ERRORINSERTINGLLFIELDBLANK"
+                    });
+                    return;
+
+                }
+                
+                if(situation.length > 1000 || result.length > 1000 || action.length > 1000) {
+                    res.status(406).json({
+                            message_class: 'error',
+                            message: "ERRORINSERTINGLLFIELDBIG"
+                    });
+
+                    return;
+                }
+
                  database.updateLessonTextByID(action, situation, result, idLesson, manager)
                     .then(function() {
                         res.status(200).json({
@@ -508,7 +526,6 @@
          });
 
          server.post("/api/createlesson",function(req,res){
-
                 var dateCreated = new Date();
                 var maker = req.body.maker;
                 var project = req.body.project;
@@ -520,24 +537,6 @@
                 var result = req.body.result;
 
                 var technologies = req.body.technologies;
-
-                if(!situation || !result || !action) {
-                    res.status(406).json({
-                           message_class: 'error',
-                            message: "ERRORINSERTINGLL"
-                    });
-                    return;
-
-                }
-                
-                if(situation.length > 1000 || result.length > 1000 || action.length > 1000) {
-                    res.status(406).json({
-                            message_class: 'error',
-                            message: "ERRORINSERTINGLL"
-                    });
-
-                    return;
-                }
 
                 database.insertLesson(dateCreated,maker,project,datetime,situation,action,result,technologies, status)
                     .then(function (lesson) {
@@ -565,6 +564,7 @@
                     })
                     .catch(function (err) {
                         // Send the Response with message error
+                        console.log(err);
                         res.status(406).json({
                             message_class: 'error',
                             message: "ERRORLESSONID"
