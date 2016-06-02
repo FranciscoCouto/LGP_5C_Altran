@@ -25,12 +25,10 @@
           </div>
           <br>
 
-
-
-          <div class="tbl-header">
-              <table cellpadding="0" cellspacing="0" border="0" >
+<div class="cenas">
+              <table cellpadding="0" cellspacing="0" border="0" class="fixed" >
                   <thead>
-                      <tr>
+                      <tr class="tbl-header">
                           <th>
                               <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{'CREATION_DATE' | translate}}   </a>
                               <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
@@ -60,8 +58,6 @@
                             <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                           </th>
 
-
-
                           <th >
 
                               <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
@@ -75,15 +71,7 @@
                             </th>
 
                       </tr>
-                  </thead>
-              </table>
-          </div>
-
-          <div class="tbl-content">
-              <table cellpadding="0" cellspacing="0" border="0">
-                  <tbody>
-
-                      <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)">
+                       <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)" class="tbl-content">
                           <td>{{lesson.creationdate | date:'dd.MM.yyyy' }}</td>
                           <td>{{lesson.technologies}} </td>
                           <td>{{lesson.project}}</td>
@@ -93,7 +81,10 @@
                           <td><a class="btn btn-primary" href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
                       </tr>
 
-          </div>
+                  </thead>
+              </table>
+</div>
+    
 
 
       </div>
