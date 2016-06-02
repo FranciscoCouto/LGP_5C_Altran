@@ -22,7 +22,7 @@
 				</ul> -->
 				
 				<li id="navmenu" ng-if="hasSession.logged" class="dropdown ">
-					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{'NAVIGATION' | translate}}</a>
+					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{'NAVIGATION' | translate}}</a>
 					<ul class="dropdown-menu">
 						<li><a href="/home">{{'HOME' | translate}}</a>
 						</li>
@@ -40,7 +40,7 @@
 
 				
 				<li ng-if="hasSession.logged" class="dropdown">
-					<a id="langs" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>{{lang}}</a>
+					<a id="langs" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{lang}}</a>
 					<ul class="dropdown-menu">
 						<li><a ng-click="changeLanguage('en')">EN</a>
 						</li>
