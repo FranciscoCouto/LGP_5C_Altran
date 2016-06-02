@@ -26,10 +26,10 @@
 
 
 
-            <div class="tbl-header">
-                <table cellpadding="0" cellspacing="0" border="0" >
+<div class="cenas">
+                <table cellpadding="0" cellspacing="0" border="0" class="fixed">
                     <thead>
-                        <tr>
+                        <tr class="tbl-header">
                             <th>
                                 <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"> {{'PROJECT_NAME' | translate}} </a>
                                 <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
@@ -63,15 +63,7 @@
                             </th>
 
                         </tr>
-                    </thead>
-                </table>
-            </div>
-
-            <div class="tbl-content">
-                <table cellpadding="0" cellspacing="0" border="0">
-                    <tbody>
-
-                        <tr ng-repeat="project in projects | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams">
+                        <tr ng-repeat="project in projects | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams" class="tbl-content">
                             <td>{{project.name}}</td>
                             <td>{{project.RManager}} </td>
                             <td>{{project.client}}</td>
@@ -79,9 +71,9 @@
                             <td>{{project.RSector}}</td>
                             <td><button type="button" class="btn btn-primary btn-circle btn-lg box-shadow--2dp" ng-click="editPM(project)"><i class="glyphicon glyphicon-pencil"></i></button></td>
                         </tr>
-                        </tbody>
-                        </table>
-            </div>
+                    </thead>
+                </table>
+</div>
         </div>
         </div>
             <!-- Modal -->

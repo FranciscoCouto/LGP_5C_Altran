@@ -2,80 +2,83 @@
 	"api":{
 		"all": [
 			"/api/login",
-			"/api/verifysession",
-			"/api/createuser",
-			"/api/managers",
-			"/api/createproject",
-			"/api/projecttypes",
-			"/api/sectors",
-			"/api/lessons",
-			"/api/user",
-			"/api/searchlessons",
-			"/api/projectsbymanager",
-			"/api/checklessonmanager",
-			"/api/lessonsbymanager",
-			"/api/updateProjectManagerByID",
-			"/api/technologies",
-			"/api/projects",
-			"/api/lessonsByStatus?status=approved",
-			"/api/lessonsByStatus?status=inactive",
-			"/api/lessonsByStatus?status=submitted",
-			"/api/lessonsByStatus?status=rejected",
-			"/api/lessonsTop",
-			"/api/lessonsByStatus",
-			"/api/audit",
-			"/api/deletetech",
-			"/api/deletesector",
-			"/api/deletetype"
+			"/api/verifysession"
 		],
 
 		"logged": [
-			"/api/users",
-			"/api/updateuseremail",
-			"/api/updateuserpass",
-			"/api/updatelessonstate",
-			"/api/updatelessonfeedback",
-			"/api/updatelessontext",
+			"/api/verifysession",
+			"/api/lessons",
+			"/api/user",
+			"/api/searchlessons",
 			"/api/technologies",
-			"/api/createlesson"
+			"/api/lessonsTop"	
 		],
 
 		"admin": [
-
+			"/api/verifysession",
+			"/api/lessons",
+			"/api/user",
+			"/api/users",
+			"/api/createuser",
+			"/api/managers",
+			"/api/createproject",
+			"/api/updateuseremail",
+			"/api/updateuserpass",
+			"/api/audit",
+			"/api/updatelessonstate",
+			"/api/updatelessonfeedback",
+			"/api/technologies",
+			"/api/projecttypes",
+			"/api/sectors",
+			"/api/deletetech",
+			"/api/deletesector",
+			"/api/deletetype",
+			"/api/projects",
+			"/api/updateProjectManagerByID",
+			"/api/lessonsByStatus",
+			"/api/checklessonmanager"
+		],
+		
+		"advanced":[
+			"/api/updatelessontext",
+			"/api/technologies",
+			"/api/createlesson",
+			"/api/projectsbymanager",
+			"/api/lessonsbymanager",
+			"/api/lessons"
 		]
 	},
 
 	"views":{
 		"all": [
 			"/",
-			"/forbidden",
-			"/listll",
-			"/mylistll",
-			"/home",
-			"/user_management",
-			"/settings",
-			"/statistics",
-			"/listll",
-			"/users",
-			"/create_project",
-			"/create_ll",
-			"/view_ll/",
-			"/edit_ll/",
-			"/view_audit/",
-			"/list_audit/",
-			"/list_projects"
+			"/forbidden"
+			
 		],
 		"logged": [
-
+			"listll",
+			"view_ll/"
 		],
 		"admin": [
-
+			"home",
+			"user_management",
+			"settings",
+			"users",
+			"create_project",
+			"statistics",
+			"view_audit/",
+			"list_audit/",
+			"list_projects",
+			"listll",
+			"view_ll/"
 		],
 		"advanced": [
-
-
+			"create_ll",
+			"edit_ll/",
+			"listll",
+			"view_ll/",
+			"mylistll"
 		]
-
 
 	}
 }

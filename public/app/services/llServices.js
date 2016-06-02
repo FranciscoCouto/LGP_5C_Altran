@@ -9,7 +9,7 @@ var llServices = function ($q, $http) {
 
         return $http.post('/api/createlesson', lesson)
             .success(function(res) {
-                deferred.resolve('Success');
+                deferred.resolve(res.insertId);
             })
             .error(function(err) {
                 deferred.reject(err);

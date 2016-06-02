@@ -67,12 +67,6 @@
 				css: "styles/list_ll.css"
             })
 
-            .when("/create_ll", {
-                templateUrl: "app/views/create_ll.html",
-                controller: "CreateLLCtrl",
-				css: "styles/create_ll.css"
-            })
-
 			.when("/view_ll/:id/", {
                 templateUrl: "app/views/view_ll.html",
                 controller: "ViewLLCtrl",
@@ -107,7 +101,7 @@
             })
 
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/forbidden'
             });
 
         // Enabling HTML5 mode so that the URL doesn't show up with hashtags

@@ -31,7 +31,7 @@
 				return;
 			} 
 
-			console.log("DATA: " + JSON.stringify($scope.lldata));
+			//console.log("DATA: " + JSON.stringify($scope.lldata));
 			$scope.lldata.project = $scope.lldata.project? $scope.lldata.project : 'Altran';
 			$scope.lldata.client = $scope.lldata.client? $scope.lldata.client : 'Altran';
 			$scope.llstatus = $scope.lldata["status"];
@@ -46,12 +46,20 @@
 			} else if ($scope.llstatus == "inactive") {
 				$('#llstatus').css("background-color", "#d9534f");
 			}
+			
+			
 		
 		})
 		.catch(function (err) {
 			console.log(err.data);
 			$location.path("/forbidden");
 		});
+		
+		$scope.updateTAcount = function() {
+			$( window ).load(function() {
+				$("textarea").parent().parent().next().text(($(this).val().length) + "/1000");
+			});
+		}
 		
 		$scope.adminApprove = function() {
 			bootbox.confirm("Are you sure?", function(result) {	
