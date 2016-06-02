@@ -26,15 +26,15 @@
 					<ul class="dropdown-menu">
 						<li><a href="/home">{{'HOME' | translate}}</a>
 						</li>
-						<li><a href="/users">{{'USERS' | translate}}</a>
+						<li><a ng-if="hasSession.data.permission == 2" href="/users">{{'USERS' | translate}}</a>
 						</li>
 						<li><a href="/listll">{{'LESSONS' | translate}}</a>
 						</li>
-						<li><a href="/statistics">{{'STATS' | translate}}</a>
+						<li><a ng-if="hasSession.data.permission == 2" href="/statistics">{{'STATS' | translate}}</a>
 						</li>
-						<li><a href="/list_projects">{{'PROJECTS' | translate}}</a>
+						<li><a ng-if="hasSession.data.permission == 2" href="/list_projects">{{'PROJECTS' | translate}}</a>
 						</li>
-						<li><a href="/settings">{{'SETTINGS' | translate}}</a>
+						<li ng-if="hasSession.data.permission == 2"><a href="/settings">{{'SETTINGS' | translate}}</a>
 						</li>
 					</ul>
 				</li>
