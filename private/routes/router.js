@@ -498,6 +498,24 @@
 
                 var technologies = req.body.technologies;
 
+                if(!situation || !result || !action) {
+                    res.status(406).json({
+                           message_class: 'error',
+                            message: "ERRORINSERTINGLL"
+                    });
+                    return;
+
+                }
+                
+                if(situation.length > 1000 || result.length > 1000 || action.length > 1000) {
+                    res.status(406).json({
+                            message_class: 'error',
+                            message: "ERRORINSERTINGLL"
+                    });
+
+                    return;
+                }
+
                 database.insertLesson(dateCreated,maker,project,datetime,situation,action,result,technologies, status)
                     .then(function (lesson) {
                         res.sendStatus(200);
