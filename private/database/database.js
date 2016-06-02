@@ -541,16 +541,31 @@
 
     exports.updateLessonStateByID = function(idlesson,state){
         return new Promise(function (resolve, reject) {
-            client.query('UPDATE public.lessonslearned SET status = ? WHERE idLessonsLearned = ?',  [state, idlesson ],
-                function (err, result) {
-                    if (err) {
-                        console.log(err);
-                        reject(err);
-                    } else {
-                        console.log(result);
-                        resolve('Updated lesson with id: ' + idlesson + 'to: ' + state);
-                    }
-                });
+		
+			if (state == 'approved') {
+				client.query('UPDATE public.lessonslearned SET status = ?, aproveddate = CURDATE() WHERE idLessonsLearned = ?',  [state, idlesson ],
+					function (err, result) {
+						if (err) {
+							console.log(err);
+							reject(err);
+						} else {
+							console.log(result);
+							resolve('Updated lesson with id: ' + idlesson + 'to: ' + state);
+						}
+					});
+			} else {
+			
+				client.query('UPDATE public.lessonslearned SET status = ?, aproveddate = null WHERE idLessonsLearned = ?',  [state, idlesson ],
+					function (err, result) {
+						if (err) {
+							console.log(err);
+							reject(err);
+						} else {
+							console.log(result);
+							resolve('Updated lesson with id: ' + idlesson + 'to: ' + state);
+						}
+					});
+			}
         });
     }
 
