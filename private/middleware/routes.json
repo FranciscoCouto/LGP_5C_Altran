@@ -11,6 +11,7 @@
 			"/api/user",
 			"/api/searchlessons",
 			"/api/technologies",
+			"/api/lesson",
 			"/api/lessonsTop"	
 		],
 
@@ -37,6 +38,7 @@
 			"/api/updateProjectManagerByID",
 			"/api/lessonsByStatus",
 			"/api/checklessonmanager",
+			"/api/lesson",
 			"/api/createaudit"
 		],
 		
@@ -46,6 +48,7 @@
 			"/api/createlesson",
 			"/api/projectsbymanager",
 			"/api/lessonsbymanager",
+			"/api/lesson",
 			"/api/lessons"
 		]
 	},
@@ -53,12 +56,12 @@
 	"views":{
 		"all": [
 			"/",
-			"/forbidden"
+			"forbidden"
 			
 		],
 		"logged": [
 			"listll",
-			"view_ll/"
+			"view_ll"
 		],
 		"admin": [
 			"home",
@@ -67,17 +70,17 @@
 			"users",
 			"create_project",
 			"statistics",
-			"view_audit/",
-			"list_audit/",
+			"view_audit",
+			"list_audit",
 			"list_projects",
 			"listll",
-			"view_ll/"
+			"view_ll"
 		],
 		"advanced": [
 			"create_ll",
-			"edit_ll/",
+			"edit_ll",
 			"listll",
-			"view_ll/",
+			"view_ll",
 			"mylistll"
 		]
 
