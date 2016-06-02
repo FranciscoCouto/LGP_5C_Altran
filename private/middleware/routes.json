@@ -36,7 +36,8 @@
 			"/api/projects",
 			"/api/updateProjectManagerByID",
 			"/api/lessonsByStatus",
-			"/api/checklessonmanager"
+			"/api/checklessonmanager",
+			"/api/createaudit"
 		],
 		
 		"advanced":[

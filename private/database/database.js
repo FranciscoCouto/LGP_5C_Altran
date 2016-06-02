@@ -822,5 +822,20 @@
                 });
          });
     }
+	
+	     exports.insertAuditTrail = function(idlesson){
+         return new Promise(function (resolve, reject) {
+         var query = "INSERT INTO audit_trail ( idlessonlearned, editiondate, editor,  action, situation, result, operation ) SELECT  lessonslearned.idLessonsLearned, CURDATE(), lessonslearned.manager, t2.action, t2.situation, t2.result, 'update' FROM (lessonslearned INNER JOIN lessonstext as t2 ON(lessonslearned.idLessonsLearned = t2.idLessonLearned)) WHERE lessonslearned.idLessonsLearned = ?";
+         query = mysql.format(query,idlesson);
+         client.query(query,function (err, result) {
+                    if (err) {
+                        console.log(err);
+                        reject(err);
+                    } else {
+                        resolve(result);
+                    }
+                });
+         });
+    }
 
 }());

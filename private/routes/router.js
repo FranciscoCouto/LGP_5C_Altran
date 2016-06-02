@@ -838,6 +838,19 @@
                     res.status(406).send('ERRORAUDITINFO');
                 });
         });
+		
+		
+		  server.post("/api/createaudit",function(req,res){
+
+             var lesson_id = req.headers.referer.split("/")[4];
+             database.insertAuditTrail(lesson_id)
+               .then(function (audit) {
+                    res.status(200).send(audit);
+                })
+                .catch(function (err) {
+                    res.status(406).send('ERRORAUDITINFO');
+                });
+        });
 
     };
 } ());

@@ -2,7 +2,7 @@
 * Create the controller for the Admin Home Page
 */
 (function(){
-	var  ViewLLCtrl = function($scope,$filter, $location, lessonServices, userServices) {
+	var  ViewLLCtrl = function($scope,$filter, $location, lessonServices, userServices, auditServices) {
 
 		console.log('ViewLLCtrl loaded.');
 		
@@ -108,6 +108,14 @@
 							}
 
 							console.log("Feedback set!");
+							
+							auditServices.createAudit($scope.lldata["idLessonsLearned"])
+							.then (function(res) {
+								console.log("NEW AUDIT - " + res);
+							})
+							.catch( function (err){
+							console.log(err);
+						});
 							
 
 						})
@@ -434,7 +442,7 @@
 
 	 };
 	 // Injecting modules used for better minifing later on
-    ViewLLCtrl.$inject = ['$scope', '$filter', '$location', 'lessonServices' , 'userServices'];
+    ViewLLCtrl.$inject = ['$scope', '$filter', '$location', 'lessonServices' , 'userServices', 'auditServices'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned')

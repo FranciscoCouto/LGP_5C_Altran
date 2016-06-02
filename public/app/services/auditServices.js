@@ -18,6 +18,21 @@ var auditServices = function ($q, $http, $cookies, $window) {
 
 	};
 
+	this.createAudit = function() {
+		 return $http.post('/api/createaudit', {
+			'idlesson' : id
+		 })
+                .success(function(res) {
+				
+					console.log(res);
+				
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+
+	};
    
 };
 
