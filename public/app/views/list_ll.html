@@ -71,21 +71,25 @@
                                 <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
                             </th>
 
-                        </tr>
-                         <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)"  class="tbl-content">
-                            <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
-                            <td>{{lesson.technologies}} </td>
-                            <td>{{lesson.name}}</td>
-                            <td >{{lesson.title}}</td>
-                            <td>{{lesson.sector}}</td>
-                            <td >{{lesson.client}}</td>
-                            <td ng-if="isAdmin==1">{{lesson.status}}</td>
-                            <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
-                        </tr>
-                    </thead>
+                        </tr></thead>
+                        <tbody>
+                            <tr ng-show="!lessons">
+                                <td colspan="8">No lessons available.</td>
+                            </tr>
+                            <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse  | filter:Status(lesson.status)" class="tbl-content">
+                                <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
+                                <td>{{lesson.technologies}} </td>
+                                <td>{{lesson.name}}</td>
+                                <td >{{lesson.title}}</td>
+                                <td>{{lesson.sector}}</td>
+                                <td >{{lesson.client}}</td>
+                                <td ng-if="isAdmin==1">{{lesson.status}}</td>
+                                <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                            </tr>
+                        </tbody>                    
                 </table>
             </div>
-
+            <uib-pagination total-items="(lessons | fuzzyBy: sortType: searchParams).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
 
         </div>
 

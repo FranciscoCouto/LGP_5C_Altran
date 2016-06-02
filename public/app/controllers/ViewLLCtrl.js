@@ -298,7 +298,7 @@
 			return $scope.isAdmin() && $scope.isInactive();
 		}
 
-  $scope.downloadPdf = function() {
+	$scope.downloadPdf = function() {
   	var docDefinition = {
     content: [
       	'Lesson Learned Exporting \n',
@@ -438,6 +438,19 @@
 	}
   };
     pdfMake.createPdf(docDefinition).download('LL'+$scope.lldata["idLessonsLearned"]+'.pdf');
+  };
+
+
+  $scope.downloadCSV = function() {
+
+  	alasql('SELECT * INTO CSV("LL.csv", {headers:true}) FROM ?',[$scope.lldata]);
+
+  };
+
+   $scope.downloadExcel = function() {
+
+  	alasql('SELECT * INTO XLSX("LL.xlsx", {headers:true}) FROM ?',[$scope.lldata]);
+
   };
 
 	 };

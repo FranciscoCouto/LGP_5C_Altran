@@ -2,26 +2,24 @@
  * Create the controller
  */
 (function() {
-    var listllCtrl = function($scope, listllServices, userServices, filterFilter, $filter) {
+    var listllCtrl = function($scope, listllServices, userServices, filterFilter, $filter, $window) {
         $scope.isAdmin = 0;
         $scope.sortType = 'title';
         $scope.statusString = "all";
+        $scope.llsPerPage = 5;
+        $scope.currentPage = 1;
         console.log('Page loaded.');
 
         userServices.logged()
             .then(function(result) {
-                console.log('User data loaded.');
                 $scope.user = result.data;
-                console.log(JSON.stringify(result.data));
                 if (result.data.permission == 2) {
                     $scope.isAdmin = 1;
-                    console.log("sou admin");
                 }
 
             })
             .catch(function(err) {
-                console.log('Lessons List error.');
-                alert(err);
+                $window.location.href = '/forbidden';
             });
 
         listllServices.getAllLessons()
@@ -29,42 +27,45 @@
                 if ($scope.isAdmin == 1) {
                     $scope.lessons = result.data;
                     var count = 0;
-                angular.forEach($scope.lessons, function (lesson) {
-                    if(lesson.client == null){
-                     $scope.lessons[count].client = 'Altran';
-                    }
-                    if(lesson.title == null){
-                     $scope.lessons[count].title = 'No Project';
-                    }
-                    if(lesson.sector == null){
-                     $scope.lessons[count].sector = 'No Sector';
-                    }
-                    count++;
-                });
+                    angular.forEach($scope.lessons, function (lesson) {
+                        if(lesson.client == null){
+                         $scope.lessons[count].client = 'Altran';
+                        }
+                        if(lesson.title == null){
+                         $scope.lessons[count].title = 'No Project';
+                        }
+                        if(lesson.sector == null){
+                         $scope.lessons[count].sector = 'No Sector';
+                        }
+                        count++;
+                    });
 
                 } else {
                     $scope.lessons = $filter('filter')(result.data, {
                         status: "approved"
                     }, true);
                      var count = 0;
-                angular.forEach($scope.lessons, function (lesson) {
-                    if(lesson.client == null){
-                     $scope.lessons[count].client = 'Altran';
-                    }
-                    if(lesson.title == null){
-                     $scope.lessons[count].title = 'No Project';
-                    }
-                    if(lesson.sector == null){
-                     $scope.lessons[count].sector = 'No Sector';
-                    }
-                    count++;
-                });
+                    angular.forEach($scope.lessons, function (lesson) {
+                        if(lesson.client == null){
+                         $scope.lessons[count].client = 'Altran';
+                        }
+                        if(lesson.title == null){
+                         $scope.lessons[count].title = 'No Project';
+                        }
+                        if(lesson.sector == null){
+                         $scope.lessons[count].sector = 'No Sector';
+                        }
+                        count++;
+                    });
+
+                    $scope.$watch('search.filter', function (term) {
+                        $scope.currentPage = 1;
+                    });
                 }
 
             })
             .catch(function(err) {
-                console.log('Lessons List error.');
-                alert(err);
+                $scope.lessons = null;
             });
 
 
@@ -118,7 +119,7 @@
 
 
     // Injecting modules used for better minifing later on
-    listllCtrl.$inject = ['$scope', 'listllServices', 'userServices', 'filterFilter', '$filter'];
+    listllCtrl.$inject = ['$scope', 'listllServices', 'userServices', 'filterFilter', '$filter', '$window'];
 
 
     // Enabling the controller in the app
