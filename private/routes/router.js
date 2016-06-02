@@ -277,7 +277,7 @@
                 email: req.body.email.toLowerCase(),
                 permission: req.body.permissionid
             };
-
+            var oldemail=req.body.oldemail.toLowerCase();
             //admin making the edition
             var admin = {
                 pass: req.body.confirmpass,
@@ -288,9 +288,21 @@
                 .then(function(){
                     database.updateUserByID(user.id,user.email, user.name, user.permission)
                         .then(function() {
+                            fs.rename('./public/images/'+oldemail+".jpg", './public/images/'+user.email+".jpg", function(err) {
+                                if (err){
+                                    fs.unlink('./public/images/'+oldemail+".jpg");
+                                    res.status(406).json({
+                                        message_class: 'error',
+                                        message: "ERRORRENAMEIMAGE"
+                                    });
+                                }
+                            });
+                            
                             res.status(200);
+                            
                         })
                         .catch(function (err) {
+                           
                             res.status(406).json({
                                 message_class: 'error',
                                 message: "ERRORUPDATEUSEREMAIL"

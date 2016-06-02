@@ -265,7 +265,7 @@
     exports.updateUserByID = function(id, email, name, permission){
          return new Promise(function (resolve, reject) {
          client.query('UPDATE public.users SET name = ?, email = ?, permission = ? WHERE idusers = ?', [name, email, permission, id],
-            function (err, result) {
+            function (err, result,fields) {
                     if (err) {
                         reject(err);
                     } else {

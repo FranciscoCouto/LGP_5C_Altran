@@ -96,6 +96,7 @@
             }
 
             var info = {
+				oldemail: selectedUser.email,
 				idusers: selectedUser.idusers,
 				name: mydata.name,
 				email: mydata.email,
