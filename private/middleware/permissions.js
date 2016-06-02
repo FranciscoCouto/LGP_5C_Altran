@@ -83,6 +83,7 @@ console.log("url: "+req.url);
                     .catch(function (err) {
                         return res.sendStatus(403);
                     });
+             
           
             }
 
@@ -127,43 +128,37 @@ console.log("url: "+req.url);
                                 }
 
                                 if (i == routes.views.logged.length) {
-                                    if (res.statusCode == null) {
                                         res.redirect('/forbidden');
-                                    }
                                 } else {
                                     next();
                                 }
                             break;
                             case "1":
-                                for (i = 0; i < routes.views.advanced.length; i++) {
+                               for (i = 0; i < routes.views.advanced.length; i++) {
                                     if (url.indexOf(routes.views.advanced[i]) > -1) {
+                                        console.log("dafuk: "+url+ "   : "+routes.views.advanced[i]);
                                         break;
                                     }
                                 }
-
+                                console.log("tamanho: "+ routes.views.advanced.length+" "+i);
                                 if (i == routes.views.advanced.length) {
-                                    if (res.statusCode == null) {
+                                    console.log("olaaaa");
                                         res.redirect('/forbidden');
-                                    }
+
                                 } else {
                                     next();
                                 }
+
                             break;
                             case "2":
-                            console.log("entrou  "+url);
                                 for (i = 0; i < routes.views.admin.length; i++) {
-                                    console.log("entrou com "+routes.views.admin[i]);
-                                    console.log("-----------------------");
                                     if (url.indexOf(routes.views.admin[i]) > -1) {
-                                        console.log("deu");
                                         break;
                                     }
                                 }
 
                                 if (i == routes.views.admin.length) {
-                                    if (res.statusCode == null) {
                                         res.redirect('/forbidden');
-                                    }
                                 } else {
                                     next();
                                 }
