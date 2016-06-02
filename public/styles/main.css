@@ -256,6 +256,22 @@ footer {
 }
 
 /* User List */
+.pagination>li>a,.pagination>li>a:focus  {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.pagination>li.disabled>a,.pagination>li.disabled>a:hover,.pagination>li.disabled>a:focus  {
+  background: rgb(52,71,112);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+.pagination>li.active>a,.pagination>li>a:hover {
+  background: rgba(0,0,0,0.3);
+  border-color: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
 .stylish-input-group .input-group-addon{
     background: white !important; 
 }
