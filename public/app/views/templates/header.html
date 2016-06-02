@@ -40,13 +40,14 @@
 
 				
 				<li ng-if="hasSession.logged" class="dropdown">
-					<a id="langs" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{lang}}</a>
+					
+					<a ng-init="convertLang()" id="langs" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></a>
 					<ul class="dropdown-menu">
-						<li><a ng-click="changeLanguage('en')">EN</a>
+						<li><a ng-click="changeLanguage('en')"><img src="images/uk.png"> English</img></a>
 						</li>
-						<li><a ng-click="changeLanguage('pt')">PT</a>
+						<li><a ng-click="changeLanguage('pt')"><img src="images/portugal.png"> Português</img></a>
 						</li>
-						<li><a ng-click="changeLanguage('fr')">FR</a>
+						<li><a ng-click="changeLanguage('fr')"><img src="images/france.png"> Français</img></a>
 						</li>
 					</ul>
 				</li>
