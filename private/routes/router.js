@@ -518,7 +518,7 @@
 
                 database.insertLesson(dateCreated,maker,project,datetime,situation,action,result,technologies, status)
                     .then(function (lesson) {
-                        res.sendStatus(200);
+                        res.status(200).send(lesson);
                     })
                     .catch(function (err) {
                         res.status(406).json({

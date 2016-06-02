@@ -495,7 +495,7 @@
                                                         reject("error")
                                                     } else {
                                                         console.log("Success inserting lesson");
-                                                        resolve(result.insertId);
+                                                        resolve(result1);
                                                     }
                                             });
                                         }
