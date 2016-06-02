@@ -296,7 +296,7 @@
 
     exports.getLessons = function(){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.lessonslearned as t1 ) LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP By idLessonsLearned";
+         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.lessonslearned as t1 ) LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP By idLessonsLearned,situation,action,result";
          query = mysql.format(query);
          client.query(query,function (err, result) {
                     if (err) {
