@@ -111,7 +111,7 @@
 							
 							auditServices.createAudit($scope.lldata["idLessonsLearned"])
 							.then (function(res) {
-								console.log("NEW AUDIT - " + res);
+								console.log(res);
 							})
 							.catch( function (err){
 							console.log(err);

@@ -18,7 +18,7 @@ var auditServices = function ($q, $http, $cookies, $window) {
 
 	};
 
-	this.createAudit = function() {
+	this.createAudit = function(id) {
 		 return $http.post('/api/createaudit', {
 			'idlesson' : id
 		 })
