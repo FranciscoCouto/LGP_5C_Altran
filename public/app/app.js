@@ -107,7 +107,7 @@
             })
 
             .otherwise({
-                redirectTo: '/'
+                redirectTo: '/forbidden'
             });
 
         // Enabling HTML5 mode so that the URL doesn't show up with hashtags

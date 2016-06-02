@@ -22,7 +22,7 @@ table{
 
  .tbl-content{
 
-  overflow-x:auto;
+ 
   margin-top: 0px;
 }
 th{
@@ -38,7 +38,13 @@ th{
 th a{
   color:#fff;
 }
-
+.fixed{
+  table-layout: auto;
+}
+.cenas{
+  width:100%;
+  overflow-x:scroll;
+}
 th a:hover, a:focus{
   color:#fff;
   text-decoration: none;
