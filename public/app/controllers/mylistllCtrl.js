@@ -6,6 +6,8 @@
 
       $scope.sortType = 'title';
       $scope.statusString = "approved";
+      $scope.llsPerPage = 10;
+      $scope.currentPage = 1;
       console.log('Page loaded.');
 	  
 	   var manager = null;

@@ -68,25 +68,25 @@
 					  </select>
 
 				  </th>
-
-
 					<th>
 						<a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
 					</th>
-
 			  </tr>
-         <tr ng-repeat="lesson in lessons | orderBy:sortType:sortReverse  | fuzzyBy: sortType: searchParams |  filter:Status(lesson.status)" class="tbl-content">
-				  <td>{{lesson.creationdate | date:'dd.MM.yyyy' }}</td>
-				  <td>{{lesson.technologies}} </td>
-				  <td>{{lesson.project}}</td>
-				  <td>{{lesson.sector}}</td>
-				  <td>{{lesson.client}}</td>
-				  <td>{{lesson.status}}</td>
-				  <td><a class="btn btn-primary" href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
-			  </tr>
-		  </thead>
-	  </table>
-  </div>
+         		</thead>
+         		<tbody>
+                      <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
+                          <td>{{lesson.creationdate | date:'dd.MM.yyyy' }}</td>
+                          <td>{{lesson.technologies}} </td>
+                          <td>{{lesson.project}}</td>
+                          <td>{{lesson.sector}}</td>
+                          <td>{{lesson.client}}</td>
+                          <td>{{lesson.status}}</td>
+                          <td><a class="btn btn-primary" href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                      </tr>
+                  </tbody>
+            </table>
+          </div>
+          <uib-pagination total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
 
 
 </div>
