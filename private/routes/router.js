@@ -298,7 +298,9 @@
                                 }
                             });
                             
-                            res.status(200);
+                            res.status(200).json({
+                                message: "SUCCESS"
+                            });
                             
                         })
                         .catch(function (err) {
