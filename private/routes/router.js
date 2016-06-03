@@ -198,11 +198,9 @@
        }
         var email,pass,name,permission;
         email=fields.email.toLowerCase();
-        console.log(email);
         pass=fields.password;
         name=fields.name;
         permission=fields.permission;
-        console.log(files.image);
         var novonome=files.image.name.split(".");
         fs.rename(files.image.path, './public/images/'+email+".png", function(err) {
         if (err){
@@ -262,7 +260,6 @@
                     });
             }
             });
-            console.log("ssss");
         });
 
         server.delete("/api/deleteuser",function(req,res){
@@ -300,7 +297,6 @@
 
             database.deleteUserByID(idToDelete)
                 .then(function() {
-                    console.log("aqqqqqqqqqq");
                     res.status(200).json({
                                 message: "SUCCESS"
                             });
@@ -482,7 +478,6 @@
          server.post("/api/deletelesson",function(req,res){
 
              var idlesson = req.body.idlesson;
-		console.log(idlesson);
              database.deleteLessonByID(idlesson)
                 .then(function() {
 

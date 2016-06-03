@@ -91,7 +91,6 @@
 
     exports.checkPasswordbyEmail = function(email, password){
          return new Promise(function (resolve, reject) {
-            console.log(email + " " + password);
          client.query('SELECT password FROM public.users WHERE banned=0 AND ?', {email: email},
                 function (err, result) {
                     if (err) {
@@ -99,17 +98,13 @@
                     } else if(result.length <= 0) {
                         reject('Wrong password.');
                     } else {
-                        console.log(JSON.stringify(result));
                         bcrypt.compare(password, result[0].password, function (err, res) {
                             if (err) {
-                                console.log('adada');
                                 reject(err);
                             } else if (res) {
-                                console.log('NICE');
                                 resolve();
 
                             } else{
-                                console.log('CRA*');
                                 reject('Wrong password.');
                             }
                         });
@@ -161,7 +156,6 @@
                                     if (err) {
                                         reject(err);
                                     } else {
-                                        console.log("olaaa");
                                         resolve(result.insertId);
                                     }
                                 });
@@ -193,7 +187,6 @@
 
             client.query(query,function(err,result){
                         if (err) {
-                            console.log(email);
                             reject(err);
                         } else {
                             resolve('Deleted User by Email.');
@@ -221,9 +214,7 @@
       // Function to update a user email
     exports.updateUserByEmail = function (name, hashedpass, email) {
         return new Promise(function (resolve, reject) {
-            console.log('suuup' + hashedpass);
         bcrypt.hash(hashedpass, null, null, function (err, hash) {
-            console.log('suuup' + hashedpass);
             client.query('UPDATE public.users SET name = ?, password = ? WHERE email = ?',  [name, hash ,email ],
                 function (err, result) {
                     if (err) {
@@ -283,10 +274,8 @@
          query = mysql.format(query);
          client.query(query,function (err, result) {
                     if (err) {
-                        console.log('hurray');
                         reject(err);
                     } else {
-                        console.log('shipasoda');
                         resolve(result);
                     }
                 });
@@ -324,16 +313,13 @@
 
 
     exports.getLessonByStatus = function(status){
-        console.log('cheguei crl');
          return new Promise(function (resolve, reject) {
          var query = "SELECT * FROM public.lessonslearned as t1 LEFT OUTER JOIN public.project as t2 ON (t1.project = t2.idproject) WHERE t1.status = ?";
          query = mysql.format(query,status);
          client.query(query,function (err, result) {
                     if (err) {
-                        console.log('nn');
                         reject(err);
                     } else {
-                        console.log('yy');
                         resolve(result);
                     }
                 });
@@ -386,12 +372,10 @@
     exports.deleteLessonByID = function(idlesson){
          return new Promise(function (resolve, reject) {
          var query = "DELETE from public.lessonslearned WHERE idLessonsLearned = ?";
-			console.log(idlesson);
             query = mysql.format(query,idlesson);
 
             client.query(query,function(err,result){
                         if (err) {
-                            console.log(idlesson);
                             reject(err);
                         } else {
                             resolve('Deleted User by ID.');
@@ -439,7 +423,6 @@
                         if (err4) {
                                 reject(result4);
                             } else {
-                                console.log('project consulted');
                                 projectID = result4[0].idproject;
                             }
                     });
@@ -456,7 +439,6 @@
                     if (err5) {
                             reject(result5);
                         } else {
-                            console.log("technology consulted");
                             arrayTechs.push(result5[0].idtechnologies);
                         }
                 });
@@ -473,8 +455,7 @@
                             if (err1) {
                                 reject(err1);
                             } else {
-                                console.log("Lesson inserted: " + JSON.stringify(result1));
-
+                               
                                 client.query('INSERT INTO public.lessonstext SET ?', {idLessonLearned: result1.insertId, situation: situation, action: action, result: resultDesc},
                                     function (err2, result2) {
                                         if (err2) {
@@ -486,14 +467,10 @@
                                                 var val = [result1.insertId,tech];
                                                 values.push(val);
                                             });
-
-                                            console.log(values);
                                             client.query(sql,[values],function (err5, result5) {
                                                 if (err5) {
-                                                    console.log("Error inserting lesson");
                                                         reject("error")
                                                     } else {
-                                                        console.log("Success inserting lesson");
                                                         resolve(result1);
                                                     }
                                             });
@@ -548,7 +525,6 @@
 							console.log(err);
 							reject(err);
 						} else {
-							console.log(result);
 							resolve('Updated lesson with id: ' + idlesson + 'to: ' + state);
 						}
 					});
@@ -560,7 +536,6 @@
 							console.log(err);
 							reject(err);
 						} else {
-							console.log(result);
 							resolve('Updated lesson with id: ' + idlesson + 'to: ' + state);
 						}
 					});
@@ -576,7 +551,6 @@
                         console.log(err);
                         reject(err);
                     } else {
-                        console.log(result);
                         resolve('Updated lesson with id: ' + idlesson + 'to: ' + feedback);
                     }
                 });
@@ -615,7 +589,6 @@
 
     exports.insertProject = function (type,name,manager,dateBeginning,dateEndExpected, dateEnd, deliveringModel,numberConsultants, daysDuration, projclient,sector) {
         return new Promise(function (resolve, reject) {
-            console.log('heyyy: ' + sector + projclient + deliveringModel);
             var query = 'Select idusers FROM public.users WHERE banned=0 AND name = ?';
             query = mysql.format(query, manager);
             client.query(query,function (err2, result2) {
@@ -762,7 +735,6 @@
 
     exports.getSectors = function(){
          return new Promise(function (resolve, reject) {
-            console.log("...");
          var query = "SELECT * FROM public.business_sectors WHERE public.business_sectors.visible=1";
          query = mysql.format(query);
          client.query(query,function (err, result) {
