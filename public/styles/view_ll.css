@@ -102,7 +102,7 @@ textarea {
 }
 
 .toolbtn {
-	width: 80px;
+	width: 100px;
 	font-weight: bold;
 	padding-bottom: 5px;
 	padding-top: 5px;
@@ -130,4 +130,8 @@ textarea {
 .modal-content {
 	width: 60%;
 	margin-left:20%;
+}
+
+textarea:hover, textarea:active, textarea:focus {
+	background-color: #FFFACD;
 }

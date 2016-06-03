@@ -176,12 +176,12 @@
                 RESULT_DESCRIPTION: 'Results observed',
                 CHARS_LEFT: 'characters left',
                 SUBMIT: 'Submit',
-                SAVE_DRAFT: 'Save as draft',
+                SAVE_DRAFT: 'Save',
                 CANCEL: 'Cancel',
                 CREATE_LL: 'Create Lesson Learned',
 
                 //Create Project
-                LL_TITLE: 'Lesson Learned title',
+                LL_TITLE: 'Project Title',
                 PROJECT_NAME: 'Project Name',
                 PROJECT_MANAGER: 'Project Manager',
                 COLABORATORS: 'Colaborators',
@@ -357,12 +357,12 @@
                 RESULT_DESCRIPTION: 'Descrição do resultado',
                 CHARS_LEFT: 'caracteres restantes',
                 SUBMIT: 'Submeter',
-                SAVE_DRAFT: 'Guardar rascunho',
+                SAVE_DRAFT: 'Guardar',
                 CANCEL: 'Cancelar',
                 CREATE_LL: 'Criar Lesson Learned',
 
                 //Create Project
-                LL_TITLE: 'Título da Lesson Learned',
+                LL_TITLE: 'Título de Projeto',
                 PROJECT_NAME: 'Nome do Projeto',
                 PROJECT_MANAGER: 'Project Manager',
                 COLABORATORS: 'Colaboradores',
@@ -536,13 +536,13 @@
                 ACTION_TAKEN: 'Descrição da ação tomada',
                 RESULT_DESCRIPTION: 'Descrição do resultado',
                 CHARS_LEFT: 'caracteres restantes',
-                SUBMIT: 'Submeter',
-                SAVE_DRAFT: 'Guardar rascunho',
+                SUBMIT: 'Soumettre',
+                SAVE_DRAFT: 'Enregistrer',
                 CANCEL: 'Cancelar',
                 CREATE_LL: 'Criação de Lição Aprendida',
 
                 //Create Project
-                LL_TITLE: 'Título da Lesson Learned',
+                LL_TITLE: 'Titre du projet',
                 PROJECT_NAME: 'Nome do Projeto',
                 PROJECT_MANAGER: 'Project Manager',
                 COLABORATORS: 'Colaboradores',
