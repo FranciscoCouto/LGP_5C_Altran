@@ -76,6 +76,20 @@ var lessonServices = function ($q, $http, $cookies, $window) {
                 });
             
     }
+	
+	this.deleteLesson = function(lessonid) {
+		return $http.post('/api/deletelesson', {
+			"idlesson" : lessonid
+		})
+		.success(function(res) {
+                    console.log(res);
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                  
+                    deferred.reject(err);
+                });
+	}
 
    
 };

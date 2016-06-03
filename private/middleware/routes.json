@@ -12,7 +12,7 @@
 			"/api/searchlessons",
 			"/api/technologies",
 			"/api/lesson",
-			"/api/lessonsTop"	
+			"/api/lessonsTop"
 		],
 
 		"admin": [
@@ -51,7 +51,8 @@
 			"/api/projectsbymanager",
 			"/api/lessonsbymanager",
 			"/api/lesson",
-			"/api/lessons"
+			"/api/lessons",
+			"/api/deletelesson"
 		]
 	},
 

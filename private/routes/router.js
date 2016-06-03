@@ -461,11 +461,10 @@
                 });
         });
 
-         server.delete("/api/deletelesson",function(req,res){
+         server.post("/api/deletelesson",function(req,res){
 
              var idlesson = req.body.idlesson;
-
-
+		console.log(idlesson);
              database.deleteLessonByID(idlesson)
                 .then(function() {
 

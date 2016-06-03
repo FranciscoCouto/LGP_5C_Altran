@@ -44,6 +44,7 @@
                     $scope.hasSession=res;
 					$scope.permission=res.data.permission;
                     $scope.hasSession.logged=true;
+					$scope.redirect();
                 })
                 .catch( function (err){
                     $scope.hasSession.logged=false;

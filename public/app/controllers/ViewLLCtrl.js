@@ -306,6 +306,22 @@
 			return $scope.isAdmin() && $scope.isInactive();
 		}
 
+	$scope.deleteDraft = function() {
+		bootbox.confirm("Are you sure?", function(result) {	
+				if (!result) return;
+				console.log("Deleting LL...");
+				lessonServices.deleteLesson($scope.lldata["idLessonsLearned"])
+				.then(function (res) {
+					bootbox.alert("Lesson Learned deleted succesfully.");
+					window.location = "/mylistll";
+				})
+				.catch( function (err){
+					bootbox.alert("Failed to delete Lesson Learned.");
+				});
+				;
+			}); 
+	}
+		
 	$scope.exportLL = function() {
 		bootbox.dialog({
 			  message: "Export as...",
