@@ -38,7 +38,7 @@ CREATE TABLE `lessonslearned` (
   CONSTRAINT `idApprover` FOREIGN KEY (`approver`) REFERENCES `users` (`idusers`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `idManager` FOREIGN KEY (`manager`) REFERENCES `users` (`idusers`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `idProject` FOREIGN KEY (`project`) REFERENCES `project` (`idproject`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `lessonslearned` (
 
 LOCK TABLES `lessonslearned` WRITE;
 /*!40000 ALTER TABLE `lessonslearned` DISABLE KEYS */;
-INSERT INTO `lessonslearned` VALUES (2,22,NULL,'approved','2016-05-24',NULL,22,'Wooops'),(3,22,4,'approved','2016-05-26',NULL,22,'Upas Upas');
+INSERT INTO `lessonslearned` VALUES (1,2,1,'approved','2016-06-03','2016-06-03',NULL,NULL),(2,2,3,'inactive','2016-06-03',NULL,NULL,'I don\'t like liking this like'),(3,2,2,'draft','2016-06-03',NULL,NULL,NULL),(4,2,3,'submitted','2016-06-03',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `lessonslearned` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 15:24:41
+-- Dump completed on 2016-06-03 19:54:01

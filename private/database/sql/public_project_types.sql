@@ -27,7 +27,7 @@ CREATE TABLE `project_types` (
   `name` varchar(45) NOT NULL,
   `visible` int(11) NOT NULL DEFAULT '1',
   PRIMARY KEY (`idType`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `project_types` (
 
 LOCK TABLES `project_types` WRITE;
 /*!40000 ALTER TABLE `project_types` DISABLE KEYS */;
-INSERT INTO `project_types` VALUES (1,'ADM1',1),(2,'ADM2',1),(3,'ADM3',1);
+INSERT INTO `project_types` VALUES (1,'ADM1',1),(2,'ADM2',1),(3,'ADM3',1),(4,'ADM4',1);
 /*!40000 ALTER TABLE `project_types` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 15:24:41
+-- Dump completed on 2016-06-03 19:54:01
