@@ -2,23 +2,29 @@
 	 var  HomeCtrl = function($scope, $location, $translate, $routeParams, $window, userServices) {
 
 		 console.log('Page loaded.');
-
-		 $scope.hasSession="";
-		 
-		 $scope.getPath = function() {
-			return $location.$$path;
-		 }
-
-		 $scope.logged = function(){
+		  $scope.logged = function(){
             userServices.logged()
                 .then(function(res){
                     $scope.hasSession=res;
                     $scope.hasSession.logged=true;
                 })
                 .catch( function (err){
+					if(getPath()!="/")
+						window.location.replace("/");
                     $scope.hasSession.logged=false;
                 });
         };
+$scope.logged();
+         $scope.pop = function () {
+            $scope.items.pop();
+        };
+		 $scope.hasSession="";
+		 
+		 getPath = function() {
+			return $location.$$path;
+		 }
+
+		
 
         $scope.logout = function(){
             userServices.logout();
@@ -34,7 +40,7 @@
 				$("#langs").html("<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span> <img src='images/france.png'></img>");
 			}
 		};
-        $scope.logged();
+        
 
         $scope.changeLanguage = function (key) {
             $translate.use(key);    

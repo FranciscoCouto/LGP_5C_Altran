@@ -1,5 +1,5 @@
 (function(){
-	 var  LoginCtrl = function($scope, $routeParams, $window, userServices) {
+	 var  LoginCtrl = function($scope, $location, $translate, $routeParams, $window, userServices) {
 
 		 console.log('Page loaded.');
          $scope.hasSession="";
@@ -25,9 +25,12 @@
         };
 		$scope.redirect = function(){
             if($scope.hasSession.data.permission=="2")
-                        $window.location.href = '/home';
-                    else
-                        $window.location.href = '/listll';
+                        $window.location.replace = '/home';
+                    else 
+                        $window.location.replace = '/listll';
+        };
+        $scope.redirect2 = function(){
+            $window.location.href = '/';
         };
 		$scope.hasAdminLevel = function() {
 			return $scope.permission <= 2;
@@ -62,10 +65,27 @@
         $scope.qq = function(){
             console.log($scope.hasSession);
         };
+        	$scope.convertLang = function() {
+			var lang = $translate.use();
+			if (lang == 'en') {
+				$("#langs").html("<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span> <img src='images/uk.png'></img>");
+			} else if (lang == 'pt') {
+				$("#langs").html("<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span> <img src='images/portugal.png'></img>");
+			} else if (lang == 'fr') {
+				$("#langs").html("<span class='glyphicon glyphicon-triangle-bottom' aria-hidden='true'></span> <img src='images/france.png'></img>");
+			}
+		};
+        $scope.getPath = function() {
+			return $location.$$path;
+		 }
+           $scope.changeLanguage = function (key) {
+            $translate.use(key);    
+			$scope.convertLang();
+        };
        
 	 };
 	 // Injecting modules used for better minifing later on
-    LoginCtrl.$inject = ['$scope', '$routeParams', '$window', 'userServices'];
+    LoginCtrl.$inject = ['$scope', '$location', '$translate', '$routeParams', '$window', 'userServices'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned').controller('LoginCtrl', LoginCtrl);

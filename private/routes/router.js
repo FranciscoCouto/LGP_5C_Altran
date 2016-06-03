@@ -128,7 +128,7 @@
                 email: req.body.email.toLowerCase(),
                 password: utils.checkPassword(req.body.password)
             };
-            req.checkBody("email", "Enter a valid email address.").isEmail();
+            req.checkBody("email", "ERRORLOGIN").isEmail();
 
              if(req.validationErrors() || user.password==""){
                  res.status(406).json({
