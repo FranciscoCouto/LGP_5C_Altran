@@ -34,14 +34,6 @@
 				css: "styles/home.css"
             })
 
-            // Management side
-            .when("/user_management", {
-                templateUrl: "app/views/admin/user_management.html",
-                controller: "AdminCtrl",
-				css: "styles/user.css"
-				
-            })
-
             .when("/create_project", {
                 templateUrl: "app/views/admin/create_project.html",
                 controller: "Create_projCtrl",
@@ -226,6 +218,7 @@
 				PERMISSION_LEVEL: 'Permission Level',
 				USER_LEVEL: ' Permission Level ',
 				CREATE: 'Create',
+				EMAIL: 'Email address',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',
@@ -410,6 +403,7 @@
 				PERMISSION_LEVEL: 'Nível de permissões',
 				USER_LEVEL: ' Nível de Permissões ',
 				CREATE: 'Criar',
+				EMAIL: 'Endereço E-mail',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Data de Criação',
@@ -593,6 +587,7 @@
 				PERMISSION_LEVEL: 'Niveau d\'autorisation',
 				USER_LEVEL: ' Niveau d\'autorisation ',
 				CREATE: 'Créer',
+				EMAIL: 'Adresse e-mail',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',

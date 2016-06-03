@@ -68,7 +68,6 @@
 		],
 		"admin": [
 			"home",
-			"user_management",
 			"settings",
 			"users",
 			"create_project",

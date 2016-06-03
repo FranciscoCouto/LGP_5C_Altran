@@ -6,21 +6,23 @@
 
 	var  UserListCtrl = function($scope, $route, $uibModal, $log, userServices, services, filterFilter, $filter, adminServices) {
 
-		$scope.itemsPerPage = 3;
+		$scope.itemsPerPage = 5;
         $scope.currentPage = 1;
         $scope.items = [];
+		var image;
 		
-		$scope.testModal = function() {
-			alert("????");
-		};
-		
-		$scope.addUser = function(user) {
-		
-			console.log(user);
-		
-		
-/* 
-             alert(user.image);
+		$scope.addUser = function(user){
+
+			if (user.password != user.rpassword) {
+				bootbox.alert("Password does not match confirmation.");
+				return;
+			}
+			if (image == null) {
+				bootbox.alert("Image missing.");
+				return;
+			}
+			
+            //alert(image);
              if(user.permission==null)
                 user.permission="0";
 
@@ -33,13 +35,19 @@
 
              adminServices.registerUser(fd)
                 .then(function (res) {
-                    alert(res);
+                    console.log(res);
                 })
                 .catch(function (err) {
-                    alert(err.data.message);
-                }); */
+                     console.log(err.data.message);
+                });
                 
-         };
+        };
+		
+		
+        $scope.changeFile = function(files){
+             
+            image=files[0];
+        };
 
 		services.getUsers()
             .then(function (result) {
