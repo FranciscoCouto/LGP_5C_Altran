@@ -18,7 +18,7 @@
 --
 -- Table structure for table `audit_trail`
 --
-USE public;
+
 DROP TABLE IF EXISTS `audit_trail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -33,8 +33,8 @@ CREATE TABLE `audit_trail` (
   `operation` varchar(45) NOT NULL,
   PRIMARY KEY (`idaudit_trail`),
   KEY `idauditlesson_idx` (`idlessonlearned`),
-  CONSTRAINT `idauditlesson` FOREIGN KEY (`idlessonlearned`) REFERENCES `lessonslearned` (`idLessonsLearned`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  CONSTRAINT `idauditlesson` FOREIGN KEY (`idlessonlearned`) REFERENCES `lessonslearned` (`idLessonsLearned`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,6 @@ CREATE TABLE `audit_trail` (
 
 LOCK TABLES `audit_trail` WRITE;
 /*!40000 ALTER TABLE `audit_trail` DISABLE KEYS */;
-INSERT INTO `audit_trail` VALUES (1,1,'2016-05-24 00:00:00',22,'LALALA','sadasdas','wewew','update'),(2,1,'2016-05-25 00:00:00',22,'sadasxa','sfasdsa',NULL,'update');
 /*!40000 ALTER TABLE `audit_trail` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-28  3:18:16
+-- Dump completed on 2016-06-03 15:24:41

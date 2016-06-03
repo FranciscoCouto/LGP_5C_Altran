@@ -18,7 +18,7 @@
 --
 -- Table structure for table `lessonslearned`
 --
-USE public;
+
 DROP TABLE IF EXISTS `lessonslearned`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -47,7 +47,7 @@ CREATE TABLE `lessonslearned` (
 
 LOCK TABLES `lessonslearned` WRITE;
 /*!40000 ALTER TABLE `lessonslearned` DISABLE KEYS */;
-INSERT INTO `lessonslearned` VALUES (1,22,4,'approved','2016-05-22',NULL,22,'Olha que parvo que fostes!'),(2,22,NULL,'approved','2016-05-24',NULL,22,'Wooops'),(3,22,4,'approved','2016-05-26',NULL,22,'Upas Upas');
+INSERT INTO `lessonslearned` VALUES (2,22,NULL,'approved','2016-05-24',NULL,22,'Wooops'),(3,22,4,'approved','2016-05-26',NULL,22,'Upas Upas');
 /*!40000 ALTER TABLE `lessonslearned` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-28  3:18:16
+-- Dump completed on 2016-06-03 15:24:41

@@ -18,7 +18,7 @@
 --
 -- Table structure for table `lesson_tech`
 --
-USE public;
+
 DROP TABLE IF EXISTS `lesson_tech`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -40,7 +40,7 @@ CREATE TABLE `lesson_tech` (
 
 LOCK TABLES `lesson_tech` WRITE;
 /*!40000 ALTER TABLE `lesson_tech` DISABLE KEYS */;
-INSERT INTO `lesson_tech` VALUES (1,1,2),(2,1,3),(3,2,3),(4,3,2);
+INSERT INTO `lesson_tech` VALUES (3,2,3),(4,3,2);
 /*!40000 ALTER TABLE `lesson_tech` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-05-28  3:18:15
+-- Dump completed on 2016-06-03 15:24:41
