@@ -62,9 +62,6 @@
         };
         
 		$scope.logged();
-        $scope.qq = function(){
-            console.log($scope.hasSession);
-        };
         	$scope.convertLang = function() {
 			var lang = $translate.use();
 			if (lang == 'en') {

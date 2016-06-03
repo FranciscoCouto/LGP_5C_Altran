@@ -90,7 +90,6 @@
 
         // Function to logout a user
         this.logout = function() {
-            console.log($cookies);
             $cookies.remove('session', {
                 path: '/'
             });
