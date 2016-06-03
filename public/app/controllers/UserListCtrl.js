@@ -55,6 +55,7 @@
 		}
 
 		$scope.removeUser = function(user) {
+			
 			bootbox.confirm($filter('translate')("AREYOUSURE"), function(result) {	
 				if (!result) return;
 				
@@ -65,13 +66,9 @@
 					var info = {
 						userid: user.idusers,
 						adminid: adminid
-					}
+					};
 					services.removeUser(info)
 						.then(function (res) {
-							if (res.status != 200) {
-								bootbox.alert($filter('translate')("ERRORDELETINGUSER"));
-								return;
-							}
 							bootbox.alert($filter('translate')("DELETEUSERSUCCESS"));
 							$route.reload();
 						})
@@ -84,6 +81,7 @@
 				});
 
 			}); 
+			
 		}
 
 	};

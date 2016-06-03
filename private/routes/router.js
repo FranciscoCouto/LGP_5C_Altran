@@ -273,18 +273,19 @@
 
             var idToDelete = req.body.userid;
             var adminID = req.body.adminid;
-
             if(idToDelete == adminID) {
                 res.status(406).json({
                     message_class: 'error',
                     message: "ERRORDELETINGSELF"
                 });
-                return;
             }
 
             database.deleteUserByID(idToDelete)
                 .then(function() {
-                    res.status(200);
+                    console.log("aqqqqqqqqqq");
+                    res.status(200).json({
+                                message: "SUCCESS"
+                            });
                 })
                 .catch(function (err) {
                     // Send the Response with message error
