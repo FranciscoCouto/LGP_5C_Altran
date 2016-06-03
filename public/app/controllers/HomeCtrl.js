@@ -1,11 +1,13 @@
 (function(){
-	 var  HomeCtrl = function($scope,$translate, $routeParams, $window, userServices) {
+	 var  HomeCtrl = function($scope, $location, $translate, $routeParams, $window, userServices) {
 
 		 console.log('Page loaded.');
 
 		 $scope.hasSession="";
-
-         
+		 
+		 $scope.getPath = function() {
+			return $location.$$path;
+		 }
 
 		 $scope.logged = function(){
             userServices.logged()
@@ -41,7 +43,7 @@
 
 	 };
 	 // Injecting modules used for better minifing later on
-    HomeCtrl.$inject = ['$scope','$translate', '$routeParams', '$window','userServices'];
+    HomeCtrl.$inject = ['$scope', '$location', '$translate', '$routeParams', '$window','userServices'];
 
     // Enabling the controller in the app
     angular.module('lessonslearned').controller('HomeCtrl', HomeCtrl);

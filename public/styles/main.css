@@ -435,3 +435,9 @@ footer {
 		background-color:#ACC6FA !important;
 }
 
+
+
+.ddselected {
+	background-image:none !important;
+	background-color: rgba(72,89,126,0.5) !important;
+}
