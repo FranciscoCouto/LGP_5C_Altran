@@ -19,6 +19,14 @@
 				console.log(data);
 
                 $scope.audits = result.data;
+				
+				var count=0;
+				   angular.forEach($scope.audits, function (audit) {
+					 console.log($filter('date')(new Date($scope.audits[count].editiondate), 'dd.MM.yyyy'));
+					   $scope.audits[count].editiondate=$filter('date')(new Date($scope.audits[count].editiondate), 'dd.MM.yyyy');
+					   $scope.audits[count].creationdate=$filter('date')(new Date($scope.audits[count].creationdate), 'dd.MM.yyyy');
+					   count++;
+					 });
            
             })
             .catch(function (err) {

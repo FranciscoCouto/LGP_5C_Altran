@@ -28,6 +28,7 @@
                     $scope.lessons = result.data;
                     var count = 0;
                     angular.forEach($scope.lessons, function (lesson) {
+						$scope.lessons[count].creationdate=$filter('date')(new Date($scope.lessons[count].creationdate), 'dd.MM.yyyy');
                         if(lesson.client == null){
                          $scope.lessons[count].client = 'Altran';
                         }
@@ -46,6 +47,7 @@
                     }, true);
                      var count = 0;
                     angular.forEach($scope.lessons, function (lesson) {
+						$scope.lessons[count].creationdate=$filter('date')(new Date($scope.lessons[count].creationdate), 'dd.MM.yyyy');
                         if(lesson.client == null){
                          $scope.lessons[count].client = 'Altran';
                         }

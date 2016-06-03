@@ -40,11 +40,6 @@
 
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'Approver'; sortReverse = !sortReverse"> {{ 'APPROVER' | translate}}
-                                  <span ng-show="sortType == 'Approver' && !sortReverse" class="fa fa-caret-down"></span>
-                              <span ng-show="sortType == 'Approver' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                            </th>
-                            <th>
                                 <a href="#" ng-click="sortType = 'Editor'; sortReverse = !sortReverse"> {{ 'EDITOR' | translate}}
                                   <span ng-show="sortType == 'Editor' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'Editor' && sortReverse" class="fa fa-caret-up"></span></span> </a>
@@ -66,7 +61,6 @@
                             <td>{{audit.creationdate | date:'dd.MM.yyyy' }}</td>
                             <td>{{audit.editiondate | date:'dd.MM.yyyy' }} </td>
                             <td>{{audit.Creator}}</td>
-                            <td>{{audit.Approver}}</td>
                             <td>{{audit.Editor}}</td>
                             <td>{{audit.operation}}</td>
                             <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" ng-click="viewAudit(audit)"><i class="glyphicon glyphicon-eye-open"></i></a></td>
