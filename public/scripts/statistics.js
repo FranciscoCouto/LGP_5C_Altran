@@ -50,7 +50,6 @@
          z= eval(z);
          w= eval(w);
          
-         console.log( document.getElementById("datas").innerHTML);
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
           ['Aprovadas',     x],
