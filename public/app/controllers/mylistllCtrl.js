@@ -5,7 +5,7 @@
     var mylistllCtrl = function($scope, listllServices, genServices, userServices, llServices, filterFilter, $filter) {
 
       $scope.sortType = 'title';
-      $scope.statusString = "approved";
+      $scope.statusString = "All";
       $scope.llsPerPage = 10;
       $scope.currentPage = 1;
       console.log('Page loaded.');
@@ -85,14 +85,20 @@
               } else if ($scope.statusString == "draft") {
                   return lesson.status == 'draft';
               }
+			  else
+				return lesson.status;
           }
 
       };
 
       $scope.fieldTable = [{
+          field: "all",
+          title: "All"
+      },{
           field: "approved",
           title: "Approved"
-      }, {
+      },
+	  {
           field: "inactive",
           title: "Inactive"
       }, {
