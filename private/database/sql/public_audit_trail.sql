@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `audit_trail`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `audit_trail` (
-  `idaudit_trail` int(11) NOT NULL,
+  `idaudit_trail` int(11) NOT NULL AUTO_INCREMENT,
   `idlessonlearned` int(11) NOT NULL,
   `editiondate` datetime NOT NULL,
   `editor` int(11) NOT NULL,

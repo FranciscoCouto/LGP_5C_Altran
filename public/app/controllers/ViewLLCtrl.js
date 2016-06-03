@@ -79,6 +79,14 @@
 					
 					$('#llstatus').css("background-color", "#5cb85c");
 					$('#llstatus').text("Approved");
+					
+					auditServices.createAudit($scope.lldata["idLessonsLearned"])
+							.then (function(res) {
+								console.log(res);
+							})
+							.catch( function (err){
+							console.log(err);
+							});
 				})
 				.catch( function (err){
 					console.log(err);
@@ -115,7 +123,7 @@
 							})
 							.catch( function (err){
 							console.log(err);
-						});
+							});
 							
 
 						})
@@ -197,7 +205,8 @@
 				 "action": $scope.lldata.action,
 				 "situation": $scope.lldata.situation,
 				 "result": $scope.lldata.result,
-				 "manager": userid
+				 "manager": userid,
+				 "dateEndExpected" : $scope.lldata.dateEndExpected
 			 };
 
 			userServices.editLLFields(ll)
