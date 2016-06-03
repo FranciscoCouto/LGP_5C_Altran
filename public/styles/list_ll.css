@@ -60,14 +60,26 @@ th a:hover, a:focus{
 .tbl-header .caret{
   margin-left:15px;
 }
-td{
+td, th{
   padding: 15px;
   text-align: left;
   vertical-align:middle;
   font-weight: 300;
-  font-size: 12px;
+  font-size: 17px;
   color: #fff;
   border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+@media(max-width:320px) {
+	td, th{
+		font-size: 10px;
+	}
+}
+
+@media(max-width:768px) {
+	td, th{
+		font-size: 14px;
+	}
 }
 
 tbl-content tr:hover{
@@ -160,4 +172,5 @@ label.control-label.ng-binding, .modal-title {
 div.bootbox-body {
 	color: #fff !important;
 }
+
 

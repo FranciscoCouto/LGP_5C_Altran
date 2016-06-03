@@ -517,7 +517,7 @@
                 ADD_USER: 'Ajouter l´utilisateur',
 
                 SELECT: 'Selecionar...',
-                SEARCH: 'Pesquisar',
+                SEARCH: 'Chercher',
                 CLIENT: 'Cliente',
                 SELECT_CLIENT: 'Cliente',
                 NONE: 'Nenhum',
