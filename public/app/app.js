@@ -142,6 +142,7 @@
                 PROJECTS: 'Projects',
                 MY_LL: 'My LLs',
                 NAVIGATION: 'Navigation',
+                AREYOUSURE: 'Are you sure?',
 
                 TECHS: 'Technolgies',
                 PROJECT_TYPES: 'Project Types',
@@ -271,7 +272,7 @@
                 ERRORUPDATINGLESSONSTATE: 'Incorrect state! Choose one of the following: draft|submitted|approved|inactive',
                 ERRORPROJECTINFO: 'Could not retrieve projects information',
                 ERRORLLMANAGERID: 'Could not retrieve Lessons Learned information with that manager id',
-                ERRORPROJECTMANAGERID: 'Could not retrieve projects information with that manager id',
+                ERRORPROJECTMANAGERID: 'Could not retrieve projects inforgmation with that manager id',
                 ERRORINSERTINGPROJECTDB: 'Error inserting project to database',
                 ERRORPROJECTID: 'No such project with that id',
                 ERRORTECHINFO: 'Could not retrieve technologies information',
@@ -284,7 +285,11 @@
                 ERRORINSERTSECTORDB: 'Error inserting business sector to database',
                 ERRORDELETSECTOR: 'Error deleting sector',
                 ERRORAUDITINFO: 'Could not retrieve Audit information for that lesson',
-                ERRORCREATINGUSERDB: 'Error inserting user to database'
+                ERRORCREATINGUSERDB: 'Error inserting user to database',
+                ERRORDELETINGUSER: 'Error deleting user from database',
+                ERRORDELETINGSELF: 'Error deleting user from database. You can\'t delete current user.',
+                ERRORDELETEUSERID: 'User doesn\'t exist or has Lessons associated already.',
+                DELETEUSERSUCCESS: 'Successfully deleted user.'
                                 
             })
             .translations('pt', {
@@ -317,6 +322,7 @@
                 PROJECTS: 'Projetos',
                 MY_LL: 'Minhas LL',
                 NAVIGATION: 'Navegação',
+                AREYOUSURE: 'Tem a certeza?',
 
 
                 TECHS: 'Tecnologias',
@@ -460,7 +466,11 @@
                 ERRORINSERTSECTORDB: 'Erro ao inserir setor de negócio',
                 ERRORDELETSECTOR: 'Erro ao apagar setor de negócio da base de dados',
                 ERRORAUDITINFO: 'Não foi possível encontrar informação do Audit para essa Lição Aprendida',
-                ERRORCREATINGUSERDB: 'Erro ao inserir utilizador'
+                ERRORCREATINGUSERDB: 'Erro ao inserir utilizador',
+                ERRORDELETINGUSER: 'Erro ao apagar utilizador',
+                ERRORDELETINGSELF: 'Erro ao apagar utilizador. Não pode apagar o utilizador atual.',
+                ERRORDELETEUSERID:'Utilizador não existe ou tem Lições criadas.',
+                DELETEUSERSUCCESS: 'Utilizador removido com sucesso.'
 
             })
             .translations('fr', {
@@ -493,6 +503,7 @@
                 PROJECTS: 'Projects',
                 MY_LL: 'My LL',
                 NAVIGATION: 'Navigation',
+                AREYOUSURE: 'Êtes-vous sûr?',
 
                 TECHS: 'Technolgies',
                 PROJECT_TYPES: 'Project Types',
@@ -634,7 +645,11 @@
                 ERRORINSERTSECTORDB: 'Erreur insertion secteur des entreprises à la base de données',
                 ERRORDELETSECTOR: "Secteur de la suppression d'erreur",
                 ERRORAUDITINFO: "Impossible de récupérer les informations d'audit pour cette leçon",
-                ERRORCREATINGUSERDB: 'Erreur insertion utilisateur de base de données'
+                ERRORCREATINGUSERDB: 'Erreur insertion utilisateur de base de données',
+                ERRORDELETINGUSER: 'Erreur suppression utilisateur de base de données',
+                ERRORDELETINGSELF: 'Erreur suppression utilisateur de base de données',
+                ERRORDELETEUSERID:'Utilisateur n\'existe pas ou a créé Leçons.',
+                DELETEUSERSUCCESS: 'Utilisateur supprimé avec succès.'
             })
         $translateProvider.preferredLanguage('pt');
     }]);

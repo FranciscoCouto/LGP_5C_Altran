@@ -210,7 +210,6 @@
 
             client.query(query,function(err,result){
                         if (err) {
-                            console.log(iduser);
                             reject(err);
                         } else {
                             resolve('Deleted User by ID.');

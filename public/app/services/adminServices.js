@@ -37,6 +37,17 @@
                 });
         };
 
+        this.removeUser = function(info) {
+
+            return $http.post('/api/deleteuserbyid', info)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
+
         this.insertType = function(type) {
 
             return $http.post('/api/projecttypes', type)

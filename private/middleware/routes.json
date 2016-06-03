@@ -34,6 +34,7 @@
 			"/api/deletetech",
 			"/api/deletesector",
 			"/api/deletetype",
+			"/api/deleteuserbyid",
 			"/api/projects",
 			"/api/updateProjectManagerByID",
 			"/api/lessonsByStatus",

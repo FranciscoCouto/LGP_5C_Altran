@@ -4,12 +4,12 @@
 */
 (function(){
 
-	var  UserListCtrl = function($scope, $route, $uibModal, $log, services, filterFilter) {
+	var  UserListCtrl = function($scope, $route, $uibModal, $log, userServices, services, filterFilter, $filter) {
 
 		$scope.itemsPerPage = 3;
         $scope.currentPage = 1;
         $scope.items = [];
-        
+
 		services.getUsers()
             .then(function (result) {
                 $scope.users = result.data;
@@ -50,8 +50,40 @@
 			modalInstance.result.then(function (selectedUser) {
 				$route.reload();
 			}, function () {
-				$log.info('Modal dismissed at: ' + new Date());
+	
 			});
+		}
+
+		$scope.removeUser = function(user) {
+			bootbox.confirm($filter('translate')("AREYOUSURE"), function(result) {	
+				if (!result) return;
+				
+				var adminid;
+				userServices.logged()
+				.then(function(res){
+					adminid = res.data.idusers;
+					var info = {
+						userid: user.idusers,
+						adminid: adminid
+					}
+					services.removeUser(info)
+						.then(function (res) {
+							if (res.status != 200) {
+								bootbox.alert($filter('translate')("ERRORDELETINGUSER"));
+								return;
+							}
+							bootbox.alert($filter('translate')("DELETEUSERSUCCESS"));
+							$route.reload();
+						})
+						.catch( function (err){
+							bootbox.alert($filter('translate')(err.data.message));
+						});
+				})
+				.catch( function (err){
+					$location.path("/forbidden");
+				});
+
+			}); 
 		}
 
 	};
@@ -163,7 +195,7 @@
 	};
 
 	 // Injecting modules used for better minifing later on
-    UserListCtrl.$inject = ['$scope', '$route', '$uibModal', '$log', 'adminServices', 'filterFilter'];
+    UserListCtrl.$inject = ['$scope', '$route', '$uibModal', '$log', 'userServices', 'adminServices', 'filterFilter', '$filter'];
     DialogController.$inject = ['$scope', '$uibModalInstance','$window', 'adminServices', 'userServices', 'selectedUser'];
 
     // Enabling the controllers in the app

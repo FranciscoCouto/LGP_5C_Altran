@@ -269,6 +269,33 @@
                 });
         });
 
+        server.post("/api/deleteuserbyid",function(req,res){
+
+            var idToDelete = req.body.userid;
+            var adminID = req.body.adminid;
+
+            if(idToDelete == adminID) {
+                res.status(406).json({
+                    message_class: 'error',
+                    message: "ERRORDELETINGSELF"
+                });
+                return;
+            }
+
+            database.deleteUserByID(idToDelete)
+                .then(function() {
+                    res.status(200);
+                })
+                .catch(function (err) {
+                    // Send the Response with message error
+                    res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORDELETEUSERID"
+                    });
+
+                });
+        });
+
 
         server.put("/api/updateuseremail",function(req,res){
 
