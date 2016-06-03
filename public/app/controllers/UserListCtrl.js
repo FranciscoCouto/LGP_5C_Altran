@@ -4,11 +4,42 @@
 */
 (function(){
 
-	var  UserListCtrl = function($scope, $route, $uibModal, $log, userServices, services, filterFilter, $filter) {
+	var  UserListCtrl = function($scope, $route, $uibModal, $log, userServices, services, filterFilter, $filter, adminServices) {
 
 		$scope.itemsPerPage = 3;
         $scope.currentPage = 1;
         $scope.items = [];
+		
+		$scope.testModal = function() {
+			alert("????");
+		};
+		
+		$scope.addUser = function(user) {
+		
+			console.log(user);
+		
+		
+/* 
+             alert(user.image);
+             if(user.permission==null)
+                user.permission="0";
+
+             var fd = new FormData();   
+             fd.append("image", image);
+             fd.append("email", user.email);
+             fd.append("name", user.name);
+             fd.append("password", user.password);
+             fd.append("permission", user.permission);
+
+             adminServices.registerUser(fd)
+                .then(function (res) {
+                    alert(res);
+                })
+                .catch(function (err) {
+                    alert(err.data.message);
+                }); */
+                
+         };
 
 		services.getUsers()
             .then(function (result) {
@@ -193,7 +224,7 @@
 	};
 
 	 // Injecting modules used for better minifing later on
-    UserListCtrl.$inject = ['$scope', '$route', '$uibModal', '$log', 'userServices', 'adminServices', 'filterFilter', '$filter'];
+    UserListCtrl.$inject = ['$scope', '$route', '$uibModal', '$log', 'userServices', 'adminServices', 'filterFilter', '$filter', 	'adminServices'];
     DialogController.$inject = ['$scope', '$uibModalInstance','$window', 'adminServices', 'userServices', 'selectedUser'];
 
     // Enabling the controllers in the app

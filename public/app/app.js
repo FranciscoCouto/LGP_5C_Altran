@@ -184,7 +184,7 @@
                 LL_TITLE: 'Project Title',
                 PROJECT_NAME: 'Project Name',
                 PROJECT_MANAGER: 'Project Manager',
-                COLABORATORS: 'Colaborators',
+                COLABORATORS: 'Users',
                 BUSINESS_SECTOR: 'Busines Sector',
                 DAYS_LENGTH: 'Project Duration (days)',
                 PROJECT_TYPE: 'Project Type',
@@ -223,6 +223,9 @@
                 MODIFY_PROJECTS: 'Add projects',
                 MODIFY_CONFIRM: 'Confirm changes',
                 TYPE_PASS: 'Type your password',
+				PERMISSION_LEVEL: 'Permission Level',
+				USER_LEVEL: ' Permission Level ',
+				CREATE: 'Create',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',
@@ -243,7 +246,7 @@
                 SIGNIN: 'Sign in',
 
                 //CREATE USER
-                PERSONAL_INFO: 'Personal Info',
+                PERSONAL_INFO: 'User Data',
                 PERSONAL_IMG: 'Collaborator Image',
                 
                 //ERRORS
@@ -365,7 +368,7 @@
                 LL_TITLE: 'Título de Projeto',
                 PROJECT_NAME: 'Nome do Projeto',
                 PROJECT_MANAGER: 'Project Manager',
-                COLABORATORS: 'Colaboradores',
+                COLABORATORS: 'Users',
                 BUSINESS_SECTOR: 'Setor de Negócio',
                 DAYS_LENGTH: 'Duração Projeto',
                 PROJECT_TYPE: 'Tipo de Projeto',
@@ -404,6 +407,9 @@
                 MODIFY_PROJECTS: 'Associar projetos',
                 MODIFY_CONFIRM: 'Confirmar alterações',
                 TYPE_PASS: 'Digite a sua password',
+				PERMISSION_LEVEL: 'Nível de permissões',
+				USER_LEVEL: ' Nível de Permissões ',
+				CREATE: 'Criar',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Data de Criação',
@@ -424,7 +430,7 @@
                 SIGNIN: 'Entrar',
 
                 //CREATE USER
-                PERSONAL_INFO: 'Dados do colaborador',
+                PERSONAL_INFO: 'Dados do utilizador',
                 PERSONAL_IMG: 'Imagem Pessoal',
                 
                 //ERRORS
@@ -545,7 +551,7 @@
                 LL_TITLE: 'Titre du projet',
                 PROJECT_NAME: 'Nome do Projeto',
                 PROJECT_MANAGER: 'Project Manager',
-                COLABORATORS: 'Colaboradores',
+                COLABORATORS: 'Utilisateurs',
                 BUSINESS_SECTOR: 'Setor de Negócio',
                 DAYS_LENGTH: 'Duração Projeto',
                 PROJECT_TYPE: 'Tipo de Projeto',
@@ -584,6 +590,9 @@
                 MODIFY_PROJECTS: 'Ajouter des projets',
                 MODIFY_CONFIRM: 'Confirmer les modifications',
                 TYPE_PASS: 'Tapez votre mot de passe',
+				PERMISSION_LEVEL: 'Niveau d\'autorisation',
+				USER_LEVEL: ' Niveau d\'autorisation ',
+				CREATE: 'Créer',
 
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',
@@ -603,7 +612,7 @@
                 SIGNIN: 'Connecter',
 
                 //CREATE USER
-                PERSONAL_INFO: 'Personal Info',
+                PERSONAL_INFO: 'Données D\'Utilisateur',
                 PERSONAL_IMG: 'Collaborator Image',
                 
                 //ERRORS

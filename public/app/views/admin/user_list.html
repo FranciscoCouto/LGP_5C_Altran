@@ -1,3 +1,5 @@
+<script src="scripts/users.js"></script>
+
 <div ng-include='"app/views/templates/header.html"'></div>
 
 <div class="container">
@@ -5,7 +7,7 @@
 		<!-- search -->
 		<div class="row">
 			<div class="col-lg-12 col-xs-12 col-md-12">
-	            <a href="/user_management" id="newLLbtn" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> {{ 'ADD_USER' | translate | uppercase }}</a>
+	            <a data-toggle="modal" data-target="#newUserModal" id="newLLbtn" type="button" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> {{ 'ADD_USER' | translate | uppercase }}</a>
 	        </div>
 	        <div class="col-lg-12 col-xs-12 col-md-12">
 	           <form>
@@ -37,8 +39,8 @@
 						<button type="button" class="btn btn-danger btn-circle pull-right btn-lg box-shadow--2dp" ng-click="removeUser(user)"><i class="glyphicon glyphicon-remove"></i></button>
 					</div>
 					
-					<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 col-lg-pull-1 col-md-pull-1 col-sm-pull-1">
-						<span class="hidden-xs vertical-center">{{ user.name }}</span>
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1 col-sm-pull-1">
+						<span style="word-break: keep-all" class="hidden-xs vertical-center">{{ user.name }}</span>
 						<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.name }}</span>
 					</div>
 
@@ -47,7 +49,7 @@
 						<span class="hidden-lg hidden-md hidden-sm text-center">{{ user.email }}</span>	  	
 					</div>
 
-					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1 col-sm-pull-1">
+					<div class="col-lg-3 col-md-3 col-sm-2 col-xs-12 col-lg-pull-1 col-md-pull-1 col-sm-pull-1">
 						<span class="hidden-xs vertical-center">
 							<span ng-show="user.permission == 2">{{'ADMIN' | translate}}</span>
 							<span ng-show="user.permission == 1">{{'SUBMITTER' | translate}}</span>
@@ -68,6 +70,58 @@
 			</div>
 	</div>
 	</div>
+</div>
+
+<!-- New User Modal -->
+<div id="newUserModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+ <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+        <h4 class="modal-title" id="myModalLabel">{{'PERSONAL_INFO' | translate}}</h4>
+      </div>
+      <div class="modal-body">
+		  
+		<div class="form-group">
+			<input ng-model="user.name" type="text" class="form-control bg-blue" id="inputName" placeholder="Colaborator Name" required>
+		</div>
+		<div class="form-group">
+			<input style="display:none" type="email" name="fakeusernameremembered"/>
+			<input ng-model="user.email" type="email" class="form-control bg-blue" id="inputEmail" placeholder="{{ 'USERNAME' | translate }}" required>
+		</div>
+		<div class="form-group">
+			<input style="display:none" type="password" name="fakepasswordremembered"/>
+			<input ng-model="user.password" type="password" class="form-control bg-blue" id="inputPassword" placeholder="{{ 'PASSWORD' | translate }}" style="color:white" required>
+		</div>
+		<div class="form-group">
+			<input style="display:none" type="password" name="fakepasswordremembered"/>
+			<input ng-model="user.rpassword" type="password" class="form-control bg-blue" id="inputrPassword" placeholder="{{ 'PASSWORD' | translate }}" style="color:white" required>
+		</div>
+		  
+		<div class="form-group">
+          <select name="singleSelect" class="bg-blue" id="singleSelect" ng-model="user.permission">
+			<option value="">{{'USER_LEVEL' | translate}}</option> 
+			<option value="0">{{'ADMIN' | translate}}</option> 
+			<option value="1">{{'SUBMITTER' | translate}}</option>
+			<option value="2">{{'READER' | translate}}</option>
+		  </select>
+        </div>
+
+        <label class="control-label" for="project">{{ 'PERSONAL_IMG' | translate }}</label>
+		<div class="thumb" > <img id="img" ng-src={{image}} /></div>
+		<label for="upload">{{'CHOOSEFILE' | translate}}
+		<input id="upload" type="file" name="file" onchange="angular.element(this).scope().changeFile(this.files)"/></label>
+	  
+      </div>
+      <div class="modal-footer">
+        	<div class="row animation error-message text-center" ng-repeat="item in items">
+			{{ item | translate}}<a href="#" class="pull-right" ng-click="pop()"><span class="glyphicon glyphicon-remove glyphicon-white"></span></a>
+	</div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'CANCEL' | translate }}</button>
+        <button ng-click="addUser(user)" type="button" class="btn btn-primary">{{ 'CREATE' | translate }}</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
