@@ -24,7 +24,7 @@
 				<li id="navmenu" ng-if="hasSession.logged" class="dropdown ">
 					<a  class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> {{'NAVIGATION' | translate}}</a>
 					<ul class="dropdown-menu">
-						<li><a ng-attr-class="{{ getPath() == '/home' ? 'ddselected' : 'notddselected' }}" href="/home">{{'HOME' | translate}}</a>
+						<li><a ng-attr-class="{{ getPath() == '/home' ? 'ddselected' : 'notddselected' }}" ng-if="hasSession.data.permission == 2" href="/home">{{'HOME' | translate}}</a>
 						</li>
 						<li><a ng-attr-class="{{ getPath() == '/users' ? 'ddselected' : 'notddselected' }}" ng-if="hasSession.data.permission == 2" href="/users">{{'USERS' | translate}}</a>
 						</li>
