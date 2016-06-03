@@ -205,8 +205,7 @@
 				 "action": $scope.lldata.action,
 				 "situation": $scope.lldata.situation,
 				 "result": $scope.lldata.result,
-				 "manager": userid,
-				 "dateEndExpected" : $scope.lldata.dateEndExpected
+				 "manager": userid
 			 };
 
 			userServices.editLLFields(ll)
@@ -334,7 +333,13 @@
 				}
 			  }
 		});
-	}	
+	}
+	
+	$scope.ifnullstr = function(input) {
+		if (input == null)
+			return "n/a";
+		return input;
+	}
 	
 	$scope.downloadPdf = function() {
 		var docDefinition = {
@@ -419,7 +424,7 @@
 
 			  $scope.lldata["manager"] + '\n\n',
 
-			  $scope.lldata["numberConsultants"] + '\n\n' ,
+			  $scope.ifnullstr($scope.lldata["numberConsultants"]) + '\n\n' ,
 
 			  $scope.lldata.technologies + '\n\n',
 				]
@@ -452,11 +457,11 @@
 		{
 		  columns: [
 
-			  $filter('date')($scope.lldata["dateBeginning"], "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateBeginning"]), "dd/MM/yyyy"),
 
-			  $filter('date')($scope.lldata["dateEndExpected"], "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateEndExpected"]), "dd/MM/yyyy"),
 
-			  $filter('date')($scope.lldata["dateEnd"], "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateEnd"]), "dd/MM/yyyy"),
 				]
 		},
 
