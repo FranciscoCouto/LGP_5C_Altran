@@ -34,13 +34,6 @@
 				css: "styles/home.css"
             })
 
-            .when("/create_project", {
-                templateUrl: "app/views/admin/create_project.html",
-                controller: "Create_projCtrl",
-				css: "styles/create_project.css"
-				
-            })
-
             .when("/users", {
                 templateUrl: "app/views/admin/user_list.html",
                 controller: "UserListCtrl",
@@ -186,6 +179,8 @@
                 EXPECTED_DATE: 'End Date Foreseen',
                 CONCLUSION_DATE: 'End Date',
                 CREATE_PROJECT: 'Creating Project',
+				PROJECT_DATA: 'Project Data',
+				NUMBER_CONS: 'Number of Consultants',
                 
                 ALLOCATE_PM: 'Alocate PM',
                 CHOOSE_PERSON: 'Choose user',
@@ -371,6 +366,8 @@
                 EXPECTED_DATE: 'Data de Fim previsto',
                 CONCLUSION_DATE: 'Data de Conclusão',
                 CREATE_PROJECT: 'Criar Projecto',
+				PROJECT_DATA: 'Dados de Projeto',
+				NUMBER_CONS: 'Number of consultants',
 
                 ALLOCATE_PM: 'Alocar PM',
                 CHOOSE_PERSON: 'Escolha o utilizador',
@@ -555,6 +552,8 @@
                 EXPECTED_DATE: 'Date de fin prévue',
                 CONCLUSION_DATE: 'Date de fin',
                 CREATE_PROJECT: 'Créer un projet',
+				PROJECT_DATA: 'Données du projet',
+				NUMBER_CONS: 'Nombre de consultants',
 
                 ALLOCATE_PM: 'Allocate PM',
                 CHOOSE_PERSON: 'Choose user',

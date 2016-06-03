@@ -22,7 +22,6 @@
 			"/api/users",
 			"/api/createuser",
 			"/api/managers",
-			"/api/createproject",
 			"/api/updateuseremail",
 			"/api/updateuserpass",
 			"/api/audit",

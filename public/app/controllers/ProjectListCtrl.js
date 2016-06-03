@@ -2,7 +2,7 @@
  * Create the controller
  */
 (function() {
-    var ProjectListCtrl = function($scope, $route, $uibModal,$log, genServices, filterFilter, $filter) { 
+    var ProjectListCtrl = function($scope, $route,$window, $uibModal,$log, genServices, filterFilter, $filter) { 
 
         $scope.sortType = 'name';
         $scope.itemsPerPage = 10;
@@ -10,7 +10,6 @@
 
     	genServices.getProjects()
             .then(function (result) {
-				console.log(result);
                 $scope.projects = result.data;
            
             })
@@ -37,6 +36,54 @@
                 $log.info('Modal dismissed at: ' + new Date());
             });
         }
+		
+		$scope.managers = [];
+        $scope.types = [];
+        $scope.sectors = [];
+        $scope.date = new Date();
+
+        genServices.getManagers()
+            .then(function (men) {
+                $scope.managers = men.data;
+            })
+            .catch(function (err) {
+                alert(err.data.message);
+
+            });
+
+        genServices.getProjectTypes()
+            .then(function (types) {
+                $scope.types = types.data;
+
+            })
+            .catch(function (err) {
+                alert(err.data);
+            });
+
+        genServices.getBusinessSectors()
+            .then(function (sectors) {
+                $scope.sectors = sectors.data;
+
+            })
+            .catch(function (err) {
+                alert(err.data);
+            });
+
+         $scope.addProject = function(project, filter){
+            project.dateBeginning = $filter('date')($scope.date.dateBeginning, "yyyy-MM-dd"); // for conversion to string
+            project.dateEndExpected = $filter('date')($scope.date.dateEndExpected, "yyyy-MM-dd"); // for conversion to string
+            project.dateEnd = $filter('date')($scope.date.dateEnd, "yyyy-MM-dd"); // for conversion to string
+
+            genServices.createProject(project)
+                .then(function (res) {
+                    $window.location.href = '/list_projects';
+
+                })
+                .catch(function (err) {
+                    console.log('loool');
+                    $window.location.href = '/list_projects';
+                });
+         };
         
     };
 
@@ -98,7 +145,7 @@
 
 
     // Injecting modules used for better minifing later on
-    ProjectListCtrl.$inject = ['$scope', '$route', '$uibModal','$log', 'genServices', 'filterFilter', '$filter'];
+    ProjectListCtrl.$inject = ['$scope', '$route','$window','$uibModal','$log', 'genServices', 'filterFilter', '$filter'];
     DialogController3.$inject = ['$scope', '$uibModalInstance','$window','genServices', 'selectedProject'];
 
 

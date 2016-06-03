@@ -173,4 +173,21 @@ div.bootbox-body {
 	color: #fff !important;
 }
 
+#singleSelect{
+	border-radius: 3px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    height: 33px;
+	padding-left:8px;
+	padding-right:8px;
+}
+
+#newProjectModal {
+	color: #fff;
+}
+
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }
 
