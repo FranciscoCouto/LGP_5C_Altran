@@ -26,7 +26,7 @@
 
          $scope.addUser = function(user){
 
-             alert(user.image);
+             alert(image);
              if(user.permission==null)
                 user.permission="0";
 
@@ -47,8 +47,9 @@
                 
          };
           $scope.changeFile = function(files){
+             
             image=files[0];
-            
+             console.log(image);
         };
 	    
 

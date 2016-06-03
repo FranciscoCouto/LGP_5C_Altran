@@ -33,6 +33,11 @@ module.exports = {
         }
       });
     });
+  },
+  
+  checkPassword:function(pass){
+    var re = /([a-zA-Z0-9@#$%^&+=*.\-_]*)/;
+		return pass.match(re)[0];
   }
 };
 }());

@@ -108,8 +108,15 @@
 
         server.get("/api/user",function(req,res){
 
-            var iduser = req.headers.iduser;
-
+            var iduser = req.body.iduser;
+            req.checkBody('idUser', 'Invalid postparam').notEmpty().isInt();
+            
+             if(req.validationErrors()){
+                 res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORLOGIN"
+                    });
+             }
             database.getUserByID(iduser)
                .then(function (user) {
                     res.status(200).send(user);
@@ -123,8 +130,18 @@
         server.post('/api/login', function (req, res) {
             var user = {
                 email: req.body.email.toLowerCase(),
-                password: req.body.password
+                password: utils.checkPassword(req.body.password)
             };
+            req.checkBody("email", "Enter a valid email address.").isEmail();
+
+             if(req.validationErrors() || user.password==""){
+                 res.status(406).json({
+                        message_class: 'error',
+                        message: "ERRORLOGIN"
+                    });
+             }
+
+            
             database.confirmLoginByEmail(user)
                 .then(function (user) {
                     utils.encode(user.token)
@@ -173,9 +190,12 @@
      //Formidable uploads to operating systems tmp dir by default
     form.uploadDir = "./public/images";       //set upload directory
     form.encoding = 'utf-8';
-    form.keepExtensions = false;     //keep file extension
+    form.keepExtensions = true;     //keep file extension
+    console.log("olaaa");
    form.parse(req, function(err, fields, files) {
+       console.log("qcheguei");
        if(err){
+           console.log(err);
            fs.unlink(fields.image.path);
             res.status(400).json({
                     message_class: 'error',
@@ -184,10 +204,13 @@
        }
         var email,pass,name,permission;
         email=fields.email.toLowerCase();
+        console.log(email);
         pass=fields.password;
         name=fields.name;
         permission=fields.permission;
-        fs.rename(files.image.path, './public/images/'+email+".jpg", function(err) {
+        console.log(files.image);
+        var novonome=files.image.name.split(".");
+        fs.rename(files.image.path, './public/images/'+email+"."+novonome[novonome.length-1], function(err) {
         if (err){
             fs.unlink(fields.image.path);
              res.status(406).json({
@@ -245,6 +268,7 @@
                     });
             }
             });
+            console.log("ssss");
         });
 
         server.delete("/api/deleteuser",function(req,res){

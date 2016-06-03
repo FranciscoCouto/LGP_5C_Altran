@@ -101,10 +101,7 @@
 
         this.getUserById = function(userid) {
             var config = {
-                headers: {
-
-                    'iduser': userid
-                }
+                'iduser': userid
             };
 
             return $http.get('/api/user', config)
