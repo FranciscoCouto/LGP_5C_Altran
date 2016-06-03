@@ -210,51 +210,65 @@
 
 			userServices.editLLFields(ll)
 			.then(function (res) {
-				if (res.status != 200) {
-					bootbox.alert("Failed to save Lesson Learned.");
-					console.log("Failed to save draft.");
-					return false;
-				}
-			
 				console.log("LL saved as draft!");
 				bootbox.alert("Lesson Learned successfully saved.");
 				return true;
 			})
 			.catch( function (err){
-				bootbox.alert($filter('translate')(err.data.message));
+				bootbox.alert("Failed to save Lesson Learned.");
+				console.log("Failed to save draft.");
+				return false;
 			});
 		}
 		
 		$scope.submitDraft = function() {
 		
-			if (!$scope.saveDraft) {
-				bootbox.alert("Failed to submit Lesson Learned.");
-				return;
-			}
-			
-			bootbox.confirm("Are you sure?", function(result) {	
-				if (!result) return;
+			var ll = 
+			 {
+				 "idlesson": $scope.lldata["idLessonsLearned"],
+				 "action": $scope.lldata.action,
+				 "situation": $scope.lldata.situation,
+				 "result": $scope.lldata.result,
+				 "manager": userid
+			 };
+
 		
-				console.log("Submitting LL...");
-				lessonServices.setLessonState($scope.lldata["idLessonsLearned"], "submitted")
-				.then(function (res) {
-					if (res.status != 200) {
-						console.log("Failed to submit LL.");
-						return;
-					}
-				
-					console.log("LL submitted!");
+			userServices.editLLFields(ll)
+			.then(function (res) {
+				console.log("LL saved as draft!");
+				bootbox.confirm("Are you sure?", function(result) {	
+					if (!result) return;
+			
+					console.log("Submitting LL...");
+					lessonServices.setLessonState($scope.lldata["idLessonsLearned"], "submitted")
+					.then(function (res) {
+						if (res.status != 200) {
+							console.log("Failed to submit LL.");
+							return;
+						}
 					
-					$scope.llstatus = "submitted";
-					$scope.lldata["status"] = "submitted";
-					
-					$('#llstatus').css("background-color", "#5bc0de");
-					$('#llstatus').text("Submitted");
-				})
-				.catch( function (err){
-					bootbox.alert($filter('translate')(err.data.message));
-				});
-			}); 
+						console.log("LL submitted!");
+						
+						$scope.llstatus = "submitted";
+						$scope.lldata["status"] = "submitted";
+						
+						$('#llstatus').css("background-color", "#5bc0de");
+						$('#llstatus').text("Submitted");
+					})
+					.catch( function (err){
+						bootbox.alert($filter('translate')(err.data.message));
+					});
+				}); 
+				return true;
+			})
+			.catch( function (err){
+				bootbox.alert("Failed to save and submit Lesson Learned.");
+				console.log("Failed to save draft.");
+				return false;
+			});
+	
+			
+			
 			
 		}
 		
@@ -473,11 +487,38 @@
 		{
 		  columns: [
 
-			  $filter('date')($scope.ifnullstr($scope.lldata["dateBeginning"]), "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateBeginning"]), "dd/MM/yyyy") + '\n\n',
 
-			  $filter('date')($scope.ifnullstr($scope.lldata["dateEndExpected"]), "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateEndExpected"]), "dd/MM/yyyy") + '\n\n',
 
-			  $filter('date')($scope.ifnullstr($scope.lldata["dateEnd"]), "dd/MM/yyyy"),
+			  $filter('date')($scope.ifnullstr($scope.lldata["dateEnd"]), "dd/MM/yyyy") + '\n\n',
+				]
+		},
+		
+		{
+
+		alignment: 'justify',
+		columns: [
+			  {
+				width: '*',
+			   text: 'Delivering Model', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Type', 
+				style: 'header' 
+			  },
+			  '\n\n',
+				]
+			},
+		{
+		  columns: [
+
+			  $scope.lldata["deliveringModel"] + '\n\n',
+
+			  $scope.lldata["type"] + '\n\n',
 				]
 		},
 

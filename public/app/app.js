@@ -355,8 +355,8 @@
                 //Create Project
                 LL_TITLE: 'Título de Projeto',
                 PROJECT_NAME: 'Nome do Projeto',
-                PROJECT_MANAGER: 'Project Manager',
-                COLABORATORS: 'Users',
+                PROJECT_MANAGER: 'Gestor de Projeto',
+                COLABORATORS: 'Utilizadores',
                 BUSINESS_SECTOR: 'Setor de Negócio',
                 DAYS_LENGTH: 'Duração Projeto',
                 PROJECT_TYPE: 'Tipo de Projeto',
@@ -540,8 +540,8 @@
 
                 //Create Project
                 LL_TITLE: 'Titre du projet',
-                PROJECT_NAME: 'Nome do Projeto',
-                PROJECT_MANAGER: 'Project Manager',
+                PROJECT_NAME: 'Nom du projet',
+                PROJECT_MANAGER: 'Chef de projet',
                 COLABORATORS: 'Utilisateurs',
                 BUSINESS_SECTOR: 'Setor de Negócio',
                 DAYS_LENGTH: 'Duração Projeto',

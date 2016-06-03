@@ -186,10 +186,8 @@
      //Formidable uploads to operating systems tmp dir by default
     form.uploadDir = "./public/images";       //set upload directory
     form.encoding = 'utf-8';
-    form.keepExtensions = true;     //keep file extension
-    console.log("olaaa");
+    form.keepExtensions = false;     //keep file extension
    form.parse(req, function(err, fields, files) {
-       console.log("qcheguei");
        if(err){
            console.log(err);
            fs.unlink(fields.image.path);
@@ -206,7 +204,7 @@
         permission=fields.permission;
         console.log(files.image);
         var novonome=files.image.name.split(".");
-        fs.rename(files.image.path, './public/images/'+email+"."+novonome[novonome.length-1], function(err) {
+        fs.rename(files.image.path, './public/images/'+email+".png", function(err) {
         if (err){
             fs.unlink(fields.image.path);
              res.status(406).json({
@@ -338,9 +336,9 @@
                 .then(function(){
                     database.updateUserByID(user.id,user.email, user.name, user.permission)
                         .then(function() {
-                            fs.rename('./public/images/'+oldemail+".jpg", './public/images/'+user.email+".jpg", function(err) {
+                            fs.rename('./public/images/'+oldemail+".png", './public/images/'+user.email+".png", function(err) {
                                 if (err){
-                                    fs.unlink('./public/images/'+oldemail+".jpg");
+                                    fs.unlink('./public/images/'+oldemail+".png");
                                     res.status(406).json({
                                         message_class: 'error',
                                         message: "ERRORRENAMEIMAGE"

@@ -69,7 +69,8 @@
                 alert(err.data);
             });
 
-         $scope.addProject = function(project, filter){
+         $scope.addProject = function(project){
+		 
             project.dateBeginning = $filter('date')($scope.date.dateBeginning, "yyyy-MM-dd"); // for conversion to string
             project.dateEndExpected = $filter('date')($scope.date.dateEndExpected, "yyyy-MM-dd"); // for conversion to string
             project.dateEnd = $filter('date')($scope.date.dateEnd, "yyyy-MM-dd"); // for conversion to string
@@ -80,7 +81,6 @@
 
                 })
                 .catch(function (err) {
-                    console.log('loool');
                     $window.location.href = '/list_projects';
                 });
          };

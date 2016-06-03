@@ -39,7 +39,8 @@
 			"/api/lessonsByStatus",
 			"/api/checklessonmanager",
 			"/api/lesson",
-			"/api/createaudit"
+			"/api/createaudit",
+			"/api/createproject"
 		],
 		
 		"advanced":[
