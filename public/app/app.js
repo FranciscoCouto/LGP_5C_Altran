@@ -249,7 +249,12 @@
                 PERSONAL_INFO: 'User Data',
                 PERSONAL_IMG: 'Collaborator Image',
                 
+                OPERATION:'OPERATION',
+                update: 'update',
                 //ERRORS
+                ERRORMESSAGE2:'SOMETHING JUST WENT WRONG !',
+                ERROR: '404 error',
+                ERRORMESSAGE: "For some reason you coudn't access the page you were looking for",
                 ERRORLOGIN: 'Username or password invalid',
                 ERRORLOGIN1: 'Error Logging in, please try again later',
                 ERRORUSERINFORMATION: 'Could not retrieve users information',
@@ -448,8 +453,13 @@
                 //CREATE USER
                 PERSONAL_INFO: 'Dados do utilizador',
                 PERSONAL_IMG: 'Imagem Pessoal',
+                OPERATION:'OPERAÇÃO',
+                update: 'atualização',
                 
                 //ERRORS
+                ERRORMESSAGE2:'ALGO DEU ERRADO !',
+                ERROR: '404 erro',
+                ERRORMESSAGE: "Por alguma razão não foi possível aceder à página que procura",
                 ERRORLOGIN: 'Nome de usuário ou senha errados',
                 ERRORLOGIN1: 'Erro no serviço de autenticação, por favor tente mais tarde',
                 ERRORUSERINFORMATION: 'Não foi possivel encontrar informação do usuário',
@@ -647,7 +657,12 @@
                 PERSONAL_INFO: 'Données D\'Utilisateur',
                 PERSONAL_IMG: "Image de l'employé",
                 
+                OPERATION:'OPÉRATION',
+                update: 'réviser',
                 //ERRORS
+                ERRORMESSAGE2:'Quelque chose ne va pas !',
+                ERROR: '404 erreur',
+                ERRORMESSAGE: "Pour une raison quelconque vous ne pouvez pas accéder à la page que vous recherchez",
                 ERRORLOGIN: "Nom d'utilisateur ou mot de passe invalide",
                 ERRORLOGIN1: "Erreur Connexion, s'il vous plaît réessayer plus tard",
                 ERRORUSERINFORMATION: "Impossible de récupérer les informations de l'utilisateur",

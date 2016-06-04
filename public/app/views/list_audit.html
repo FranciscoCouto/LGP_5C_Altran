@@ -18,7 +18,7 @@
             </div>
             <br>
             <div class="cenas">
-                <table cellpadding="0" cellspacing="0" border="0" >
+                <table cellpadding="0" cellspacing="0" border="0" class="fixed">
                     <thead>
                         <tr class="tbl-header">
                             <th>
@@ -50,7 +50,7 @@
                               <span ng-show="sortType == 'operation' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
                             <th>
-                                <a href="#" ng-click="sortType = 'operation'; sortReverse = !sortReverse"> INSPECT</a>
+                                <a href="#" ng-click="sortType = 'operation'; sortReverse = !sortReverse"> {{'INSPECT' | translate}}</a>
                             </th>
 
                         </tr>
@@ -62,7 +62,7 @@
                             <td>{{audit.editiondate | date:'dd.MM.yyyy' }} </td>
                             <td>{{audit.Creator}}</td>
                             <td>{{audit.Editor}}</td>
-                            <td>{{audit.operation}}</td>
+                            <td>{{audit.operation | translate}}</td>
                             <td><a class="btn btn-primary btn-circle btn-lg box-shadow--1dp" ng-click="viewAudit(audit)"><i class="glyphicon glyphicon-eye-open"></i></a></td>
                         </tr>
                     </tbody>

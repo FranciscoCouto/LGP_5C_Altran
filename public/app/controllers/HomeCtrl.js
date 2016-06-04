@@ -9,7 +9,7 @@
                     $scope.hasSession.logged=true;
                 })
                 .catch( function (err){
-					if(getPath()!="/")
+					if(getPath()!="/" && getPath()!="/forbidden")
 						window.location.replace("/");
                     $scope.hasSession.logged=false;
                 });
@@ -19,7 +19,9 @@ $scope.logged();
             $scope.items.pop();
         };
 		 $scope.hasSession="";
-		 
+		         $scope.redirect2 = function(){
+            $window.location.href = '/';
+        };
 		 getPath = function() {
 			return $location.$$path;
 		 }

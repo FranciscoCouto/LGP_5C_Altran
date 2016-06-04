@@ -24,14 +24,14 @@
             
         };
 		$scope.redirect = function(){
-            if($scope.hasSession.data.permission=="2")
-                        $window.location.replace = '/home';
-                    else 
-                        $window.location.replace = '/listll';
+            if($scope.hasSession.data.permission=="2"){
+                        $window.location.href = '/home';
+            }
+                    else {
+                        $window.location.href = '/listll';
+                    }
         };
-        $scope.redirect2 = function(){
-            $window.location.href = '/';
-        };
+
 		$scope.hasAdminLevel = function() {
 			return $scope.permission <= 2;
 		}
@@ -47,7 +47,8 @@
                     $scope.hasSession=res;
 					$scope.permission=res.data.permission;
                     $scope.hasSession.logged=true;
-					$scope.redirect();
+                    if(getPath()=="/")
+					    $scope.redirect();
                 })
                 .catch( function (err){
                     $scope.hasSession.logged=false;
