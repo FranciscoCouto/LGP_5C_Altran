@@ -124,4 +124,5 @@
 
     // Enabling the controller in the app
     angular.module('lessonslearned').controller('listllCtrl', listllCtrl);
+    
 }());
