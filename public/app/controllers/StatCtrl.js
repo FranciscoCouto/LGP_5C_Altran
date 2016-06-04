@@ -28,7 +28,6 @@
             });
 	 	lessonServices.getLessonByStatus('rejected')
 	 	.then(function(res){
-	 		console.log(res);
 	 		$scope.rejected = res.data.length;
 	 	})
 	 	.catch(function (err) {

@@ -31,7 +31,6 @@
 				return;
 			} 
 
-			//console.log("DATA: " + JSON.stringify($scope.lldata));
 			$scope.lldata.project = $scope.lldata.project? $scope.lldata.project : 'Altran';
 			$scope.lldata.client = $scope.lldata.client? $scope.lldata.client : 'Altran';
 			$scope.llstatus = $scope.lldata["status"];
@@ -82,7 +81,6 @@
 					
 					auditServices.createAudit($scope.lldata["idLessonsLearned"])
 							.then (function(res) {
-								console.log(res);
 							})
 							.catch( function (err){
 							console.log(err);
@@ -119,7 +117,6 @@
 							
 							auditServices.createAudit($scope.lldata["idLessonsLearned"])
 							.then (function(res) {
-								console.log(res);
 							})
 							.catch( function (err){
 							console.log(err);

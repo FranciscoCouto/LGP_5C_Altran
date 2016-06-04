@@ -9,7 +9,6 @@
             .then(function(result) {
 
                 $scope.technologies = result.data;
-                console.log("technologies fetched from db: " + JSON.stringify($scope.technologies));
                 i = 0;
                 angular.forEach($scope.technologies, function(technology) {
                     $scope.techValues[i] = {
@@ -19,7 +18,6 @@
                     i++;
                 });
 
-                console.log(JSON.stringify($scope.techValues));
                 $scope.newTech = $scope.techValues;
 
 
@@ -34,7 +32,6 @@
             .then(function(result) {
 
                 $scope.types = result.data;
-                console.log("types fetched form db: " + JSON.stringify($scope.types));
                 i=0;
                 angular.forEach($scope.types, function(type) {
                     $scope.typeValues[i]={
@@ -44,8 +41,7 @@
                     i++;
                 });
 
-                console.log(JSON.stringify($scope.typeValues));
-
+                
                 $scope.newType = $scope.typeValues;
 
 
@@ -59,7 +55,6 @@
             .then(function(result) {
 
                 $scope.sectors = result.data;
-                console.log("sectors fetched from db: " + JSON.stringify($scope.sectors));
                 i=0;
                 angular.forEach($scope.sectors, function(sector) {
                     $scope.sectorValues[i]={
@@ -70,7 +65,6 @@
                 });
 
 
-                console.log(JSON.stringify($scope.sectorValues));
                 $scope.newSector = $scope.sectorValues;
 
 
@@ -83,8 +77,7 @@
 
         $scope.addTech = function() {
 
-            console.log(JSON.stringify($scope.newTech));
-
+            
 
             genServices.getTechnologies()
                 .then(function(result) {
@@ -113,7 +106,6 @@
 
         $scope.addType = function() {
 
-            console.log($scope.newType);
 
             genServices.getProjectTypes()
                 .then(function(result) {
@@ -143,7 +135,6 @@
 
         $scope.addSector = function() {
 
-            console.log($scope.newSector);
 
             genServices.getBusinessSectors()
                 .then(function(result) {

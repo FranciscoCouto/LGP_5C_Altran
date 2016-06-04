@@ -73,8 +73,6 @@
 
         $scope.Status = function(status) {
             return function(lesson) {
-                console.log("estado clicado:" + $scope.statusString);
-
                 if ($scope.statusString == "approved" || $scope.isAdmin==0) {
                     return lesson.status == 'approved';
                 } else if ($scope.statusString == "submitted") {
@@ -95,16 +93,16 @@
 
         $scope.fieldTable = [{
 		    field: "all",
-            title: "All"
+            title: $filter('translate')("ALL")
         }, {
             field: "approved",
-            title: "approved"
+            title: $filter('translate')("APPROVED")
         }, {
             field: "inactive",
-            title: "Inactive"
+            title: $filter('translate')("INACTIVE")
         }, {
             field: "submitted",
-            title: "Pending approval"
+            title: $filter('translate')("PENDING")
 
         }];
 

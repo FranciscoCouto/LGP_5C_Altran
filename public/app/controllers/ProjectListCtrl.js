@@ -102,12 +102,10 @@
             });
 
         $scope.selectedItem = selectedProject;
-        console.log($scope.selectedItem);
 
         $scope.submit = function(mydata) {
 
             var changeinfo = false;
-            console.log(selectedProject);
             if(mydata.name != selectedProject.RManager) {
                 changeinfo = true;
             }
@@ -129,7 +127,6 @@
                     $scope.items.push(err.data.message);
                 });
             }else{
-                console.log('morreuuu');
                 $uibModalInstance.dismiss('cancel');
             }
 

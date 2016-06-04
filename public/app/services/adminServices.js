@@ -82,7 +82,6 @@
         };
 
         this.deleteSector = function(sector) {
-            console.log("deleting sector " + JSON.stringify(sector))
             return $http.post('/api/deletesector', sector)
                 .success(function(res) {
                     deferred.resolve('Success');

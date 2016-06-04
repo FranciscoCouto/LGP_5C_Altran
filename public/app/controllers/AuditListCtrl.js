@@ -57,7 +57,6 @@
             
         $scope.selectedItem = selectedAudit;
         $scope.selectedItem.editiondate = $filter('date')($scope.selectedItem.editiondate,'MM/dd/yyyy');
-        console.log($scope.selectedItem);
     };
 
     // Injecting modules used for better minifing later on

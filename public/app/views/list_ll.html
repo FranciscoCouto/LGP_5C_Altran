@@ -81,7 +81,7 @@
                                 <td >{{lesson.title}}</td>
                                 <td>{{lesson.sector}}</td>
                                 <td >{{lesson.client}}</td>
-                                <td ng-if="isAdmin==1">{{lesson.status}}</td>
+                                <td ng-if="isAdmin==1">{{ (lesson.status | uppercase) | translate}}</td>
                                 <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
                             </tr>
                         </tbody>                    

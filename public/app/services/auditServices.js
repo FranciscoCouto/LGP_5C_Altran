@@ -7,9 +7,7 @@ var auditServices = function ($q, $http, $cookies, $window) {
 	this.getAudit = function() {
 		 return $http.get('/api/audit')
                 .success(function(res) {
-				
-					console.log(res);
-				
+								
                     deferred.resolve('Success');
                 })
                 .error(function(err) {
@@ -23,8 +21,6 @@ var auditServices = function ($q, $http, $cookies, $window) {
 			'idlesson' : id
 		 })
                 .success(function(res) {
-				
-					console.log(res);
 				
                     deferred.resolve('Success');
                 })

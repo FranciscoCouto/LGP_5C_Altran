@@ -8,8 +8,6 @@ var lessonServices = function ($q, $http, $cookies, $window) {
 		 return $http.get('/api/lesson')
                 .success(function(res) {
 				
-					console.log(res);
-                    
                     deferred.resolve('Success');
                 })
                 .error(function(err) {
@@ -48,7 +46,6 @@ var lessonServices = function ($q, $http, $cookies, $window) {
 	
 
     this.getLessonByStatus = function(status){
-           console.log(status);
         return $http.get('/api/lessonsByStatus',{params: {
 
                     'status': status
@@ -67,7 +64,6 @@ var lessonServices = function ($q, $http, $cookies, $window) {
        
         return $http.get('/api/lessonsTop')
                 .success(function(res) {
-                    console.log(res);
                     deferred.resolve('Success');
                 })
                 .error(function(err) {
@@ -82,7 +78,6 @@ var lessonServices = function ($q, $http, $cookies, $window) {
 			"idlesson" : lessonid
 		})
 		.success(function(res) {
-                    console.log(res);
                     deferred.resolve('Success');
                 })
                 .error(function(err) {

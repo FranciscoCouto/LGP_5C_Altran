@@ -129,7 +129,7 @@
                 NAVIGATION: 'Navigation',
                 AREYOUSURE: 'Are you sure?',
 
-                TECHS: 'Technolgies',
+                TECHS: 'Technologies',
                 PROJECT_TYPES: 'Project Types',
                 BUSINESS_SECTORS: 'Business Sectors',
 
@@ -186,7 +186,7 @@
                 CHOOSE_PERSON: 'Choose user',
 
                 UPDATE_TYPES: 'Update Project Types',
-                UPDATE_TECHS: 'Update Technolgies',
+                UPDATE_TECHS: 'Update Technologies',
                 UPDATE_SECTORS: 'Update Business Sectors',
 
                 //Lista LL
@@ -215,6 +215,16 @@
 				CREATE: 'Create',
 				EMAIL: 'Email address',
 
+                TECHNOLOGY: 'Technologies',
+                AUTHOR: 'Author',
+                PROJECT: 'Project',
+                SECTOR: 'Sector',
+                INSPECT: 'Inspect',
+                APPROVED: 'Approved',
+                DRAFT: 'Draft',
+                PENDING: 'Pending aproval',
+                ALL: 'All',
+                
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',
                 CHANGE_DATE: 'Date of Change',
@@ -224,6 +234,8 @@
                 TYPE_OF_CHANGE: 'Operation',
                 FIELDS_CHANGED: 'Fields Changed',
                 VIEWING_CHANGES: 'Viewing Changes',
+                TYPE: 'Type',
+                ADDTAG: 'Add a Tag',
                 
                 //LOGIN
                 FORGOT: 'Forgot the password?',
@@ -314,6 +326,7 @@
                 MY_LL: 'Minhas LL',
                 NAVIGATION: 'Navegação',
                 AREYOUSURE: 'Tem a certeza?',
+                ADDTAG: 'Adicionar Tag',
 
 
                 TECHS: 'Tecnologias',
@@ -351,6 +364,7 @@
                 SAVE_DRAFT: 'Guardar',
                 CANCEL: 'Cancelar',
                 CREATE_LL: 'Criar Lesson Learned',
+                TYPE: 'Tipo',
 
                 //Create Project
                 LL_TITLE: 'Título de Projeto',
@@ -378,7 +392,7 @@
 
                 //Lista LL
                 ACTIVE: 'Ativas',
-                INACTIVE: 'Inativas',
+                INACTIVE: 'Inativa',
                 SUBMITTED: 'Aprovação pendente',
                 NO_PROJECT: 'Sem Projecto',
 
@@ -402,6 +416,17 @@
 				CREATE: 'Criar',
 				EMAIL: 'Endereço E-mail',
 
+
+                TECHNOLOGY: 'Tecnologias',
+                AUTHOR: 'Autor',
+                PROJECT: 'Projeto',
+                SECTOR: 'Setor',
+                INSPECT: 'Inspecionar',
+                APPROVED: 'Aprovado',
+                DRAFT: 'Rascunho',
+                PENDING: 'À espera de aprovação',
+                ALL: 'Todos',
+                
                 //LISTA AUDIT
                 CREATION_DATE: 'Data de Criação',
                 CHANGE_DATE: 'Data de edição',
@@ -483,12 +508,14 @@
                 TECHNOLOGIES: 'Technologies',
                 DISABLE: 'Désactiver',
                 STATUS: 'État',
+                TYPE: 'Genre',
+                ADDTAG: 'Ajouter un Tag',
                 
                 ADMIN: 'Administrateur',
                 SUBMITTER: 'Editeur',
                 READER: 'Lecteur',
                 
-                CHOOSEFILE: '',
+                CHOOSEFILE: "Choisir l'image",
                 HOME: 'Début',
                 ADMIN_PANEL: 'Administration',
                 USERS: 'Utilisateurs',
@@ -498,56 +525,67 @@
                 AUDIT_TRAIL: 'Histoire',
                 SETTINGS: 'Réglages',
                 PROJECTS: 'Projects',
-                MY_LL: 'My LL',
+                MY_LL: 'Mes LL',
                 NAVIGATION: 'Navigation',
                 AREYOUSURE: 'Êtes-vous sûr?',
 
-                TECHS: 'Technolgies',
-                PROJECT_TYPES: 'Project Types',
-                BUSINESS_SECTORS: 'Business Sectors',
+                TECHS: 'Technologies',
+                PROJECT_TYPES: 'Types de projets',
+                BUSINESS_SECTORS: "Secteurs d'activité",
 
-                LANGUAGE: 'Dialeto',
+                LANGUAGE: 'Langue',
 
                 EXPORT: 'Exportation',
                 EXPORT_TO_PDF: 'Exporter vers un fichier PDF',
                 EXPORT_TO_CSV: 'Exporter vers un fichier CSV',
                 ADD_USER: 'Ajouter l´utilisateur',
 
-                SELECT: 'Selecionar...',
+                SELECT: 'Sélectionner...',
                 SEARCH: 'Chercher',
-                CLIENT: 'Cliente',
-                SELECT_CLIENT: 'Cliente',
-                NONE: 'Nenhum',
+                CLIENT: 'Client',
+                SELECT_CLIENT: 'Client',
+                NONE: 'Aucun',
 
                 //Pagination buttons
-                FIRST: 'Início',
-                LAST: 'Fim',
-                NEXT: 'Próximo',
-                PREVIOUS: 'Anterior',
+                FIRST: 'Première',
+                LAST: 'Dernier',
+                NEXT: 'Prochaine',
+                PREVIOUS: 'Précédent',
+                
+                TECHNOLOGY: 'Technologie',
+                AUTHOR: 'Auteur',
+                PROJECT: 'Projet',
+                SECTOR: 'Secteur',
+                INSPECT: 'Inspecter',
+                APPROVED: 'Approuvé',
+                DRAFT: 'Brouillon',
+                PENDING: 'Validation en attente',
+                ALL: 'Tout',
+                
 
                 //Create LL
-                SELECT_TECHS: 'Selecionar Tecnologias',
-                SELECT_MANAGER: 'Selecionar Gestor de Projeto',
-                SELECT_PROJECT: 'Selecionar Projeto',
-                DESCRIPTION: 'Descrição da situação',
-                ACTION_TAKEN: 'Descrição da ação tomada',
-                RESULT_DESCRIPTION: 'Descrição do resultado',
-                CHARS_LEFT: 'caracteres restantes',
+                SELECT_TECHS: 'Sélectionnez Technologies',
+                SELECT_MANAGER: 'Sélectionnez Project Manager',
+                SELECT_PROJECT: 'Choisir un Project',
+                DESCRIPTION: 'Description de la situation',
+                ACTION_TAKEN: 'Prendre action description',
+                RESULT_DESCRIPTION: 'Description de résultat',
+                CHARS_LEFT: 'rester caractères',
                 SUBMIT: 'Soumettre',
                 SAVE_DRAFT: 'Enregistrer',
-                CANCEL: 'Cancelar',
-                CREATE_LL: 'Criação de Lição Aprendida',
+                CANCEL: 'Annuler',
+                CREATE_LL: 'Leçons apprises création',
 
-                //Create Project
+                //Create Project////////////////////////////////////////////
                 LL_TITLE: 'Titre du projet',
                 PROJECT_NAME: 'Nom du projet',
                 PROJECT_MANAGER: 'Chef de projet',
                 COLABORATORS: 'Utilisateurs',
-                BUSINESS_SECTOR: 'Setor de Negócio',
-                DAYS_LENGTH: 'Duração Projeto',
-                PROJECT_TYPE: 'Tipo de Projeto',
-                ADD_PROJECT: 'Adicionar Projeto',
-                DELIVERING_MODEL: 'Delivering Model',
+                BUSINESS_SECTOR: "Secteurs d'activité",
+                DAYS_LENGTH: 'Durée du projet',
+                PROJECT_TYPE: 'Type de projet',
+                ADD_PROJECT: 'Ajouter un projet',
+                DELIVERING_MODEL: 'Modèle délivrant',
                 STARTING_DATE: 'Date de début',
                 EXPECTED_DATE: 'Date de fin prévue',
                 CONCLUSION_DATE: 'Date de fin',
@@ -555,18 +593,18 @@
 				PROJECT_DATA: 'Données du projet',
 				NUMBER_CONS: 'Nombre de consultants',
 
-                ALLOCATE_PM: 'Allocate PM',
-                CHOOSE_PERSON: 'Choose user',
+                ALLOCATE_PM: 'Allouer PM',
+                CHOOSE_PERSON: "Choisissez l'utilisateur",
 
-                UPDATE_TYPES: 'Update Project Types',
-                UPDATE_TECHS: 'Update Technolgies',
-                UPDATE_SECTORS: 'Update Business Sectors',
+                UPDATE_TYPES: 'Types de mise à jour du projet',
+                UPDATE_TECHS: 'Mise à jour Technologies',
+                UPDATE_SECTORS: "Secteurs d'activité Mise à jour",
 
                 //Lista LL
                 ACTIVE: 'Actif',
                 INACTIVE: 'Négligé',
                 SUBMITTED: 'Validation en attente',
-                NO_PROJECT: 'No Project',
+                NO_PROJECT: 'Aucun projet',
 
                 //Lista Users
                 USER_MANAGEMENT: 'Gestion des utilisateurs',
@@ -589,14 +627,14 @@
 				EMAIL: 'Adresse e-mail',
 
                 //LISTA AUDIT
-                CREATION_DATE: 'Creation Date',
-                CHANGE_DATE: 'Date of Change',
-                CREATOR: 'Creator',
-                APPROVER: 'Approver',
-                EDITOR: 'Editor',
-                TYPE_OF_CHANGE: 'Operation',
-                FIELDS_CHANGED: 'Fields Changed',
-                VIEWING_CHANGES: 'Viewing Changes',
+                CREATION_DATE: 'Date de création',
+                CHANGE_DATE: 'Date du changement',
+                CREATOR: 'Créateur',
+                APPROVER: 'Approbateur',
+                EDITOR: 'Editeur',
+                TYPE_OF_CHANGE: 'Opération',
+                FIELDS_CHANGED: 'Domaines édités',
+                VIEWING_CHANGES: 'Affichage changements',
                 //LOGIN
                 FORGOT: 'Vous avez oublié le mot de passe?',
                 CONTINUEAS: 'Voulez-vous continuer comme ',
@@ -607,7 +645,7 @@
 
                 //CREATE USER
                 PERSONAL_INFO: 'Données D\'Utilisateur',
-                PERSONAL_IMG: 'Collaborator Image',
+                PERSONAL_IMG: "Image de l'employé",
                 
                 //ERRORS
                 ERRORLOGIN: "Nom d'utilisateur ou mot de passe invalide",
