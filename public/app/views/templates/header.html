@@ -30,6 +30,8 @@
 						</li>
 						<li><a ng-attr-class="{{ getPath() == '/listll' ? 'ddselected' : 'notddselected' }}" href="/listll">{{'LESSONS' | translate}}</a>
 						</li>
+						<li><a ng-attr-class="{{ getPath() == '/mylistll' ? 'ddselected' : 'notddselected' }}" ng-if="hasSession.data.permission == 1" href="/mylistll">{{'MY_LL' | translate}}</a>
+						</li>
 						<li><a ng-attr-class="{{ getPath() == '/statistics' ? 'ddselected' : 'notddselected' }}" ng-if="hasSession.data.permission == 2" href="/statistics">{{'STATS' | translate}}</a>
 						</li>
 						<li><a ng-attr-class="{{ getPath() == '/list_projects' ? 'ddselected' : 'notddselected' }}" ng-if="hasSession.data.permission == 2" href="/list_projects">{{'PROJECTS' | translate}}</a>
