@@ -28,7 +28,7 @@
 				<div class="panel-body box-shadow--2dp">
 
 					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-6 col-sm-offset-0 col-md-offset-0 col-lg-offset-0">
-						<img ng-src="{{user.image || '/images/user_light_small.png'}}" alt="User" width="60" height="60" class="pull-left img-circle">
+						<img ng-src="{{'/images/'+user.permission+'.png'}}" alt="User" width="60" height="60" class="pull-left img-circle">
 					</div>
 
 					<div class="col-lg-1 col-md-1 col-sm-1 col-xs-3 col-lg-push-9 col-md-push-9 col-sm-push-9 clearfix">
@@ -108,11 +108,6 @@
 			  </select>
 			</div>
 
-			<!-- <label class="control-label" for="project">{{ 'PERSONAL_IMG' | translate }}</label> -->
-			<div class="thumb" > <img id="img" ng-src={{image}} /></div>
-			<label for="upload">{{'CHOOSEFILE' | translate}}
-			<input id="upload" type="file" name="file" onchange="angular.element(this).scope().changeFile(this.files)"  /></label>
-		 
 		  </div>
 		  <div class="modal-footer">
 				<div class="row animation error-message text-center" ng-repeat="item in items">

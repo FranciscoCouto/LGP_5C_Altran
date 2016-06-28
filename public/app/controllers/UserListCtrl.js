@@ -9,7 +9,6 @@
 		$scope.itemsPerPage = 5;
         $scope.currentPage = 1;
         $scope.items = [];
-		var image;
 		
 		$scope.addUser = function(user){
 
@@ -17,44 +16,28 @@
 				bootbox.alert("Password does not match confirmation.");
 				return;
 			}
-			if (image == null) {
-				bootbox.alert("Image missing.");
-				return;
-			}
 			
-            //alert(image);
              if(user.permission==null)
                 user.permission="0";
+   
 
-             var fd = new FormData();   
-             fd.append("image", image);
-             fd.append("email", user.email);
-             fd.append("name", user.name);
-             fd.append("password", user.password);
-             fd.append("permission", user.permission);
-
-             adminServices.registerUser(fd)
+             adminServices.registerUser(user)
                 .then(function (res) {
-                    $window.refresh();
+                    location.reload();
                 })
                 .catch(function (err) {
                      console.log(err.data);
+					 alert(JSON.stringify(err));
                 });
                 
         };
 		
 		
-        $scope.changeFile = function(files){
-             
-            image=files[0];
-        };
+      
 
 		services.getUsers()
             .then(function (result) {
                 $scope.users = result.data;
-				$scope.users.forEach(function(element) {
-					element.image="images/"+element.email+".png";
-				}, this);
                 $scope.items.pop();
                 $scope.items.push();
                 $scope.$watch('search.filter', function (term) {

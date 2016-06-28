@@ -7,9 +7,7 @@
          crypto = require('crypto'),
          StreamSearch = require('streamsearch'),
          inspect = require('util').inspect,
-         validator = require("email-validator"),
-         formidable = require('formidable'),
-         fs = require('fs');
+         validator = require("email-validator")
     // Main router where all routes are called. This is done so the project code is cleaner and more maintainable.
     module.exports = function (server) {
 
@@ -182,48 +180,21 @@
 
         server.post('/api/createuser', function (req, res) {
 
-    var form = new formidable.IncomingForm();
-     //Formidable uploads to operating systems tmp dir by default
-    form.uploadDir = "./public/images";       //set upload directory
-    form.encoding = 'utf-8';
-    form.keepExtensions = false;     //keep file extension
-   form.parse(req, function(err, fields, files) {
-       if(err){
-           console.log(err);
-           fs.unlink(fields.image.path);
-            res.status(400).json({
-                    message_class: 'error',
-                    message: 'ERRORCREATEIMAGE'
-                });
-       }
+    
         var email,pass,name,permission;
-        email=fields.email.toLowerCase();
-        pass=fields.password;
-        name=fields.name;
-        permission=fields.permission;
-        var novonome=files.image.name.split(".");
-        fs.rename(files.image.path, './public/images/'+email+".png", function(err) {
-        if (err){
-            fs.unlink(fields.image.path);
-             res.status(406).json({
-                                message_class: 'error',
-                                message: "ERRORRENAMEIMAGE"
-                            });
-        }
-        });
-
+        email=req.body.email.toLowerCase();
+        pass=req.body.password;
+        name=req.body.name;
+        permission=req.body.permission;
             if(permission!="1" && permission!="2" && permission!="0"){
-                fs.unlink('./public/images/'+email+".jpg");
                 // Check if permission is valid.
                 res.status(400).json({
                     message_class: 'error',
                     message: 'ERRORCREATEPERMISSION'
                 });
             }
-
             if(!validator.validate(email)){
                 // Check if email is valid.
-                fs.unlink('./public/images/'+email+".jpg");
                 res.status(400).json({
                     message_class: 'error',
                     message: 'ERRORCREATEEMAIL'
@@ -241,7 +212,6 @@
 
                         // If the e-mail is already in use
                         if (err.sqlState == '23000') {
-                            fs.unlink('./public/images/'+email+".jpg");
                             // Send the Response with message error
                             res.status(406).json({
                                 message_class: 'error',
@@ -249,7 +219,6 @@
                             });
 
                         } else {
-                            fs.unlink('./public/images/'+email+".jpg");
                             // Sending the error to the log file
                             res.status(406).json({
                                 message_class: 'error',
@@ -259,7 +228,6 @@
                         }
                     });
             }
-            });
         });
 
         server.delete("/api/deleteuser",function(req,res){
@@ -331,17 +299,7 @@
             database.checkPasswordbyEmail(admin.email, admin.pass)
                 .then(function(){
                     database.updateUserByID(user.id,user.email, user.name, user.permission)
-                        .then(function() {
-                            fs.rename('./public/images/'+oldemail+".png", './public/images/'+user.email+".png", function(err) {
-                                if (err){
-                                    fs.unlink('./public/images/'+oldemail+".png");
-                                    res.status(406).json({
-                                        message_class: 'error',
-                                        message: "ERRORRENAMEIMAGE"
-                                    });
-                                }
-                            });
-                            
+                        .then(function() {                            
                             res.status(200).json({
                                 message: "SUCCESS"
                             });

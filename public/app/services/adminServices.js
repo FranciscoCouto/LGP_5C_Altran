@@ -6,13 +6,13 @@
 
         // Function to create a user
         this.registerUser = function(user) {
-            return $http.post('/api/createuser', user, {
-                withCredentials: true,
-                headers: {
-                    'Content-Type': undefined
-                },
-                transformRequest: angular.identity
-            });
+            return $http.post('/api/createuser', user)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
         };
 
         this.insertTech = function(tech) {
