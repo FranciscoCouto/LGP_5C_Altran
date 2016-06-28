@@ -426,7 +426,7 @@
                 AUTHOR: 'Autor',
                 PROJECT: 'Projeto',
                 SECTOR: 'Setor',
-                INSPECT: 'Inspecionar',
+                INSPECT: 'Ver Informação',
                 APPROVED: 'Aprovado',
                 DRAFT: 'Rascunho',
                 PENDING: 'À espera de aprovação',
