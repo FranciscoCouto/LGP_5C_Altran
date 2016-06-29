@@ -16,6 +16,7 @@
 		],
 
 		"admin": [
+			"/api/updateprojfinito",
 			"/api/verifysession",
 			"/api/lessons",
 			"/api/user",

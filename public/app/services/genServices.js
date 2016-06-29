@@ -43,6 +43,16 @@ var genServices = function ($q, $http) {
                     deferred.reject(err);
                 });
         };
+        
+        this.setTerminated = function(cenas){
+            return $http.post('/api/updateprojfinito', cenas)
+                .success(function(res) {
+                    deferred.resolve('Success');
+                })
+                .error(function(err) {
+                    deferred.reject(err);
+                });
+        };
         // Function to retrieve the list of existing projects
         this.getProjects = function() {
             return $http.get('/api/projects')

@@ -39,6 +39,12 @@
 			  genServices.getProjectsByManager(managerid)
                     .then(function (projects) {
                         $scope.projects = projects.data;
+                        var i;
+                        for (i = 0; i < $scope.projects.length; ++i) {
+                            if ($scope.projects[i].finish == '0') {
+                                $scope.projects.splice(i--, 1);
+                            }
+                        }
                     })
                     .catch(function (err) {
                         $scope.items.push("Field projects: " + err.data);

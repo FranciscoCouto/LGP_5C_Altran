@@ -16,8 +16,29 @@
             .catch(function (err) {
                 console.log('Error geting projects list!');
         	});
-
+        $scope.updatePR= function(id) {
+            
+              $scope.projects.forEach(function(element) {
+                  if(element.idproject==id){
+                      var cenas={'id':id,'finish':element.finish};
+                      genServices.setTerminated(cenas)
+                            .then(function (result) {
+                                if(element.finish=='0'){
+                                    element.finish='1';
+                                }
+                                else{
+                                    element.finish='0';
+                                }
+                            })
+                            .catch(function (err) {
+                                console.log('Error updating');
+                            });
+                  }
+              }, this);
+        
+        }
         $scope.editPM = function(project) {
+          
             console.log("Modal opened.");
             var modalInstance = $uibModal.open({
                 animation: true,

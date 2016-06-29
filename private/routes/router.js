@@ -636,6 +636,7 @@
                         res.status(406).send('ERRORPROJECTINFO');
                     });
         });
+        
 
 
         server.get("/api/projectsbymanager",function(req,res){
@@ -668,7 +669,27 @@
 
                     });
         });
+         server.post("/api/updateprojfinito",function(req,res){
+             
+             var id= req.body.id;
+             var finito;
+             if(req.body.finish=='0')
+                finito='1';
+             else
+                finito='0';
+                
+             database.updateprojfinito(id,finito)
+                    .then(function (project) {
+                        res.status(200).json({
+                                message: "SUCCESS"
+                            });
+                    })
+                    .catch(function (err) {
+                        // Sending the error to the log file
+                        res.status(406).send('');
 
+                    });
+         });
         server.post("/api/createproject",function(req,res){
 
                 var type = req.body.type;

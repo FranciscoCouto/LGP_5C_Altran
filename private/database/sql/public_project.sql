@@ -35,6 +35,7 @@ CREATE TABLE `project` (
   `daysDuration` int(11) DEFAULT NULL,
   `client` varchar(45) NOT NULL,
   `sector` int(11) NOT NULL,
+  `finish` int(11) DEFAULT '1',
   PRIMARY KEY (`idproject`),
   KEY `idUsers_idx` (`manager`),
   KEY `idsector_idx` (`sector`),

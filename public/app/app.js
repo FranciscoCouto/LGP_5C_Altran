@@ -101,6 +101,9 @@
             .useSanitizeValueStrategy('escape')
             .translations('en', { //TODO: Translations from each language on different files
                
+                OPENPR: 'Active',
+                CLOSEPR: 'Terminated',
+                OPENCLOSE: 'Open/Close',
                 ENABLE:'Enable',
                 APPROVE: 'Approve',
                 REJECT: 'Reject',
@@ -301,7 +304,9 @@
                                 
             })
             .translations('pt', {
-                
+                OPENPR: 'Ativo',
+                CLOSEPR: 'Terminado',
+                OPENCLOSE: 'Abrir/Fechar',
                 ENABLE:'Ativar',
                 APPROVE: 'Aprovar',
                 REJECT: 'Rejeitar',
@@ -506,7 +511,9 @@
 
             })
             .translations('fr', {
-                
+                OPENPR: 'Actif',
+                CLOSEPR: 'Terminé',
+                OPENCLOSE: 'Ouvert/Fermer',
                ENABLE:'Activer',
                 APPROVE: 'Approuver',
                 REJECT: 'Rejeter',

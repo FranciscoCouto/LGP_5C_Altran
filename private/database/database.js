@@ -628,6 +628,19 @@
                 });
         });
     }
+    
+    exports.updateprojfinito = function(idproject,finito){
+        return new Promise(function (resolve, reject) {
+            client.query('UPDATE public.project SET finish = ? WHERE idproject = ?',  [finito, idproject ],
+                function (err, result) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve('Updated project date of ending with id: ' + idproject);
+                    }
+                });
+        });
+    }
 
     exports.updateProjectManagerByID = function(idproject,namemanager){
         return new Promise(function (resolve, reject) {

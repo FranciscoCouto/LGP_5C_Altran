@@ -136,7 +136,13 @@ input[type="text"]:disabled {
 h4 {
   border-bottom: solid 4px rgb(72,89,126);  
 }
-
+.red{
+  background-color: red;
+}
+.green{
+  
+  background-color: green;
+}
 .modal-header{
   background-color: rgb(72,89,126);
   padding: 20px 15px;
