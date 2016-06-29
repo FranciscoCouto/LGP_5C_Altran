@@ -50,7 +50,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,'ADM4','Projeto',2,'2016-06-09','2013-12-10','2017-02-01','Presencial',12,400,'FEUP',2),(2,'ADM2','Projeto2',2,'2016-06-21','2016-06-24','2016-06-25','Online',13,10,'AAS',2),(3,'ADM3','Projeto3',2,'2016-06-23','2016-07-02','2016-07-03','Online',412,12,'Quim',6);
+INSERT INTO `project` VALUES (1,'ADM4','Projeto',2,'2016-06-09','2013-12-10','2017-02-01','Presencial',12,400,'FEUP',2,1),(2,'ADM2','Projeto2',2,'2016-06-21','2016-06-24','2016-06-25','Online',13,10,'AAS',2,1),(3,'ADM3','Projeto3',2,'2016-06-23','2016-07-02','2016-07-03','Online',412,12,'Quim',6,1);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
