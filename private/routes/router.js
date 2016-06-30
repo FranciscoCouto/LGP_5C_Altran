@@ -261,6 +261,7 @@
                     message_class: 'error',
                     message: "ERRORDELETINGSELF"
                 });
+                return;
             }
 
             database.deleteUserByID(idToDelete)
