@@ -36,12 +36,13 @@ CREATE TABLE `project` (
   `client` varchar(45) NOT NULL,
   `sector` int(11) NOT NULL,
   `finish` int(11) DEFAULT '1',
+  `budget` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idproject`),
   KEY `idUsers_idx` (`manager`),
   KEY `idsector_idx` (`sector`),
   CONSTRAINT `idUsers` FOREIGN KEY (`manager`) REFERENCES `users` (`idusers`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `idsector` FOREIGN KEY (`sector`) REFERENCES `business_sectors` (`idSector`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,7 +51,7 @@ CREATE TABLE `project` (
 
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
-INSERT INTO `project` VALUES (1,'ADM4','Projeto',2,'2016-06-09','2013-12-10','2017-02-01','Presencial',12,400,'FEUP',2,1),(2,'ADM2','Projeto2',2,'2016-06-21','2016-06-24','2016-06-25','Online',13,10,'AAS',2,1),(3,'ADM3','Projeto3',2,'2016-06-23','2016-07-02','2016-07-03','Online',412,12,'Quim',6,1);
+INSERT INTO `project` VALUES (1,'ADM4','Projeto',5,'2016-06-09','2013-12-10','2017-02-01','Presencial',12,400,'FEUP',2,1,0),(2,'ADM2','Projeto2',2,'2016-06-21','2016-06-24','2016-06-25','Online',13,10,'AAS',2,1,0),(3,'ADM3','Projeto3',2,'2016-06-23','2016-07-02','2016-07-03','Online',412,12,'Quim',6,0,0),(4,'ADM2','O tal Projeto',2,'2016-05-29','2016-06-04','2016-06-01','Online',34,32,'Google',2,1,0),(5,'ADM1','Projeto Muito Caro',2,'2016-06-02','2016-06-06','2016-06-22','Online',14,35,'FarFetch',1,1,12365478);
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -63,4 +64,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 19:54:00
+-- Dump completed on 2016-06-30 13:56:31

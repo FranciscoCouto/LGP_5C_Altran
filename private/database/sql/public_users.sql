@@ -33,7 +33,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`idusers`),
   UNIQUE KEY `email_UNIQUE` (`email`),
   UNIQUE KEY `idusers_UNIQUE` (`idusers`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='table for storing user information';
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='table for storing user information';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin@altran.pt','Admin','$2a$10$Iua2WqU9CtGnJRyw/OzULuhRplmWkSxGsW..u3OIKB5vq3ByIFcuO','2','5ac70c58102a4f18e0a3d0ad2a0e6a3cc0e6f817',0),(2,'luis@altran.pt','Luís','$2a$10$tJrtCk38Mq2SoZpQly0aru7tYE2bNccHNWE9J2Zq/ol7JVDHYKwZe','1','153676591a12ca64dfd54ff78ffd2cbab2493713',0),(3,'andre@altran.pt','André','$2a$10$p/dht/LmOmFWXIOjV1Eol.mIy3odaRL.qzqOkMo.gNUQ2dh3cSmCi','2','b92f3e8f5d2ce6697d5646936c16fcf9631d0b47',0),(4,'francisco@altran.pt','Francisco','$2a$10$/prSgE5pg4UfQlldlBJm5.S9IjTBzrl66RfGAYjlA0BUKhgai50Au','0','8ecc8c9e80d20e6f849227a066507df439ff1bf1',0);
+INSERT INTO `users` VALUES (1,'admin@altran.pt','Admin','$2a$10$Iua2WqU9CtGnJRyw/OzULuhRplmWkSxGsW..u3OIKB5vq3ByIFcuO','2','5ac70c58102a4f18e0a3d0ad2a0e6a3cc0e6f817',0),(2,'luis@altran.pt','Luís','$2a$10$tJrtCk38Mq2SoZpQly0aru7tYE2bNccHNWE9J2Zq/ol7JVDHYKwZe','1','153676591a12ca64dfd54ff78ffd2cbab2493713',0),(3,'andre@altran.pt','André','$2a$10$p/dht/LmOmFWXIOjV1Eol.mIy3odaRL.qzqOkMo.gNUQ2dh3cSmCi','2','b92f3e8f5d2ce6697d5646936c16fcf9631d0b47',0),(4,'francisco@altran.pt','Francisco','$2a$10$/prSgE5pg4UfQlldlBJm5.S9IjTBzrl66RfGAYjlA0BUKhgai50Au','0','8ecc8c9e80d20e6f849227a066507df439ff1bf1',0),(5,'ricardo@altran.pt','Ricardo Pereira','$2a$10$hf3PtVmerH/IPmMdHzJCS.4ew1z.dbEm6gMTV4zLQXUj0SYh9rHee','1','8bfb81e89cec9c90ed21870e268aa3cc6dd228bf',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-03 19:54:00
+-- Dump completed on 2016-06-30 13:56:30

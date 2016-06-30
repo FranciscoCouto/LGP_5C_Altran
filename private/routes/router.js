@@ -707,7 +707,9 @@
                 var numberConsultants = req.body.numberConsultants;
                 var daysDuration = req.body.daysDuration;
 
-                database.insertProject(type,name,manager,dateBeginning,dateEndExpected,dateEnd,deliveringModel,numberConsultants,daysDuration,client,sector)
+                var budget = req.body.budget;
+
+                database.insertProject(type,name,manager,dateBeginning,dateEndExpected,dateEnd,deliveringModel,numberConsultants,daysDuration,client,sector,budget)
                     .then(function (project) {
                         res.status(200).json({
                                 message: "SUCCESS"

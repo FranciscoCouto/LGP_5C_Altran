@@ -508,6 +508,18 @@
 				style: 'header' 
 			  },
 			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Business Sector', 
+				style: 'header' 
+			  },
+			  '\n\n',
+			  {
+				width: '*',
+			   text: 'Budget', 
+				style: 'header' 
+			  },
+			  '\n\n',
 				]
 			},
 		{
@@ -516,21 +528,27 @@
 			  $scope.lldata["deliveringModel"] + '\n\n',
 
 			  $scope.lldata["type"] + '\n\n',
+
+			  $scope.lldata["sector"] + '\n\n',
+
+			  $scope.lldata["budget"] + '\n\n',
+				
 				]
+
 		},
 
 		],
 		styles: {
 			header: {
-			  fontSize: 14,
+			  fontSize: 11,
 			  bold: true
 			},
 			text: {
-			 fontSize: 12,
+			 fontSize: 10,
 			  italics: true
 			},
 			defaultStyle: {
-				columnGap: 20,
+				columnGap: 10,
 			}
 		}
 	  };
