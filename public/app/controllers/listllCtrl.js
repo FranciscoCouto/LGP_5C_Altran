@@ -87,6 +87,19 @@
 
         };
 
+        $scope.Slider = function(budget) {
+            return function(lesson) {
+              if($scope.minRangeSlider.maxValue!=101){
+                return (lesson.budget >= $scope.minRangeSlider.minValue && lesson.budget <= $scope.minRangeSlider.maxValue);
+              }
+              else{
+                return (lesson.budget >= $scope.minRangeSlider.minValue);
+              }
+
+            }
+
+        };
+
         $scope.isEmpty = function(value){
             return (value == "" || value == null);
         };
@@ -114,7 +127,7 @@
         scale:0.1,
         options: {
             floor: 0,
-            ceil: 100,
+            ceil: 101,
             step: 1
         }
     };

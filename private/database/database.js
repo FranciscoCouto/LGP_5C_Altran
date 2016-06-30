@@ -284,7 +284,7 @@
 
     exports.getLessons = function(){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.lessonslearned as t1 ) LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP By idLessonsLearned,situation,action,result";
+         var query = "SELECT t1.idLessonsLearned,t1.status,t1.feedback, t5.client, t5.budget,t7.name as sector,t1.creationdate,t1.aproveddate,t2.situation,t2.action,t2.result,GROUP_CONCAT(t3.technology SEPARATOR ', ') AS technologies,t7.name,t6.idusers,t5.name as title,t6.name FROM (public.lessonstext as t2, public.technologies as t3,public.lesson_tech as t4,public.users as t6,public.lessonslearned as t1 ) LEFT OUTER JOIN public.project as t5 ON t1.project = t5.idproject LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = t2.idLessonLearned AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t1.manager = t6.idusers GROUP By idLessonsLearned,situation,action,result";
          query = mysql.format(query);
          client.query(query,function (err, result) {
                     if (err) {
@@ -455,7 +455,7 @@
                             if (err1) {
                                 reject(err1);
                             } else {
-                               
+
                                 client.query('INSERT INTO public.lessonstext SET ?', {idLessonLearned: result1.insertId, situation: situation, action: action, result: resultDesc},
                                     function (err2, result2) {
                                         if (err2) {
@@ -517,7 +517,7 @@
 
     exports.updateLessonStateByID = function(idlesson,state){
         return new Promise(function (resolve, reject) {
-		
+
 			if (state == 'approved') {
 				client.query('UPDATE public.lessonslearned SET status = ?, aproveddate = CURDATE() WHERE idLessonsLearned = ?',  [state, idlesson ],
 					function (err, result) {
@@ -529,7 +529,7 @@
 						}
 					});
 			} else {
-			
+
 				client.query('UPDATE public.lessonslearned SET status = ?, aproveddate = null WHERE idLessonsLearned = ?',  [state, idlesson ],
 					function (err, result) {
 						if (err) {
@@ -628,7 +628,7 @@
                 });
         });
     }
-    
+
     exports.updateprojfinito = function(idproject,finito){
         return new Promise(function (resolve, reject) {
             client.query('UPDATE public.project SET finish = ? WHERE idproject = ?',  [finito, idproject ],
@@ -821,7 +821,7 @@
                 });
          });
     }
-	
+
 	     exports.insertAuditTrail = function(idlesson){
          return new Promise(function (resolve, reject) {
          var query = "INSERT INTO audit_trail ( idlessonlearned, editiondate, editor,  action, situation, result, operation ) SELECT  lessonslearned.idLessonsLearned, CURDATE(), lessonslearned.manager, t2.action, t2.situation, t2.result, 'update' FROM (lessonslearned INNER JOIN lessonstext as t2 ON(lessonslearned.idLessonsLearned = t2.idLessonLearned)) WHERE lessonslearned.idLessonsLearned = ?";

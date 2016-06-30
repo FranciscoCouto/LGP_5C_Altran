@@ -81,14 +81,14 @@
                             <tr ng-show="!lessons">
                                 <td colspan="8">No lessons available.</td>
                             </tr>
-                            <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
+                            <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status) |filter:Slider(lesson.budget)).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
                                 <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
                                 <td>{{lesson.technologies}} </td>
                                 <td>{{lesson.name}}</td>
                                 <td >{{lesson.title}}</td>
                                 <td>{{lesson.sector}}</td>
                                 <td >{{lesson.client}}</td>
-                                <th> jahsd </td>
+                                <th class="sliderHeader"> {{lesson.budget}} </td>
                                 <td ng-if="isAdmin==1">{{ (lesson.status | uppercase) | translate}}</td>
                                 <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
                             </tr>
