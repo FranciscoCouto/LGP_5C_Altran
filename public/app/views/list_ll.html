@@ -57,7 +57,14 @@
                                   <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
                             </th>
-                            
+
+
+                            <th>
+
+                                  <rzslider rz-slider-on-change="sortType = 'budget'" rz-slider-model="minRangeSlider.minValue" rz-slider-high="minRangeSlider.maxValue" rz-slider-options="minRangeSlider.options"></rzslider>
+
+                            </th>
+
                             <th ng-show="isAdmin==1">
 
                                 <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
@@ -81,10 +88,11 @@
                                 <td >{{lesson.title}}</td>
                                 <td>{{lesson.sector}}</td>
                                 <td >{{lesson.client}}</td>
+                                <th> jahsd </td>
                                 <td ng-if="isAdmin==1">{{ (lesson.status | uppercase) | translate}}</td>
                                 <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
                             </tr>
-                        </tbody>                    
+                        </tbody>
                 </table>
             </div>
             <uib-pagination id="paginacao" total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
