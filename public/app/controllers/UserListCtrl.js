@@ -26,10 +26,8 @@
                     location.reload();
                 })
                 .catch(function (err) {
-                     console.log(err.data);
-					 alert(JSON.stringify(err));
-                });
-                
+					 bootbox.alert($filter('translate')("ERRORCREATEUSER"));
+                });                
         };
 		
 		
