@@ -96,7 +96,7 @@
 				<input ng-model="project.deliveringModel" type="text" class="form-control bg-blue" placeholder="{{ 'DELIVERING_MODEL' | translate }}" required>
 			</div>
 			<div class="form-group">
-				<input ng-model="project.numberConsultants" type="text" class="form-control bg-blue" placeholder="{{ 'NUMBER_CONS' | translate }}" style="color:white" required>
+				<input ng-model="project.numberConsultants" type="number" min="1" class="form-control bg-blue" placeholder="{{ 'NUMBER_CONS' | translate }}" style="color:white" required>
 			</div>
 
 			  
@@ -132,7 +132,7 @@
 			</div>
 			
 			<div class="form-group">
-				<input ng-model="project.daysDuration" type="text" class="form-control bg-blue" placeholder="{{ 'DAYS_LENGTH' | translate }}" style="color:white" required>
+				<input ng-model="project.daysDuration" type="number" min="1" class="form-control bg-blue" placeholder="{{ 'DAYS_LENGTH' | translate }}" style="color:white" required>
 			</div>
 			
 			<div class="form-group">
@@ -146,7 +146,10 @@
       <option ng-repeat="type in types" value="{{ type.name }}">{{ type.name }}</option>
 			  </select>
 			</div>
-		 
+		 <div class="form-group">
+      <label class="control-label" for="project">{{ 'BUDGET' | translate }}   </label>
+        <input ng-model="project.budget" type="number" min="1" class="form-control bg-blue" required />
+      </div>
 		  </div>
 		  <div class="modal-footer">
 				<div class="row animation error-message text-center" ng-repeat="item in items">
