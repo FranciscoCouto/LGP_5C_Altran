@@ -101,7 +101,7 @@
                 </tbody>
             </table>
         </div>
-        <uib-pagination id="paginacao" total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}"
+        <uib-pagination id="paginacao" total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status) | filter:Slider(lesson.budget)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}"
             last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
     </div>
 
