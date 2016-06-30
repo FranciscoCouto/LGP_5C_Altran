@@ -94,6 +94,7 @@
               }
               else{
                 return (lesson.budget >= $scope.minRangeSlider.minValue);
+
               }
 
             }
@@ -122,7 +123,7 @@
         $scope.selected = $scope.fieldTable[0];
 
         $scope.minRangeSlider = {
-        minValue: 10000,
+        minValue: 0,
         maxValue: 30000,
         scale:0.1,
         options: {
