@@ -32,10 +32,7 @@
   position: absolute;
   display: inline-block;
   white-space: nowrap;
-  font-size:0px;
-}
-.sliderHeader{
-  width:100px;
+  color:#fff !important;
 }
 
 .rzslider .rz-base {
@@ -80,16 +77,14 @@
 .rzslider .rz-pointer {
   top: -14px;
   z-index: 3;
-  width: 12px;
-  height: 12px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
   background-color: #0db9f0;
   -webkit-border-radius: 16px;
      -moz-border-radius: 16px;
           border-radius: 16px;
-
-
-
+}
 
 .rzslider .rz-pointer:after {
   position: absolute;
@@ -113,7 +108,7 @@
 }
 
 .rzslider .rz-pointer.rz-active:after {
-  background-color: #451aff;
+  
 }
 
 .rzslider .rz-bubble {
@@ -121,7 +116,6 @@
   padding: 1px 3px;
   color: #55637d;
   cursor: default;
-  font-size:5px;
 }
 
 .rzslider .rz-bubble.rz-selection {
@@ -181,7 +175,6 @@
 .rzslider .rz-ticks.rz-ticks-values-under .rz-tick-value {
   top: initial;
   bottom: -40px;
-  font-size:5px;
 }
 
 .rzslider.rz-vertical {
@@ -225,13 +218,11 @@
   bottom: 0;
   left: 16px !important;
   margin-left: 3px;
-  font-size:5px;
 }
 
 .rzslider.rz-vertical .rz-bubble.rz-selection {
   top: auto;
   left: 16px !important;
-  font-size:5px;
 }
 
 .rzslider.rz-vertical .rz-ticks {

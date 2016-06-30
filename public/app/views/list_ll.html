@@ -1,9 +1,9 @@
 <div ng-include='"app/views/templates/header.html"'></div>
-    <div class="container">
-        <div class="card card-container">
+<div class="container">
+    <div class="card card-container">
 
-            <div class="row">
-				<div class="col-lg-12 col-xs-12 col-md-12">
+        <div class="row">
+            <div class="col-lg-12 col-xs-12 col-md-12">
                 <form>
                     <div class="input-group stylish-input-group">
                         <input type="text" class="form-control sc" placeholder="{{'SEARCH' | translate}}" ng-model="searchParams">
@@ -14,88 +14,95 @@
                         </span>
                     </div>
                 </form>
-				</div>
             </div>
-            <br>
+        </div>
+        <br>
+        <div class="row" style="margin-bottom:20px;">
+        <div class="col-lg-2 col-xs-2 col-md-2" >
+            <h3 style="color:#fff !important; margin-right:20px;"> {{'BUDGET' | translate}}: </h3>
+        </div>
+        <div class="col-lg-10 col-xs-10 col-md-10">
+            <rzslider rz-slider-on-change="sortType = 'budget'" rz-slider-model="minRangeSlider.minValue" rz-slider-high="minRangeSlider.maxValue" rz-slider-options="minRangeSlider.options"></rzslider>
+        </div>
+      </div >
+        <div class="cenas">
+            <table cellpadding="0" cellspacing="0" border="0" class="fixed">
+                <thead>
+                    <tr class="tbl-header">
+                        <th>
+                            <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{'CREATION_DATE' | translate}}   </a>
+                            <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
 
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'technologies'; sortReverse = !sortReverse"> {{'TECHNOLOGY' | translate}}  </a>
+                            <span ng-show="sortType == 'technologies' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'technologies' && sortReverse" class="fa fa-caret-up"></span></span>
 
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"> {{'AUTHOR' | translate}}  </a>
+                            <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                            <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span></span>
 
-            <div class="cenas">
-                <table cellpadding="0" cellspacing="0" border="0" class="fixed">
-                    <thead>
-                        <tr class="tbl-header">
-                            <th>
-                                <a href="#" ng-click="sortType = 'creationdate'; sortReverse = !sortReverse"> {{'CREATION_DATE' | translate}}   </a>
-                                <span ng-show="sortType == 'creationdate' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'creationdate' && sortReverse" class="fa fa-caret-up"></span></span>
-
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'technologies'; sortReverse = !sortReverse"> {{'TECHNOLOGY' | translate}}  </a>
-                                <span ng-show="sortType == 'technologies' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'technologies' && sortReverse" class="fa fa-caret-up"></span></span>
-
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse"> {{'AUTHOR' | translate}}  </a>
-                                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-                                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span></span>
-
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse"> {{'PROJECT' | translate}}
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'title'; sortReverse = !sortReverse"> {{'PROJECT' | translate}}
                                   <span ng-show="sortType == 'title' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'title' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}}
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'sector'; sortReverse = !sortReverse"> {{'SECTOR' | translate}}
                                   <span ng-show="sortType == 'sector' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'sector' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                            </th>
-                            <th>
-                                <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> {{'CLIENT' | translate}}
+                        </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'client'; sortReverse = !sortReverse"> {{'CLIENT' | translate}}
                                   <span ng-show="sortType == 'client' && !sortReverse" class="fa fa-caret-down"></span>
                               <span ng-show="sortType == 'client' && sortReverse" class="fa fa-caret-up"></span></span> </a>
-                            </th>
+                        </th>
 
 
-                            <th>
+                        <th style="width:100px;">
 
-                                  <rzslider rz-slider-on-change="sortType = 'budget'" rz-slider-model="minRangeSlider.minValue" rz-slider-high="minRangeSlider.maxValue" rz-slider-options="minRangeSlider.options"></rzslider>
+                            BUDGET
 
-                            </th>
+                        </th>
 
-                            <th ng-show="isAdmin==1">
+                        <th ng-show="isAdmin==1">
 
-                                <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
-                                </select>
+                            <select class="form-control sc" ng-options="item.title for item in fieldTable" ng-model="selected" ng-change="hasChanged()">
+                            </select>
 
-                            </th>
+                        </th>
 
-                            <th>
-                                <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
-                            </th>
+                        <th>
+                            <a href="#" ng-click="sortType = 'typeofchange'; sortReverse = !sortReverse"> {{'INSPECT' | translate}} </a>
+                        </th>
 
-                        </tr></thead>
-                        <tbody>
-                            <tr ng-show="!lessons">
-                                <td colspan="8">No lessons available.</td>
-                            </tr>
-                            <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status) |filter:Slider(lesson.budget)).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
-                                <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
-                                <td>{{lesson.technologies}} </td>
-                                <td>{{lesson.name}}</td>
-                                <td >{{lesson.title}}</td>
-                                <td>{{lesson.sector}}</td>
-                                <td >{{lesson.client}}</td>
-                                <th class="sliderHeader"> {{lesson.budget}} </td>
-                                <td ng-if="isAdmin==1">{{ (lesson.status | uppercase) | translate}}</td>
-                                <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
-                            </tr>
-                        </tbody>
-                </table>
-            </div>
-            <uib-pagination id="paginacao" total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}" last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-show="!lessons">
+                        <td colspan="8">No lessons available.</td>
+                    </tr>
+                    <tr ng-repeat="lesson in (lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status) |filter:Slider(lesson.budget)).slice(((currentPage-1)*llsPerPage), ((currentPage)*llsPerPage)) | orderBy:sortType:sortReverse" class="tbl-content">
+                        <td>{{ lesson.creationdate | date:'dd.MM.yyyy' }}</td>
+                        <td>{{lesson.technologies}} </td>
+                        <td>{{lesson.name}}</td>
+                        <td>{{lesson.title}}</td>
+                        <td>{{lesson.sector}}</td>
+                        <td>{{lesson.client}}</td>
+                        <td> {{lesson.budget}} </td>
+                        <td ng-if="isAdmin==1">{{ (lesson.status | uppercase) | translate}}</td>
+                        <td><a class="btn btn-primary " href="/view_ll/{{lesson.idLessonsLearned}}"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        <uib-pagination id="paginacao" total-items="(lessons | fuzzyBy: sortType: searchParams | filter:Status(lesson.status)).length" items-per-page="llsPerPage" ng-model="currentPage" boundary-links="true" class="pagination-sm" first-text="{{ 'FIRST' | translate }}"
+            last-text="{{ 'LAST' | translate }}" next-text="{{ 'NEXT' | translate }}" previous-text="{{ 'PREVIOUS' | translate }}"></uib-pagination>
+    </div>
 
     <script src="scripts/list_ll.js"></script>

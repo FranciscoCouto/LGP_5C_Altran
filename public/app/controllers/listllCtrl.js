@@ -89,7 +89,7 @@
 
         $scope.Slider = function(budget) {
             return function(lesson) {
-              if($scope.minRangeSlider.maxValue!=101){
+              if($scope.minRangeSlider.maxValue!=50000){
                 return (lesson.budget >= $scope.minRangeSlider.minValue && lesson.budget <= $scope.minRangeSlider.maxValue);
               }
               else{
@@ -122,13 +122,14 @@
         $scope.selected = $scope.fieldTable[0];
 
         $scope.minRangeSlider = {
-        minValue: 10,
-        maxValue: 90,
+        minValue: 10000,
+        maxValue: 30000,
         scale:0.1,
         options: {
             floor: 0,
-            ceil: 101,
-            step: 1
+            ceil: 50000,
+            step: 1,
+            hideLimitLabels: true
         }
     };
 
