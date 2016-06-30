@@ -296,17 +296,36 @@
          });
     }
 
-    exports.getLessonByID = function(idlesson){
+    exports.getLessonByID = function(idlesson, userid){
          return new Promise(function (resolve, reject) {
-         var query = "SELECT idLessonsLearned, t6.name as manager, feedback, project, status, creationdate, aproveddate, situation,action,result, budget,t7.name as sector, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, type, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t5.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result";
-         query = mysql.format(query,idlesson);
-         client.query(query,function (err, result) {
+
+        var query1 = "SELECT permission FROM public.users WHERE idusers = ?";
+
+        var query2 = "SELECT idLessonsLearned, t6.name as manager, t5.manager as managerid, t1.manager as lessoncreator, feedback, project, status, creationdate, aproveddate, situation,action,result, budget,t7.name as sector, GROUP_CONCAT(technology SEPARATOR ',') AS technologies, t5.name as project, dateBeginning, dateEndExpected, dateEnd, deliveringModel, type, numberConsultants, daysDuration, client FROM public.lessonstext as t2, public.technologies as t3, public.lesson_tech as t4, public.users as t6, public.lessonslearned as t1 LEFT OUTER JOIN public.project as t5 ON t5.idproject = t1.project LEFT OUTER JOIN public.business_sectors as t7 ON t5.sector = t7.idSector WHERE t1.idLessonsLearned = ? AND t1.idLessonsLearned = t2.idLessonLearned  AND t1.idLessonsLearned = t4.idlesson AND t3.idtechnologies = t4.idtech AND t5.manager = t6.idusers GROUP BY idLessonsLearned, situation, action, result";
+
+        query1 = mysql.format(query1,userid);
+
+         client.query(query1,function (err, result) {
                     if (err) {
                         console.log(err);
                         reject(err);
                     } else {
-                        resolve(result);
-                    }
+                        var permission = result[0].permission;
+                        query2 = mysql.format(query2,idlesson);
+                        client.query(query2,function (err1, result1) {
+                                    if (err1) {
+                                        console.log(err1);
+                                        reject(err1);
+                                    } else {
+                                        if(result1[0].status == "approved" || permission == 2 || result1[0].managerid == userid || result1[0].lessoncreator == userid){
+                                            resolve(result1);
+                                        }
+                                        else {
+                                            reject("nopermission");
+                                        }
+                                    }
+                                });
+                        }
                 });
          });
     }

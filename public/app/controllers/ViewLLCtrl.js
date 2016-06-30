@@ -13,44 +13,40 @@
 		.then(function(res){
 			userid = res.data.idusers;
 			$scope.permission=res.data.permission;
+
+			lessonServices.getLesson(userid)
+			.then(function (res) {
+			
+				$scope.lldata = res.data[0];
+
+				if ($scope.lldata == null) {
+					console.log("Invalid LL id.");
+					$location.path("/forbidden");
+					return;
+				} 
+
+				$scope.lldata.project = $scope.lldata.project? $scope.lldata.project : 'Altran';
+				$scope.lldata.client = $scope.lldata.client? $scope.lldata.client : 'Altran';
+				$scope.llstatus = $scope.lldata["status"];
+			
+
+				if ($scope.llstatus == "draft") {
+					$('#llstatus').css("background-color", "#f0ad4e");
+				} else if ($scope.llstatus == "submitted") {
+					$('#llstatus').css("background-color", "#5bc0de");
+				} else if ($scope.llstatus == "approved") {
+					$('#llstatus').css("background-color", "#5cb85c");
+				} else if ($scope.llstatus == "inactive") {
+					$('#llstatus').css("background-color", "#d9534f");
+				}			
+			})
+			.catch(function (err) {
+				console.log(err.data);
+				$location.path("/forbidden");
+			});
 		})
 		.catch( function (err){
 			console.log(err);
-			$location.path("/forbidden");
-		});
-
-		
-		lessonServices.getLesson()
-			.then(function (res) {
-			
-			$scope.lldata = res.data[0];
-
-			if ($scope.lldata == null) {
-				console.log("Invalid LL id.");
-				$location.path("/forbidden");
-				return;
-			} 
-
-			$scope.lldata.project = $scope.lldata.project? $scope.lldata.project : 'Altran';
-			$scope.lldata.client = $scope.lldata.client? $scope.lldata.client : 'Altran';
-			$scope.llstatus = $scope.lldata["status"];
-		
-
-			if ($scope.llstatus == "draft") {
-				$('#llstatus').css("background-color", "#f0ad4e");
-			} else if ($scope.llstatus == "submitted") {
-				$('#llstatus').css("background-color", "#5bc0de");
-			} else if ($scope.llstatus == "approved") {
-				$('#llstatus').css("background-color", "#5cb85c");
-			} else if ($scope.llstatus == "inactive") {
-				$('#llstatus').css("background-color", "#d9534f");
-			}
-			
-			
-		
-		})
-		.catch(function (err) {
-			console.log(err.data);
 			$location.path("/forbidden");
 		});
 		

@@ -425,7 +425,9 @@
          server.get("/api/lesson",function(req,res){
 
              var lesson_id = req.headers.referer.split("/")[4];
-             database.getLessonByID(lesson_id)
+             var userid = req.query.userid;
+
+             database.getLessonByID(lesson_id, userid)
                .then(function (lesson) {
                     res.status(200).send(lesson);
                 })
