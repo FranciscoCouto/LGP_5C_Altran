@@ -108,6 +108,18 @@
 
         $scope.selected = $scope.fieldTable[0];
 
+        $scope.minRangeSlider = {
+        minValue: 10,
+        maxValue: 90,
+        scale:0.1,
+        options: {
+            floor: 0,
+            ceil: 100,
+            step: 1
+        }
+    };
+
+
         $scope.hasChanged = function() {
             $scope.statusString=$scope.selected.field;
         };
@@ -124,5 +136,5 @@
 
     // Enabling the controller in the app
     angular.module('lessonslearned').controller('listllCtrl', listllCtrl);
-    
+
 }());

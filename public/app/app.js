@@ -13,7 +13,8 @@
         'isteven-multi-select',
         'angular.filter',
         'ui.checkbox',
-        'ngTagsInput'
+        'ngTagsInput',
+        'rzModule'
     ]);
 
     /**
@@ -100,14 +101,14 @@
         $translateProvider
             .useSanitizeValueStrategy('escape')
             .translations('en', { //TODO: Translations from each language on different files
-               
+
                 OPENPR: 'Active',
                 CLOSEPR: 'Terminated',
                 OPENCLOSE: 'Open/Close',
                 ENABLE:'Enable',
                 APPROVE: 'Approve',
                 REJECT: 'Reject',
-                SITUATION: 'Situation',                
+                SITUATION: 'Situation',
                 ACTION: 'Action',
                 RESULTS: 'Results',
                 FEEDBACK: 'Feedback',
@@ -184,7 +185,7 @@
                 CREATE_PROJECT: 'Creating Project',
 				PROJECT_DATA: 'Project Data',
 				NUMBER_CONS: 'Number of Consultants',
-                
+
                 ALLOCATE_PM: 'Alocate PM',
                 CHOOSE_PERSON: 'Choose user',
 
@@ -228,7 +229,7 @@
                 DRAFT: 'Draft',
                 PENDING: 'Pending aproval',
                 ALL: 'All',
-                
+
                 //LISTA AUDIT
                 CREATION_DATE: 'Creation Date',
                 CHANGE_DATE: 'Date of Change',
@@ -240,7 +241,7 @@
                 VIEWING_CHANGES: 'Viewing Changes',
                 TYPE: 'Type',
                 ADDTAG: 'Add a Tag',
-                
+
                 //LOGIN
                 FORGOT: 'Forgot the password?',
                 CONTINUEAS: 'Do you wish to continue as ',
@@ -252,7 +253,7 @@
                 //CREATE USER
                 PERSONAL_INFO: 'User Data',
                 PERSONAL_IMG: 'Collaborator Image',
-                
+
                 OPERATION:'OPERATION',
                 update: 'update',
                 //ERRORS
@@ -302,7 +303,7 @@
                 ERRORDELETINGSELF: 'Error deleting user from database. You can\'t delete current user.',
                 ERRORDELETEUSERID: 'User doesn\'t exist or has Lessons associated already.',
                 DELETEUSERSUCCESS: 'Successfully deleted user.'
-                                
+
             })
             .translations('pt', {
                 OPENPR: 'Ativo',
@@ -311,7 +312,7 @@
                 ENABLE:'Ativar',
                 APPROVE: 'Aprovar',
                 REJECT: 'Rejeitar',
-                SITUATION: 'Situação',                
+                SITUATION: 'Situação',
                 ACTION: 'Ação',
                 RESULTS: 'Resultados',
                 FEEDBACK: 'Feedback',
@@ -319,12 +320,12 @@
                 TECHNOLOGIES: 'Tecnologias',
                 DISABLE: 'Desativar',
                 STATUS: 'Estado',
-                
+
                 ADMIN: 'Administrador',
                 SUBMITTER: 'Editor',
                 READER: 'Leitor',
                 CHOOSEFILE: 'Escolher imagem',
-                
+
                 HOME: 'Começar',
                 ADMIN_PANEL: 'Administração',
                 USERS: 'Utilizadores',
@@ -438,7 +439,7 @@
                 DRAFT: 'Rascunho',
                 PENDING: 'À espera de aprovação',
                 ALL: 'Todos',
-                
+
                 //LISTA AUDIT
                 CREATION_DATE: 'Data de Criação',
                 CHANGE_DATE: 'Data de edição',
@@ -448,7 +449,7 @@
                 TYPE_OF_CHANGE: 'Operação',
                 FIELDS_CHANGED: 'Campos Mudados',
                 VIEWING_CHANGES: 'Ver Mudanças',
-                
+
                 //LOGIN
                 FORGOT: 'Não se lembra da senha?',
                 CONTINUEAS: 'Deseja continuar como ',
@@ -462,7 +463,7 @@
                 PERSONAL_IMG: 'Imagem Pessoal',
                 OPERATION:'OPERAÇÃO',
                 update: 'atualização',
-                
+
                 //ERRORS
                 ERRORMESSAGE2:'ALGO DEU ERRADO !',
                 ERROR: '404 erro',
@@ -519,7 +520,7 @@
                ENABLE:'Activer',
                 APPROVE: 'Approuver',
                 REJECT: 'Rejeter',
-                SITUATION: 'Situation',                
+                SITUATION: 'Situation',
                 ACTION: 'Action',
                 RESULTS: 'Résultats',
                 FEEDBACK: "Retour d'information",
@@ -529,11 +530,11 @@
                 STATUS: 'État',
                 TYPE: 'Genre',
                 ADDTAG: 'Ajouter un Tag',
-                
+
                 ADMIN: 'Administrateur',
                 SUBMITTER: 'Editeur',
                 READER: 'Lecteur',
-                
+
                 CHOOSEFILE: "Choisir l'image",
                 HOME: 'Début',
                 ADMIN_PANEL: 'Administration',
@@ -570,7 +571,7 @@
                 LAST: 'Dernier',
                 NEXT: 'Prochaine',
                 PREVIOUS: 'Précédent',
-                
+
                 TECHNOLOGY: 'Technologie',
                 AUTHOR: 'Auteur',
                 PROJECT: 'Projet',
@@ -581,7 +582,7 @@
                 DRAFT: 'Brouillon',
                 PENDING: 'Validation en attente',
                 ALL: 'Tout',
-                
+
 
                 //Create LL
                 SELECT_TECHS: 'Sélectionnez Technologies',
@@ -666,7 +667,7 @@
                 //CREATE USER
                 PERSONAL_INFO: 'Données D\'Utilisateur',
                 PERSONAL_IMG: "Image de l'employé",
-                
+
                 OPERATION:'OPÉRATION',
                 update: 'réviser',
                 //ERRORS
